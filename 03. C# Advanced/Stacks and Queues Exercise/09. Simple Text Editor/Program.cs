@@ -31,7 +31,7 @@ namespace _01._Hello_Softuni
                 {
                     int countToErase = int.Parse(input[1]);
 
-                    text = text.Remove(text.Length - countToErase); // might need changing
+                    text = text.Remove(text.Length - countToErase);
                     stack.Push(text);
                 }
                 else if (command == "3")
