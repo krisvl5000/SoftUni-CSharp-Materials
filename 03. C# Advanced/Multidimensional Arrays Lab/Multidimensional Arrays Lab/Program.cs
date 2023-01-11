@@ -23,7 +23,7 @@ namespace _01._Hello_Softuni
                 {
                     matrix[row, col] = arr[col];
 
-                    sum += matrix[row, col]; 
+                    sum += matrix[row, col];
                 }
             }
 
