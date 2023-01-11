@@ -22,17 +22,24 @@ namespace _01._Hello_Softuni
             }
 
             int sum = 0;
-            int colCounter = 0;
 
-            for (int row = 0; row < n; row++)
+            //                          Other way
+            //int colCounter = 0;
+
+            //for (int row = 0; row < n; row++)
+            //{
+            //    for (int col = colCounter; col < n; col++)
+            //    {
+            //        sum += matrix[row, col];
+            //        break;
+            //    }
+
+            //    colCounter++;
+            //}
+
+            for (int i = 0; i < n; i++)
             {
-                for (int col = colCounter; col < n; col++)
-                {
-                    sum += matrix[row, col];
-                    break;
-
-                }
-                colCounter++;
+                sum += matrix[i, i];
             }
 
             Console.WriteLine(sum);
