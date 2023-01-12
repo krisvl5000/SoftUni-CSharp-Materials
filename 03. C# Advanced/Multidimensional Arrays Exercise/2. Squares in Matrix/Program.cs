@@ -7,7 +7,10 @@ namespace _01._Hello_Softuni
     {
         static void Main(string[] args)
         {
-            int[] input = Console.ReadLine().Split().Select(int.Parse).ToArray();
+            int[] input = Console.ReadLine()
+                .Split(" ", StringSplitOptions.RemoveEmptyEntries)
+                .Select(int.Parse)
+                .ToArray();
 
             int rows = input[0];
             int cols = input[1];
@@ -16,7 +19,10 @@ namespace _01._Hello_Softuni
 
             for (int row = 0; row < rows; row++)
             {
-                char[] arr = Console.ReadLine().Split().Select(char.Parse).ToArray();
+                char[] arr = Console.ReadLine()
+                    .Split(" ", StringSplitOptions.RemoveEmptyEntries)
+                    .Select(char.Parse)
+                    .ToArray();
 
                 for (int col = 0; col < cols; col++)
                 {
