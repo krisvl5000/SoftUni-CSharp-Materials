@@ -26,7 +26,7 @@ namespace _01._Hello_Softuni
 
                 if (!dict[continent].ContainsKey(country))
                 {
-                    dict[continent].Add(country, new List<string>());
+                    dict[continent].Add(country, new List<string>()); 
                 }
 
                 dict[continent][country].Add(city);
