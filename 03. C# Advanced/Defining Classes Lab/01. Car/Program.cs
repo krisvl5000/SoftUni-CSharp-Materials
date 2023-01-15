@@ -10,7 +10,6 @@ namespace CarManufacturer
             car.Model = "A5";
 
             Console.WriteLine(car.Model);
-
         }
     }
 }
