@@ -1,12 +1,15 @@
 ﻿using System;
 
-namespace _01._Hello_Softuni
+namespace CarManufacturer
 {
-    internal class Program
+    public class StartUp
     {
         static void Main(string[] args)
         {
+            Car car = new Car();
+            car.Model = "A5";
 
+            Console.WriteLine(car.Model);
 
         }
     }
