@@ -84,7 +84,7 @@ namespace CarManufacturer
                 .Where(x => x.Year >= 2017)
                 .Where(x => x.Engine.HorsePower > 330)
                 .Where(x => x.Tire
-                .Sum(b => b.Pressure) >= 9 || x.Tire
+                .Sum(b => b.Pressure) >= 9 && x.Tire
                 .Sum(b => b.Pressure) <= 10)
                 .ToList();
 
