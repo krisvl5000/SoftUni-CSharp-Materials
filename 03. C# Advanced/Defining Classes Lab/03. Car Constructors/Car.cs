@@ -18,7 +18,7 @@ namespace CarManufacturer
         {
             Make = "VW";
             Model = "Golf";
-            Year = 2025;
+            Year = 2025; 
             FuelQuantity = 200;
             FuelConsumption = 10;
         }
