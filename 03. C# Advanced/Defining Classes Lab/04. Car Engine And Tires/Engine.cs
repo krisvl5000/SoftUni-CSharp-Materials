@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _04._Car_Engine_And_Tires
+namespace CarManufacturer
 {
-    internal class Engine
+    public class Engine
     {
         private int horsePower;
         private double cubicCapacity;
