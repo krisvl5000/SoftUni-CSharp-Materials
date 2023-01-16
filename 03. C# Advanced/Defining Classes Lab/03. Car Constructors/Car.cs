@@ -30,11 +30,8 @@ namespace CarManufacturer
             Year = year;
         }
         public Car(string make, string model, int year,
-            double fuelQuantity, double fuelConsumption) : this()
+            double fuelQuantity, double fuelConsumption) : this( make, model, year)
         {
-            Make = make;
-            Model = model;
-            Year = year;
             FuelQuantity = fuelQuantity;
             FuelConsumption = fuelConsumption;
         }
