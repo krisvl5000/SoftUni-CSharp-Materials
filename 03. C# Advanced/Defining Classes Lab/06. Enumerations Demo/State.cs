@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _06._Enumerations_Demo
+namespace Enumerations
 {
-    internal class State
+    public enum CarState
     {
+        Selling,
+        Sold,
+        InTransaction,
+        ZaMorgata
     }
 }

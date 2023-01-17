@@ -4,9 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _06._Enumerations_Demo
+namespace Enumerations
 {
-    internal class Car
+    public class Car
     {
+        public string Name { get; set; }
+
+        public int Mileage { get; set; }
+
+        public CarState CarState { get; set; }
     }
 }
