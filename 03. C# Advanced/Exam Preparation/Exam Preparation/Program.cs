@@ -28,7 +28,7 @@ class Program
                 caffeine = caffeine.Take(caffeine.Length - 1).ToArray();
                 drinks = drinks.Skip(1).ToArray();
             }
-            else
+            else 
             {
                 currentCaffeine -= caffeineReduction;
                 if (currentCaffeine < 0)
