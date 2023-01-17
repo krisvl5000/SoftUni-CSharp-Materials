@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DefiningClasses
 {
-    public  class Person
+    public class Person
     {
         string name;
         int age;
