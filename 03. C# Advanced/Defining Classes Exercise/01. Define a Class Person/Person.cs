@@ -4,9 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _01._Define_a_Class_Person
+namespace DefiningClasses
 {
-    internal class Person
+    public  class Person
     {
+        string name;
+        int age;
+
+        public Person(string name, int age)
+        {
+            Name = name;
+            Age = age;
+        }
+
+        public string Name { get; set; }
+
+        public int Age { get; set; }
     }
 }
