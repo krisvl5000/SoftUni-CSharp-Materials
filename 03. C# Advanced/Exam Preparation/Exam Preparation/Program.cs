@@ -37,6 +37,11 @@ class Program
                 }
                 drinks = drinks.Skip(1).Concat(drinks.Take(1)).ToArray();
             }
+
+            drinks = Console.ReadLine()
+            .Split(", ")
+            .Select(int.Parse)
+            .ToArray();
         }
 
         if (drinks.Length > 0)
