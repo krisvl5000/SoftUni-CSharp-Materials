@@ -14,4 +14,11 @@ namespace Enumerations
             Console.WriteLine((CarState)2);
         }
     }
+
+    enum DayOfWeek
+    {
+        Monday = 55,
+        Tuesday, // becomes 56
+        Wednesday // becommes 57
+    }
 }
