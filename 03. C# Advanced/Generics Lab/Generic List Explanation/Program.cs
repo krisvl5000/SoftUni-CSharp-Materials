@@ -11,7 +11,7 @@ namespace Test
             objectList.Add(1000);
             objectList.Add(2000);
 
-            var first = (int)objectList.Get(1);
+            var first = objectList.Get(1);
 
             Console.WriteLine(first);
 
