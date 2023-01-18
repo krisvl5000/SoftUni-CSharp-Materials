@@ -15,6 +15,8 @@ namespace Test
             this.data = data;
         }
 
+        public int Count => data.Count;
+
         public void Add(T item)
         {
             this.data.Add(item);
