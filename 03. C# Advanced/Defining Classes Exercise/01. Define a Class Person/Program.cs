@@ -11,15 +11,15 @@ namespace DefiningClasses
     {
         static void Main(string[] args)
         {
-            Person peter = new Person("Peter", 20);
+            Person peter = new Person();
             peter.Name = "Peter";
             peter.Age = 20;
 
-            Person george = new Person("George", 18);
+            Person george = new Person();
             george.Name = "George";
             george.Age = 18;
 
-            Person jose = new Person("Jose", 43);
+            Person jose = new Person();
             jose.Name = "Jose";
             jose.Age = 43;
         }
