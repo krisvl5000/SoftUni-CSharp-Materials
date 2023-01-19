@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _05._Date_Modifier
+namespace DateModifier
 {
-    internal class DateModifier
+    public class DateModifier
     {
+
     }
 }
