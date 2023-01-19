@@ -8,12 +8,13 @@ namespace DefiningClasses
 {
     public class Person
     {
-        string name;
-        int age;
+        private string name;
+        private int age;
 
-        public Person()
+        public Person(string name, int age)
         {
-            
+            Name = name;
+            Age = age;
         }
 
         public string Name { get; set; }
