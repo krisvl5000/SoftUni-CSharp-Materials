@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DefiningClasses;
 
-namespace _01._Hello_Softuni
+namespace DefiningClasses
 {
-    internal class Program
+    public class StartUp
     {
         static void Main(string[] args)
         {
