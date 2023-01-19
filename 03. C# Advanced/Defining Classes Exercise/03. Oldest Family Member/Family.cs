@@ -19,7 +19,7 @@ namespace DefiningClasses
 
         public Person GetOldestMember()
         {
-            return list.OrderBy(x => x.Age).First();
+            return List.OrderByDescending(x => x.Age).First();
         }
     }
 }
