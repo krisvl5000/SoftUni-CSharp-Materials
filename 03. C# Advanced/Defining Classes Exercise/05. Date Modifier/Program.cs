@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DateModifier;
 
-namespace _01._Hello_Softuni
+namespace DateModifier
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
