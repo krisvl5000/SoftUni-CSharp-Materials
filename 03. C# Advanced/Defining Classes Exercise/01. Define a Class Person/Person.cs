@@ -11,10 +11,9 @@ namespace DefiningClasses
         string name;
         int age;
 
-        public Person(string name, int age)
+        public Person()
         {
-            Name = name;
-            Age = age;
+            
         }
 
         public string Name { get; set; }
