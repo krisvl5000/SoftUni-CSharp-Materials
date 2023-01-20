@@ -8,6 +8,11 @@ namespace DefiningClasses
 {
     public class Tire
     {
+        private int age;
+        private double pressure;
 
+        public int Age { get; set; }
+
+        public int Pressure { get; set; }
     }
 }
