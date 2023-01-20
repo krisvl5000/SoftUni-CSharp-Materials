@@ -11,8 +11,14 @@ namespace DefiningClasses
         private int age;
         private double pressure;
 
+        public Tire(int age, double pressure)
+        {
+            Age = age;
+            Pressure = pressure;
+        }
+
         public int Age { get; set; }
 
-        public int Pressure { get; set; }
+        public double Pressure { get; set; }
     }
 }
