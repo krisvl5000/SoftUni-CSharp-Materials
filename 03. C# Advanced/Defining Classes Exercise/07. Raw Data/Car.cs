@@ -8,6 +8,7 @@ namespace DefiningClasses
 {
     public class Car
     {
+        private string model;
 
     }
 }
