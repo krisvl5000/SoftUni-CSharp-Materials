@@ -10,5 +10,9 @@ namespace DefiningClasses
     {
         private int speed;
         private int power; // might need changing
+
+        public int Speed { get; set; }
+
+        public int Power { get; set; }
     }
 }
