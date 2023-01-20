@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _06._Speed_Racing
+namespace DefiningClasses
 {
-    internal class Car
+    public class Car
     {
+
     }
 }
