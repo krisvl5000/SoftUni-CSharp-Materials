@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _07._Raw_Data
+namespace DefiningClasses
 {
-    internal class Car
+    public class Car
     {
+
     }
 }
