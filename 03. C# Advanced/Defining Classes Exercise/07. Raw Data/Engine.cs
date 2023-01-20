@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _07._Raw_Data
+namespace DefiningClasses
 {
-    internal class Engine
+    public class Engine
     {
+        private int speed;
+        private int power; // might need changing
     }
 }
