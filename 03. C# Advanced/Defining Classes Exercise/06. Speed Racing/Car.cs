@@ -29,7 +29,7 @@ namespace DefiningClasses
 
         public bool DoesItHaveEnoughFuel(Car car, int distanceToTravel)
         {
-            if (car.fuelAmount >= car.fuelConsumptionPerKilometer * distanceToTravel)
+            if (car.FuelAmount >= car.FuelConsumptionPerKilometer * distanceToTravel)
             {
                 return true;
             }
