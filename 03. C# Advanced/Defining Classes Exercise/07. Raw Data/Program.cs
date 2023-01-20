@@ -12,6 +12,8 @@ namespace DefiningClasses
         static void Main(string[] args)
         {
             List<Car> list = new List<Car>();
+            List<Car> fragileCargo = new List<Car>();
+            List<Car> flammableCargo = new List<Car>();
 
             int n = int.Parse(Console.ReadLine());
 
@@ -53,6 +55,40 @@ namespace DefiningClasses
 
                 Car car = new Car(model, engine, cargo, tires);
                 list.Add(car);
+
+                if (cargo.Type == "fragile")
+                {
+                    foreach (var item in tires)
+                    {
+                        if (item.Pressure < 1)
+                        {
+                            fragileCargo.Add(car);
+                            break;
+                        }
+                    }
+                }
+                else if (cargo.Type == "flammable" && engine.Power > 250)
+                {
+                    flammableCargo.Add(car);
+                }
+                
+            }
+
+            string command = Console.ReadLine();
+
+            if (command == "fragile")
+            {
+                foreach (var car in fragileCargo)
+                {
+                    Console.WriteLine(car.Model);
+                }
+            }
+            else if (command == "flammable")
+            {
+                foreach (var car in flammableCargo)
+                {
+                    Console.WriteLine(car.Model);
+                }
             }
 
         }
