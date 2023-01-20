@@ -13,6 +13,13 @@ namespace DefiningClasses
         private double fuelConsumptionPerKilometer;
         private double travelledDistance;
 
+        public Car(string model, double fuelAmount, double fuelConsumptionPerKm)
+        {
+            Model = model;
+            FuelAmount = fuelAmount;
+            FuelConsumptionPerKilometer = fuelConsumptionPerKm;
+            TravelledDistance = 0;
+        }
         public string Model { get; set; }
         public double FuelAmount { get; set; }
 
@@ -20,5 +27,19 @@ namespace DefiningClasses
 
         public double TravelledDistance { get; set; }
 
+        public bool DoesItHaveEnoughFuel(Car car, int distanceToTravel)
+        {
+            if (car.fuelAmount >= car.fuelConsumptionPerKilometer * distanceToTravel)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public override string ToString()
+        {
+            return $"{this.Model} {this.FuelAmount:F2} {this.TravelledDistance}";
+        }
     }
 }
