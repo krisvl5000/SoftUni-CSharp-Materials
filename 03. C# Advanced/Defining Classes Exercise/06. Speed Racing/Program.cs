@@ -48,7 +48,7 @@ namespace DefiningClasses
                 }
                 else
                 {
-                    Console.WriteLine("Insuffiecient fuel for the drive");
+                    Console.WriteLine("Insufficient fuel for the drive");
                 }
 
                 input = Console.ReadLine()
