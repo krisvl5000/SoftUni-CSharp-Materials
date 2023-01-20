@@ -10,5 +10,9 @@ namespace DefiningClasses
     {
         private string type;
         private double weight;
+
+        public string Type { get; set; }
+
+        public double Weight { get; set; }
     }
 }
