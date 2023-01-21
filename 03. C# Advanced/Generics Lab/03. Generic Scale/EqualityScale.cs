@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _03._Generic_Scale
+namespace GenericScale
 {
-    public class EqualityScale
+    public class EqualityScale <T>
     {
 
     }
