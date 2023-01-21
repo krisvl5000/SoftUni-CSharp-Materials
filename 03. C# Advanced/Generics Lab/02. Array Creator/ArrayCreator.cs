@@ -4,19 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GenericArrayCreator;
-
-public class ArrayCreator
+namespace GenericArrayCreator
 {
-    public static T[] Create<T>(int length, T item)
+    public class ArrayCreator
     {
-        var result = new T[length];
-
-        for (int i = 0; i < length; i++)
+        public static T[] Create<T>(int length, T item)
         {
-            result[i] = item;
-        }
+            var result = new T[length];
 
-        return result;
+            for (int i = 0; i < length; i++)
+            {
+                result[i] = item;
+            }
+
+            return result;
+        }
     }
 }
+
