@@ -1,8 +1,9 @@
 ﻿using System;
+using GenericScale;
 
-namespace Test
+namespace GenericScale
 {
-    internal class Program
+    public class StartUp
     {
         static void Main(string[] args)
         {
