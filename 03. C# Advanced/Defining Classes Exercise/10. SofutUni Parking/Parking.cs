@@ -17,38 +17,65 @@ namespace SoftUniParking
             this.Cars = new List<Car>();
         }
 
-        public void AddCar(Car car, string regNumber)
+        public int Count => Cars.Count;
+
+        public string AddCar(Car car)
         {
+            string regNumber = car.RegistrationNumber;
+
             if (Cars.Any(x => x.RegistrationNumber == regNumber))
             {
                 if (Cars.Count >= capacity)
                 {
-                    Console.WriteLine("Parking is full!");
+                    return "Parking is full!";
                 }
                 else
                 {
                     Cars.Add(car);
-                    Console.WriteLine($"Successfully added " +
-                        $"new car {car.Make} {car.RegistrationNumber}");
+                    return $"Successfully added " +
+                        $"new car {car.Make} {car.RegistrationNumber}";
                 }
             }
             else
             {
-                Console.WriteLine("Car with that registration number, already exists!");
+                return "Car with that registration number, already exists!";
             }
         }
 
-        public void RemoveCar(string regNumber)
+        public string RemoveCar(string regNumber)
         {
             if (!Cars.Any(x => x.RegistrationNumber == regNumber))
             {
-                Console.WriteLine("Car with that registration number, doesn't exist!");
+                return "Car with that registration number, doesn't exist!";
             }
             else
             {
                 Car carToRemove = Cars.Find(x => x.RegistrationNumber == regNumber);
                 Cars.Remove(carToRemove);
+
+                return $"Successfully removed {regNumber}";
             }
         }
+
+        public Car GetCar(string regNumber)
+        {
+            Car carToGet = Cars.FirstOrDefault(x => x.RegistrationNumber == regNumber);
+            return carToGet;
+        }
+
+        public void RemoveSetOfRegistrationNumber(List<string> regNumbers)
+        {
+            foreach (var number in regNumbers)
+            {
+                foreach (var car in Cars)
+                {
+                    if (car.RegistrationNumber == number)
+                    {
+                        Cars.Remove(car);
+                    }
+                }
+            }
+        }
+
     }
 }
