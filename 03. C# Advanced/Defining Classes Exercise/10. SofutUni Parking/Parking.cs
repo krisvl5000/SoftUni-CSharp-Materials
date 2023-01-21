@@ -1,81 +1,62 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SoftUniParking
 {
     public class Parking
     {
-        public List<Car> Cars;
+        // Fields
+        private List<Car> cars;
         private int capacity;
 
+        // Properties
+        public List<Car> Cars { get { return cars; } set { cars = value; } }
+        public int Count { get { return cars.Count; } }
+
+        // Constructors
         public Parking(int capacity)
         {
             this.capacity = capacity;
-            this.Cars = new List<Car>();
+            this.cars = new List<Car>();
         }
 
-        public int Count => Cars.Count;
-
+        // Methods
         public string AddCar(Car car)
         {
-            string regNumber = car.RegistrationNumber;
-
-            if (!Cars.Any(x => x.RegistrationNumber == regNumber))
-            {
-                if (Cars.Count >= capacity)
-                {
-                    return "Parking is full!";
-                }
-                else
-                {
-                    Cars.Add(car);
-                    return $"Successfully added " +
-                        $"new car {car.Make} {car.RegistrationNumber}";
-                }
-            }
-            else
-            {
+            if (this.cars.Any(c => c.RegistrationNumber == car.RegistrationNumber))
                 return "Car with that registration number, already exists!";
-            }
-        }
-
-        public string RemoveCar(string regNumber)
-        {
-            if (!Cars.Any(x => x.RegistrationNumber == regNumber))
-            {
-                return "Car with that registration number, doesn't exist!";
-            }
+            else if (this.capacity <= this.Cars.Count)
+                return "Parking is full!";
             else
             {
-                Car carToRemove = Cars.Find(x => x.RegistrationNumber == regNumber);
-                Cars.Remove(carToRemove);
-
-                return $"Successfully removed {regNumber}";
+                this.cars.Add(car);
+                return $"Successfully added new car {car.Make} {car.RegistrationNumber}";
             }
         }
 
-        public string GetCar(string regNumber)
+        public string RemoveCar(string registrationNumber)
         {
-            Car carToGet = Cars.FirstOrDefault(x => x.RegistrationNumber == regNumber);
-            return $"{carToGet}";
-        }
-
-        public void RemoveSetOfRegistrationNumber(List<string> regNumbers)
-        {
-            foreach (var number in regNumbers)
+            if (!this.cars.Any(c => c.RegistrationNumber == registrationNumber))
+                return $"Car with that registration number, doesn't exist!";
+            else
             {
-                foreach (var car in Cars)
-                {
-                    if (car.RegistrationNumber == number)
-                    {
-                        Cars.Remove(car);
-                    }
-                }
+                this.cars
+                    .Remove(cars
+                    .Find(c => c.RegistrationNumber == registrationNumber));
+                return $"Successfully removed {registrationNumber}";
             }
         }
 
+        public Car GetCar(string registrationNumber)
+        => this.cars.Find(c => c.RegistrationNumber == registrationNumber);
+
+        public void RemoveSetOfRegistrationNumber(List<string> RegistrationNumbers)
+        {
+            foreach (string number in RegistrationNumbers)
+            {
+                RemoveCar(number);
+            }
+        }
     }
 }
