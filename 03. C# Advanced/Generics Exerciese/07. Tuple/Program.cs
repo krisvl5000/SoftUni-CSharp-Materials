@@ -6,8 +6,6 @@ namespace Box
     {
         static void Main(string[] args)
         {
-            
-
             string[] input = Console.ReadLine()
                 .Split(" ", StringSplitOptions.RemoveEmptyEntries);
 
@@ -36,9 +34,6 @@ namespace Box
             Console.WriteLine(firstTuple);
             Console.WriteLine(secondTuple);
             Console.WriteLine(thirdTuple);
-
-
-
         }
     }
 }
