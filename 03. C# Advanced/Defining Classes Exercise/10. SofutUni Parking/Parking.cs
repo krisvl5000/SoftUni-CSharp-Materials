@@ -23,7 +23,7 @@ namespace SoftUniParking
         {
             string regNumber = car.RegistrationNumber;
 
-            if (Cars.Any(x => x.RegistrationNumber == regNumber))
+            if (!Cars.Any(x => x.RegistrationNumber == regNumber))
             {
                 if (Cars.Count >= capacity)
                 {
@@ -57,10 +57,10 @@ namespace SoftUniParking
             }
         }
 
-        public Car GetCar(string regNumber)
+        public string GetCar(string regNumber)
         {
             Car carToGet = Cars.FirstOrDefault(x => x.RegistrationNumber == regNumber);
-            return carToGet;
+            return $"{carToGet}";
         }
 
         public void RemoveSetOfRegistrationNumber(List<string> regNumbers)
