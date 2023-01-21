@@ -1,8 +1,9 @@
 ﻿using System;
+using GenericArrayCreator;
 
-namespace Test
+namespace GenericArrayCreator
 {
-    internal class Program
+    public class StartUp
     {
         static void Main(string[] args)
         {
