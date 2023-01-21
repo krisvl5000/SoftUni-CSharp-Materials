@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace _03._Generic_Scale
 {
-    internal class EqualityScale
+    public class EqualityScale
     {
+
     }
 }
