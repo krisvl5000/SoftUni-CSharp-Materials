@@ -12,7 +12,7 @@ namespace Box
             {
                 string input = Console.ReadLine();
 
-                Box<string> box = new Box<string>();
+                Box<string> box = new Box<string>(input);
 
                 Console.WriteLine(box);
             }
