@@ -37,5 +37,18 @@ namespace SoftUniParking
                 Console.WriteLine("Car with that registration number, already exists!");
             }
         }
+
+        public void RemoveCar(string regNumber)
+        {
+            if (!Cars.Any(x => x.RegistrationNumber == regNumber))
+            {
+                Console.WriteLine("Car with that registration number, doesn't exist!");
+            }
+            else
+            {
+                Car carToRemove = Cars.Find(x => x.RegistrationNumber == regNumber);
+                Cars.Remove(carToRemove);
+            }
+        }
     }
 }
