@@ -1,8 +1,9 @@
 ﻿using System;
+using BoxOfT;
 
-namespace Test
+namespace BoxOfT
 {
-    internal class Program
+    public class StartUp
     {
         static void Main(string[] args)
         {
