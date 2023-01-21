@@ -4,9 +4,38 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _10._SofutUni_Parking
+namespace SoftUniParking
 {
-    internal class Parking
+    public class Parking
     {
+        public List<Car> Cars;
+        private int capacity;
+
+        public Parking(int capacity)
+        {
+            this.capacity = capacity;
+            this.Cars = new List<Car>();
+        }
+
+        public void AddCar(Car car, string regNumber)
+        {
+            if (Cars.Any(x => x.RegistrationNumber == regNumber))
+            {
+                if (Cars.Count >= capacity)
+                {
+                    Console.WriteLine("Parking is full!");
+                }
+                else
+                {
+                    Cars.Add(car);
+                    Console.WriteLine($"Successfully added " +
+                        $"new car {car.Make} {car.RegistrationNumber}");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Car with that registration number, already exists!");
+            }
+        }
     }
 }
