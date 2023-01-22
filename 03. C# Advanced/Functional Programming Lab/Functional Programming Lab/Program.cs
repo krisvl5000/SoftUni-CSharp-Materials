@@ -9,7 +9,7 @@ namespace _01._Hello_Softuni
             // We can create variables holding entire methods, but we need to
             // define the method we are going to use..
 
-            // The lst data type is the one it is going to be returning,
+            // The first data type is the one it is going to be returning,
             // and all the ones before that are the types of parameters passed
 
             //Func<int, int, int> multiplier = Multiply;
@@ -22,6 +22,8 @@ namespace _01._Hello_Softuni
             Func<int, int, int> calcMethod = GetCalcMethod(sign);
 
             Console.WriteLine(calcMethod(x, y));
+
+            
         }
 
         static int Multiply(int x, int y)
