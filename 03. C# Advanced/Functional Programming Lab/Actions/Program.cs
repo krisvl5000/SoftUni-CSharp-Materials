@@ -8,12 +8,16 @@ namespace _01._Hello_Softuni
         {
             // You can use Action for void methods
 
-            Action<int, string, object, decimal> strangeFunction = StrangeFunc;
+            var list = new List<int>() { 1, 2, 3, 4, 5 };
 
+            Iterate(list, x => Console.WriteLine(x));
         }
-        static void StrangeFunc(int x, string y, object z, decimal xx)
+        static void Iterate(List<int> list, Action<int> callback)
         {
-            Console.WriteLine("Strange Function called");
+            foreach (var item in list)
+            {
+                callback(item);
+            }
         }
     }
 }
