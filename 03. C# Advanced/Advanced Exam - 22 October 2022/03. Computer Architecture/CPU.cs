@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _03._Computer_Architecture
+namespace ComputerArchitecture
 {
-    internal class CPU
+    public class CPU
     {
+
     }
 }
