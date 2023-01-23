@@ -9,24 +9,25 @@ namespace _01._Hello_Softuni
             string[] input = Console.ReadLine()
                 .Split(" ", StringSplitOptions.RemoveEmptyEntries);
 
-            Func<string, bool> startsWithCapiral = w => char.IsUpper(w[0]);
+            Func<string, bool> startsWithCapital = w => char.IsUpper(w[0]);
 
             List<string> listWithCaps = new List<string>();
 
-            Console.WriteLine(String.Join("\n", input.Where(startsWithCapiral)));
-            foreach (var item in input)
-            {
-                if (startsWithCapiral(item))
-                {
-                    listWithCaps.Add(item);
-                }    
-            }
+            Console.WriteLine(String.Join("\n", input.Where(startsWithCapital)));
 
-            foreach (var item in listWithCaps)
-            {
-                Console.WriteLine(item);
-            }
+            //                         Another way
+            //foreach (var item in input)
+            //{
+            //    if (startsWithCapiral(item))
+            //    {
+            //        listWithCaps.Add(item);
+            //    }    
+            //}
 
+            //foreach (var item in listWithCaps)
+            //{
+            //    Console.WriteLine(item);
+            //}
         }
     }
 }
