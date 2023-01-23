@@ -26,7 +26,7 @@ namespace _01._Hello_Softuni
                 }
             }
 
-            // Finding the tunnel locations
+            // Finding the tunnel and finish line locations
 
             int firstLocationRow = 0;
             int firstLocationCol = 0;
@@ -35,7 +35,6 @@ namespace _01._Hello_Softuni
             int secondLocationCol = 0;
 
             bool firstLocationHasBeenFound = false;
-            bool disqualified = false;
 
             int fRow = 0;
             int fCol = 0;
@@ -75,6 +74,7 @@ namespace _01._Hello_Softuni
             int kilometersTravelled = 0;
 
             bool carFinished = false;
+            bool disqualified = false;
 
             int lastPositionRow = 0;
             int lastPositionCol = 0;
@@ -108,8 +108,9 @@ namespace _01._Hello_Softuni
                             row++;
                         }
 
-                        if (matrix[row, col] == 'T') // does not enter the tunnel
+                        if (matrix[row, col] == 'T')
                         {
+                            matrix[row, col] = '.'; // removed the "T"s from the matrix
                             kilometersTravelled += 30;
 
                             if (row == firstLocationRow && col == firstLocationCol)
@@ -140,6 +141,10 @@ namespace _01._Hello_Softuni
                                 $"the stage!");
 
                             carFinished = true;
+
+                            lastPositionRow = row;
+                            lastPositionCol = col;
+                            break;
                         }
                         else
                         {
