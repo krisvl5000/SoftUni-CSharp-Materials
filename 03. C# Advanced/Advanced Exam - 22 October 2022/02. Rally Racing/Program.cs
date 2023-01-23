@@ -16,7 +16,7 @@ namespace _01._Hello_Softuni
             for (int row = 0; row < n; row++)
             {
                 string raceRoute = Console.ReadLine();
-                
+
                 for (int col = 0; col < n; col++)
                 {
                     matrix[row, col] = raceRoute[col];
@@ -25,11 +25,11 @@ namespace _01._Hello_Softuni
 
             // Finding the tunnel locations
 
-            int firstLocationRow;
-            int firstLocationCol;
+            int firstLocationRow = 0;
+            int firstLocationCol = 0;
 
-            int secondLocationRow;
-            int secondLocationCol;
+            int secondLocationRow = 0;
+            int secondLocationCol = 0;
 
             bool firstLocationHasBeenFound = false;
 
@@ -60,21 +60,100 @@ namespace _01._Hello_Softuni
             string[] input = Console.ReadLine()
                 .Split(" ", StringSplitOptions.RemoveEmptyEntries);
 
-            int kilometersPassed = 0;
+            int kilometersTravelled = 0;
+
+            bool carFinished = false;
+
+            int lastPositionRow = 0;
+            int lastPositionCol = 0;
 
             while (input[0] != "End")
             {
+                if (carFinished)
+                {
+                    break;
+                }
                 string direction = input[0];
 
                 for (int row = 0; row < n; row++)
                 {
                     for (int col = 0; col < n; col++)
                     {
+                        if (direction == "left")
+                        {
+                            col--;
+                        }
+                        else if (direction == "right")
+                        {
+                            col++;
+                        }
+                        else if (direction == "up")
+                        {
+                            row--;
+                        }
+                        else if (direction == "down")
+                        {
+                            row++;
+                        }
 
+                        if (matrix[row, col] == 'T')
+                        {
+                            kilometersTravelled += 30;
+
+                            if (row == firstLocationRow || col == firstLocationCol)
+                            {
+                                row = secondLocationRow;
+                                col = secondLocationCol;
+                            }
+                            else if (row == secondLocationRow || col == secondLocationCol)
+                            {
+                                row = firstLocationRow;
+                                col = firstLocationCol;
+                            }
+
+                        }
+                        else if (matrix[row, col] == 'F')
+                        {
+                            kilometersTravelled += 10;
+
+                            Console.WriteLine($"Racing car {racingNumber} finished" +
+                                $"the stage!");
+
+                            carFinished = true;
+                        }
+                        else
+                        {
+                            kilometersTravelled += 10;
+                            lastPositionRow = row;
+                            lastPositionCol = col;
+                        }
                     }
                 }
             }
 
+            if (!carFinished)
+            {
+                Console.WriteLine($"Racing car {racingNumber} DNF.");
+            }
+
+            Console.WriteLine($"Distance covered {kilometersTravelled} km.");
+
+            for (int row = 0; row < n; row++)
+            {
+                for (int col = 0; col < n; col++)
+                {
+                    if (row == lastPositionRow && col == lastPositionCol)
+                    {
+                        Console.Write("C");
+                    }
+                    else
+                    {
+                        Console.Write(".");
+                    }
+                }
+
+                Console.WriteLine();
+            }
         }
     }
 }
