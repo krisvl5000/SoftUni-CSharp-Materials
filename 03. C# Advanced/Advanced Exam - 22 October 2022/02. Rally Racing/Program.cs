@@ -9,13 +9,16 @@ namespace _01._Hello_Softuni
             // Creating the matrix
 
             int n = int.Parse(Console.ReadLine());
-            int racingNumber = int.Parse(Console.ReadLine());
+            string racingNumber = Console.ReadLine();
 
             char[,] matrix = new char[n, n];
 
             for (int row = 0; row < n; row++)
             {
-                string raceRoute = Console.ReadLine();
+                string[] raceRouteRaw = Console.ReadLine()
+                    .Split(" ", StringSplitOptions.RemoveEmptyEntries);
+
+                string raceRoute = String.Join("", raceRouteRaw);
 
                 for (int col = 0; col < n; col++)
                 {
@@ -32,6 +35,10 @@ namespace _01._Hello_Softuni
             int secondLocationCol = 0;
 
             bool firstLocationHasBeenFound = false;
+            bool disqualified = false;
+
+            int fRow = 0;
+            int fCol = 0;
 
             for (int row = 0; row < n; row++)
             {
@@ -51,6 +58,11 @@ namespace _01._Hello_Softuni
                             secondLocationRow = row;
                             secondLocationCol = col;
                         }
+                    }
+                    else if (matrix[row, col] == 'F')
+                    {
+                        fRow = row;
+                        fCol = col;
                     }
                 }
             }
@@ -75,9 +87,9 @@ namespace _01._Hello_Softuni
                 }
                 string direction = input[0];
 
-                for (int row = 0; row < n; row++)
+                for (int row = lastPositionRow; row < n; row++)
                 {
-                    for (int col = 0; col < n; col++)
+                    for (int col = lastPositionCol; col < n; col++)
                     {
                         if (direction == "left")
                         {
@@ -96,19 +108,27 @@ namespace _01._Hello_Softuni
                             row++;
                         }
 
-                        if (matrix[row, col] == 'T')
+                        if (matrix[row, col] == 'T') // does not enter the tunnel
                         {
                             kilometersTravelled += 30;
 
-                            if (row == firstLocationRow || col == firstLocationCol)
+                            if (row == firstLocationRow && col == firstLocationCol)
                             {
                                 row = secondLocationRow;
                                 col = secondLocationCol;
+
+                                lastPositionRow = row;
+                                lastPositionCol = col;
+                                break;
                             }
-                            else if (row == secondLocationRow || col == secondLocationCol)
+                            else if (row == secondLocationRow && col == secondLocationCol)
                             {
                                 row = firstLocationRow;
                                 col = firstLocationCol;
+
+                                lastPositionRow = row;
+                                lastPositionCol = col;
+                                break;
                             }
 
                         }
@@ -116,7 +136,7 @@ namespace _01._Hello_Softuni
                         {
                             kilometersTravelled += 10;
 
-                            Console.WriteLine($"Racing car {racingNumber} finished" +
+                            Console.WriteLine($"Racing car {racingNumber} finished " +
                                 $"the stage!");
 
                             carFinished = true;
@@ -126,13 +146,19 @@ namespace _01._Hello_Softuni
                             kilometersTravelled += 10;
                             lastPositionRow = row;
                             lastPositionCol = col;
+                            break;
                         }
                     }
+                    break;
                 }
+
+                input = Console.ReadLine()
+                .Split(" ", StringSplitOptions.RemoveEmptyEntries);
             }
 
             if (!carFinished)
             {
+                disqualified = true;
                 Console.WriteLine($"Racing car {racingNumber} DNF.");
             }
 
@@ -148,7 +174,14 @@ namespace _01._Hello_Softuni
                     }
                     else
                     {
-                        Console.Write(".");
+                        if (disqualified && row == fRow && col == fCol)
+                        {
+                            Console.Write("F");
+                        }
+                        else
+                        {
+                            Console.Write(".");
+                        }
                     }
                 }
 
