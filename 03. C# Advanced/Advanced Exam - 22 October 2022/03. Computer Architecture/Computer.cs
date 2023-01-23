@@ -8,17 +8,21 @@ namespace ComputerArchitecture
 {
     public class Computer
     {
+        private string model;
+        private int capacity;
+        private List<CPU> multiprocessor;
         public Computer(string model, int capacity)
         {
             Model = model;
             Capacity = capacity;
+            Multiprocessor = new List<CPU>();
         }
 
         public string Model { get; set; }
 
         public int Capacity { get; set; }
 
-        public List<CPU> Multiprocessor { get; set; } = new List<CPU>();
+        public List<CPU> Multiprocessor { get; set; }
 
         public int Count { get { return Multiprocessor.Count; } }
 

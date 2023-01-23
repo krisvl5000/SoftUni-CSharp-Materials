@@ -8,6 +8,10 @@ namespace ComputerArchitecture
 {
     public class CPU
     {
+        private string brand;
+        private int cores;
+        private double frequency;
+
         public CPU(string brand, int cores, double frequency)
         {
             Brand = brand;
