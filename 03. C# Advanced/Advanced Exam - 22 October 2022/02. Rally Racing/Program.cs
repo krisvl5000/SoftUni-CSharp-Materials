@@ -81,10 +81,6 @@ namespace _01._Hello_Softuni
 
             while (input[0] != "End")
             {
-                if (carFinished)
-                {
-                    break;
-                }
                 string direction = input[0];
 
                 for (int row = lastPositionRow; row < n; row++)
@@ -153,7 +149,14 @@ namespace _01._Hello_Softuni
                             lastPositionCol = col;
                             break;
                         }
+
+                        break; // added break to make col unreachable
                     }
+                    break;
+                }
+
+                if (carFinished)
+                {
                     break;
                 }
 
