@@ -4,9 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _03._The_Race
+namespace TheRace
 {
-    internal class Car
+    public class Car
     {
+        private string name;
+        private int speed;
+
+        public Car(string name, int speed)
+        {
+            Name = name;
+            Speed = speed;
+        }
+
+        public string Name { get; set; }
+
+        public int Speed { get; set; }
     }
 }
