@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
+using System.Text;
 
 namespace TheRace
 {
-    public class Program
+    public class StartUp
     {
         static void Main(string[] args)
         {
