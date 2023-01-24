@@ -95,7 +95,7 @@ namespace _01._Hello_Softuni
             }
             else
             {
-                Console.WriteLine($"It's a draw! Player One has {player1Ships} left. " +
+                Console.WriteLine($"It's a draw! Player One has {player1Ships} ships left. " +
                     $"Player Two has {player2Ships} ships left.");
             }
         }
