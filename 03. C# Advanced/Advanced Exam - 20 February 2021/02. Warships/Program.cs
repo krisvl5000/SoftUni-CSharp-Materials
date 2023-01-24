@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace _01._Hello_Softuni
 {
@@ -8,16 +10,15 @@ namespace _01._Hello_Softuni
         {
             int size = int.Parse(Console.ReadLine());
 
-            string[] commandArgs = Console.ReadLine()
-                .Split(",", StringSplitOptions.RemoveEmptyEntries)
-                .ToArray();
+            string[] commandsInput = Console.ReadLine()
+                .Split(",", StringSplitOptions.RemoveEmptyEntries);
 
-            Queue<string> commands = new Queue<string>(commandArgs);
+            Queue<string> commands = new Queue<string>(commandsInput);
 
             char[,] field = GetField(size);
 
-            int player1Ships = GetShipsCount(field, '<');
-            int player2Ships = GetShipsCount(field, '>');
+            int player1Ships = GetShips(field, '<');
+            int player2Ships = GetShips(field, '>');
 
             while (commands.Count > 0 && player1Ships > 0 && player2Ships > 0)
             {
@@ -33,7 +34,7 @@ namespace _01._Hello_Softuni
                     .Select(int.Parse)
                     .Last();
 
-                if (!IsIndexValid(size, rowIndex, colIndex))
+                if (!IsIndexValid(field, rowIndex, colIndex))
                 {
                     continue;
                 }
@@ -46,7 +47,7 @@ namespace _01._Hello_Softuni
                         player1Ships--;
                         field[rowIndex, colIndex] = 'X';
                         break;
-                        case '>':
+                    case '>':
                         player2Ships--;
                         field[rowIndex, colIndex] = 'X';
                         break;
@@ -55,7 +56,7 @@ namespace _01._Hello_Softuni
                         {
                             for (int col = colIndex - 1; col <= colIndex + 1; col++)
                             {
-                                if (!IsIndexValid(size, row, col))
+                                if (!IsIndexValid(field, row, col))
                                 {
                                     continue;
                                 }
@@ -76,7 +77,7 @@ namespace _01._Hello_Softuni
                 }
             }
 
-            PrintResult(player1Ships, player2Ships, GetShipsCount(field, 'X'));
+            PrintResult(player1Ships, player2Ships, GetShips(field, 'X'));
 
         }
 
@@ -94,19 +95,20 @@ namespace _01._Hello_Softuni
             }
             else
             {
-                Console.WriteLine($"It's a draw! Player One has {player1Ships} " +
-                    $"ships left. Player Two has {player2Ships} ships left.");
+                Console.WriteLine($"It's a draw! Player One has {player1Ships} left. " +
+                    $"Player Two has {player2Ships} ships left.");
             }
         }
 
-        private static bool IsIndexValid(int size, int row, int col)
+        private static bool IsIndexValid(char[,] field, int rowIndex, int colIndex)
         {
-            return row >= 0 && row < size && col >= 0 && col < size;
+            return rowIndex >= 0 && rowIndex < field.GetLength(0)
+                && colIndex >= 0 && colIndex < field.GetLength(1);
         }
 
-        private static int GetShipsCount(char[,] field, char ch)
+        private static int GetShips(char[,] field, char ch)
         {
-            int count = 0;
+            int counter = 0;
 
             for (int row = 0; row < field.GetLength(0); row++)
             {
@@ -114,12 +116,12 @@ namespace _01._Hello_Softuni
                 {
                     if (field[row, col] == ch)
                     {
-                        count++;
+                        counter++;
                     }
                 }
             }
 
-            return count;
+            return counter;
         }
 
         private static char[,] GetField(int size)
