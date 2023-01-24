@@ -67,7 +67,7 @@ namespace ComputerArchitecture
 
         public string Report()
         {
-            return String.Join("\n", Multiprocessor);
+            return $"CPUs in the computer {this.Model}:\n" + String.Join("\n", Multiprocessor);
         }
     }
 }

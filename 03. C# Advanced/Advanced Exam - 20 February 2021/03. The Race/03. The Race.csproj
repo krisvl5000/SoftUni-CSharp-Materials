@@ -6,6 +6,7 @@
     <RootNamespace>_03._The_Race</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <StartupObject>TheRace.StartUp</StartupObject>
   </PropertyGroup>
 
 </Project>
