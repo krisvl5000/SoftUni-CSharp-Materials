@@ -12,14 +12,13 @@ namespace Renovators
         private string type;
         private double rate;
         private int days;
-        private bool hired = false;
 
         public Renovator(string name, string type, double rate, int days)
         {
-            this.name = name;
-            this.type = type;
-            this.rate = rate;
-            this.days = days;
+            this.Name = name;
+            this.Type = type;
+            this.Rate = rate;
+            this.Days = days;
         }
 
         public string Name { get; set; }
@@ -32,15 +31,15 @@ namespace Renovators
 
         public bool Hired { get; set; } = false;
 
+        public bool Paid { get; set; } = false;
+
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine($"-Renovator: {this.name}");
-            sb.AppendLine($"--Specialty: {this.type}");
-            sb.AppendLine($"--Rate per day: {this.rate} BGN");
-            
-            string stringToReturn = sb.ToString();
-            return stringToReturn.TrimEnd();
+            var sb = new StringBuilder();
+            sb.AppendLine($"-Renovator: {this.Name}");
+            sb.AppendLine($"--Specialty: {this.Type}");
+            sb.AppendLine($"--Rate per day: {this.Rate} BGN");
+            return sb.ToString().TrimEnd();
         }
     }
 }
