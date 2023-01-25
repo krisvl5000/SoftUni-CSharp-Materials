@@ -1,271 +1,139 @@
 ﻿using System;
-using System.Linq;
-using System.Collections.Generic;
 
-namespace _01._Hello_Softuni
+namespace WallDestroyer
 {
-    internal class Program
+    public class WallDestroyer
     {
-        static void Main(string[] args)
+        private static int vankoRow;
+        private static int vankoCol;
+        private static char[,] wall;
+
+        private static int countOfHoles = 1;
+        private static int countOfRods;
+
+        private static bool isAlive = true;
+        static void Main()
         {
+            //create the wall
             int n = int.Parse(Console.ReadLine());
-
-            char[,] matrix = GetMatrix(n);
-
-            int holesCreated = 0;
-            int rodsHit = 0;
-
-            string input = Console.ReadLine();
-
-            int[] startingLocation = FindV(matrix);
-
-            int row = startingLocation[0];
-            int col = startingLocation[1];
-
-            int position = matrix[row, col];
-
-            bool isElectrocuted = false;
-
-            while (input != "End" && !isElectrocuted)
-            {
-                startingLocation[0] = row;
-                startingLocation[1] = col;
-
-                switch (input)
-                {
-                    case "up":
-                        if (IsIndexValid(matrix, row - 1, col))
-                        {
-                            if (matrix[row - 1, col] == 'R')
-                            {
-                                Console.WriteLine("Vanko hit a rod!");
-                                rodsHit++;
-                                input = Console.ReadLine();
-                                continue;
-                            }
-                            else if (matrix[row - 1, col] == 'C')
-                            {
-                                holesCreated++;
-                                matrix[row - 1, col] = 'E';
-                                isElectrocuted = true;
-                                startingLocation[0] = row;
-                                startingLocation[1] = col;
-                                break;
-                            }
-                            else if (matrix[row - 1, col] == '*')
-                            {
-                                Console.WriteLine($"The wall is already destroyed " +
-                                    $"at position [{row - 1}, {col}]!");
-                                row = row - 1;
-                                input = Console.ReadLine();
-                                continue;
-                            }
-                            else
-                            {
-                                holesCreated++;
-                                matrix[row - 1, col] = '*';
-                                row = row - 1;
-
-                                matrix[startingLocation[0], startingLocation[1]] = '*';
-                                input = Console.ReadLine();
-                                continue;
-                            }
-                        }
-                        break;
-                    case "down":
-                        if (IsIndexValid(matrix, row + 1, col))
-                        {
-                            if (matrix[row + 1, col] == 'R')
-                            {
-                                Console.WriteLine("Vanko hit a rod!");
-                                rodsHit++;
-                                input = Console.ReadLine();
-                                continue;
-                            }
-                            else if (matrix[row + 1, col] == 'C')
-                            {
-                                holesCreated++;
-                                matrix[row + 1, col] = 'E';
-                                startingLocation[0] = row;
-                                startingLocation[1] = col;
-                                isElectrocuted = true;
-                                break;
-                            }
-                            else if (matrix[row + 1, col] == '*')
-                            {
-                                Console.WriteLine($"The wall is already destroyed " +
-                                    $"at position [{row - 1}, {col}]!");
-                                row = row + 1;
-                                input = Console.ReadLine();
-                                continue;
-                            }
-                            else
-                            {
-                                holesCreated++;
-                                matrix[row + 1, col] = '*';
-                                row = row + 1;
-                                matrix[startingLocation[0], startingLocation[1]] = '*';
-                                input = Console.ReadLine();
-                                continue;
-                            }
-                        }
-                        break;
-                    case "left":
-                        if (IsIndexValid(matrix, row, col - 1))
-                        {
-                            if (matrix[row, col - 1] == 'R')
-                            {
-                                Console.WriteLine("Vanko hit a rod!");
-                                rodsHit++;
-                                input = Console.ReadLine();
-                                continue;
-                            }
-                            else if (matrix[row, col - 1] == 'C')
-                            {
-                                holesCreated++;
-                                matrix[row, col - 1] = 'E';
-                                startingLocation[0] = row;
-                                startingLocation[1] = col;
-                                isElectrocuted = true;
-                                break;
-                            }
-                            else if (matrix[row, col - 1] == '*')
-                            {
-                                Console.WriteLine($"The wall is already destroyed " +
-                                    $"at position [{row}, {col - 1}]!");
-                                col = col - 1;
-                                input = Console.ReadLine();
-                                continue;
-                            }
-                            else
-                            {
-                                holesCreated++;
-                                matrix[row, col - 1] = '*';
-                                col = col - 1;
-                                matrix[startingLocation[0], startingLocation[1]] = '*';
-                                input = Console.ReadLine();
-                                continue;
-                            }
-                        }
-                        break;
-                    case "right":
-                        if (IsIndexValid(matrix, row, col + 1))
-                        {
-                            if (matrix[row, col + 1] == 'R')
-                            {
-                                Console.WriteLine("Vanko hit a rod!");
-                                rodsHit++;
-                                input = Console.ReadLine();
-                                continue;
-                            }
-                            else if (matrix[row, col + 1] == 'C')
-                            {
-                                holesCreated++;
-                                matrix[row, col + 1] = 'E';
-                                startingLocation[0] = row;
-                                startingLocation[1] = col;
-                                isElectrocuted = true;
-                                break;
-                            }
-                            else if (matrix[row, col + 1] == '*')
-                            {
-                                Console.WriteLine($"The wall is already destroyed " +
-                                    $"at position [{row}, {col + 1}]!");
-                                col = col + 1;
-                                input = Console.ReadLine();
-                                continue;
-                            }
-                            else
-                            {
-                                holesCreated++;
-                                matrix[row, col + 1] = '*';
-                                col = col + 1;
-                                matrix[startingLocation[0], startingLocation[1]] = '*';
-                                input = Console.ReadLine();
-                                continue;
-                            }
-                        }
-                        break;
-                }
-
-                input = Console.ReadLine();
-            }
-
-            if (!isElectrocuted)
-            {
-                Console.WriteLine($"Vanko managed to make {holesCreated + 1} hole(s) " +
-                    $"and he hit only {rodsHit} rod(s).");
-            }
-            else
-            {
-                Console.WriteLine($"Vanko got electrocuted, but he managed to make " +
-                    $"{holesCreated + 1} hole(s).");
-            }
-
-            //if (!isElectrocuted)
-            {
-                for (int r = 0; r < n; r++)
-                {
-                    for (int c = 0; c < n; c++)
-                    {
-                        if (r == startingLocation[0] && c == startingLocation[1] && !isElectrocuted)
-                        {
-                            Console.Write('V');
-                        }
-                        else if (r == startingLocation[0] && c == startingLocation[1] && isElectrocuted)
-                        {
-                            Console.Write('E');
-                        }
-                        else
-                        {
-                            Console.Write(matrix[r, c]);
-                        }
-                    }
-
-                    Console.WriteLine();
-                }
-            }
-
-        }
-
-        private static int[] FindV(char[,] matrix)
-        {
-            for (int row = 0; row < matrix.GetLength(0); row++)
-            {
-                for (int col = 0; col < matrix.GetLength(1); col++)
-                {
-                    if (matrix[row, col] == 'V')
-                    {
-                        return new int[]{row, col};
-                    }
-                }
-            }
-
-            return new int[] { 0, 0 };
-        }
-
-        static char[,] GetMatrix(int n)
-        {
-            char[,] matrix = new char[n, n];
-
+            wall = new char[n, n];
             for (int row = 0; row < n; row++)
             {
-                string rawInput = Console.ReadLine();
-                char[] input = rawInput.ToCharArray();
-
+                string input = Console.ReadLine();
                 for (int col = 0; col < n; col++)
                 {
-                    matrix[row, col] = input[col];
+                    wall[row, col] = input[col];
                 }
             }
 
-            return matrix;
+            //find Vanko's position
+            for (int row = 0; row < n; row++)
+            {
+                for (int col = 0; col < n; col++)
+                {
+                    if (wall[row, col] == 'V')
+                    {
+                        vankoRow = row;
+                        vankoCol = col;
+                        break;
+                    }
+                }
+            }
+
+            //start receiving directions
+            string command = Console.ReadLine();
+            while (command != "End")
+            {
+                if (command == "up")
+                {
+                    Move(-1, 0);
+                }
+                else if (command == "down")
+                {
+                    Move(1, 0);
+                }
+                else if (command == "left")
+                {
+                    Move(0, -1);
+                }
+                else if (command == "right")
+                {
+                    Move(0, 1);
+                }
+
+                if (!isAlive)
+                {
+                    break;
+                }
+                command = Console.ReadLine();
+            }
+
+            //print the matrix
+            if (isAlive)
+            {
+                Console.WriteLine($"Vanko managed to make {countOfHoles} " +
+                    $"hole(s) and he hit only {countOfRods} rod(s).");
+            }
+            PrintMatrix(n);
         }
 
-        static bool IsIndexValid(char[,] matrix, int row, int col)
+        private static void Move(int row, int col)
         {
-            return row >= 0 && row < matrix.GetLength(0)
-                && col >= 0 && col < matrix.GetLength(1); 
+            if (isInside(vankoRow + row, vankoCol + col))
+            {
+                if (wall[vankoRow + row, vankoCol + col] == 'C')
+                {
+                    wall[vankoRow, vankoCol] = '*';
+                    vankoRow += row;
+                    vankoCol += col;
+                    countOfHoles++;
+                    wall[vankoRow, vankoCol] = 'E';
+                    Console.WriteLine($"Vanko got electrocuted, but he managed " +
+                        $"to make {countOfHoles} hole(s).");
+                    isAlive = false;
+                }
+                else if (wall[vankoRow + row, vankoCol + col] == 'R')
+                {
+                    countOfRods++;
+                    Console.WriteLine($"Vanko hit a rod!");
+                }
+                else if (wall[vankoRow + row, vankoCol + col] == '-')
+                {
+                    wall[vankoRow, vankoCol] = '*';
+                    vankoRow += row;
+                    vankoCol += col;
+                    wall[vankoRow, vankoCol] = 'V';
+                    countOfHoles++;
+                }
+                else if (wall[vankoRow + row, vankoCol + col] == '*')
+                {
+                    wall[vankoRow, vankoCol] = '*';
+                    Console.WriteLine($"The wall is already destroyed at position " +
+                        $"[{vankoRow + row}, {vankoCol + col}]!");
+                    vankoRow += row;
+                    vankoCol += col;
+                    wall[vankoRow, vankoCol] = 'V';
+                }
+            }
         }
+
+        private static bool isInside(int row, int col)
+        {
+            return row >= 0 && row < wall.GetLength(0)
+                && col >= 0 && col < wall.GetLength(1);
+        }
+
+        private static void PrintMatrix(int n)
+        {
+            for (int row = 0; row < n; row++)
+            {
+                for (int col = 0; col < n; col++)
+                {
+                    Console.Write(wall[row, col]);
+                }
+                Console.WriteLine();
+            }
+        }
+
     }
 }
