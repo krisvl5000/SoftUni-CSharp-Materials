@@ -6,7 +6,7 @@ namespace Renovators
 {
     public class StartUp
     {
-        static void Main()
+        static void Main(string[] args)
         {
             // Initialize the repository (Catalog)
             Catalog catalog = new Catalog("Quality renovators", 5, "Kitchen");
@@ -83,7 +83,6 @@ namespace Renovators
             --Specialty: Furniture
             --Rate per day: 300 BGN
             */
-
         }
     }
 }
