@@ -28,9 +28,10 @@ namespace _01._Hello_Softuni
 
             while (input != "End" && !isElectrocuted)
             {
-                string command = input;
+                startingLocation[0] = row;
+                startingLocation[1] = col;
 
-                switch (command)
+                switch (input)
                 {
                     case "up":
                         if (IsIndexValid(matrix, row - 1, col))
@@ -39,6 +40,7 @@ namespace _01._Hello_Softuni
                             {
                                 Console.WriteLine("Vanko hit a rod!");
                                 rodsHit++;
+                                input = Console.ReadLine();
                                 continue;
                             }
                             else if (matrix[row - 1, col] == 'C')
@@ -46,13 +48,16 @@ namespace _01._Hello_Softuni
                                 holesCreated++;
                                 matrix[row - 1, col] = 'E';
                                 isElectrocuted = true;
+                                startingLocation[0] = row;
+                                startingLocation[1] = col;
                                 break;
                             }
                             else if (matrix[row - 1, col] == '*')
                             {
-                                Console.WriteLine($"The wall is already destroyed" +
+                                Console.WriteLine($"The wall is already destroyed " +
                                     $"at position [{row - 1}, {col}]!");
                                 row = row - 1;
+                                input = Console.ReadLine();
                                 continue;
                             }
                             else
@@ -60,6 +65,9 @@ namespace _01._Hello_Softuni
                                 holesCreated++;
                                 matrix[row - 1, col] = '*';
                                 row = row - 1;
+
+                                matrix[startingLocation[0], startingLocation[1]] = '*';
+                                input = Console.ReadLine();
                                 continue;
                             }
                         }
@@ -71,20 +79,24 @@ namespace _01._Hello_Softuni
                             {
                                 Console.WriteLine("Vanko hit a rod!");
                                 rodsHit++;
+                                input = Console.ReadLine();
                                 continue;
                             }
                             else if (matrix[row + 1, col] == 'C')
                             {
                                 holesCreated++;
                                 matrix[row + 1, col] = 'E';
+                                startingLocation[0] = row;
+                                startingLocation[1] = col;
                                 isElectrocuted = true;
                                 break;
                             }
                             else if (matrix[row + 1, col] == '*')
                             {
-                                Console.WriteLine($"The wall is already destroyed" +
+                                Console.WriteLine($"The wall is already destroyed " +
                                     $"at position [{row - 1}, {col}]!");
                                 row = row + 1;
+                                input = Console.ReadLine();
                                 continue;
                             }
                             else
@@ -92,6 +104,8 @@ namespace _01._Hello_Softuni
                                 holesCreated++;
                                 matrix[row + 1, col] = '*';
                                 row = row + 1;
+                                matrix[startingLocation[0], startingLocation[1]] = '*';
+                                input = Console.ReadLine();
                                 continue;
                             }
                         }
@@ -103,20 +117,24 @@ namespace _01._Hello_Softuni
                             {
                                 Console.WriteLine("Vanko hit a rod!");
                                 rodsHit++;
+                                input = Console.ReadLine();
                                 continue;
                             }
                             else if (matrix[row, col - 1] == 'C')
                             {
                                 holesCreated++;
                                 matrix[row, col - 1] = 'E';
+                                startingLocation[0] = row;
+                                startingLocation[1] = col;
                                 isElectrocuted = true;
                                 break;
                             }
                             else if (matrix[row, col - 1] == '*')
                             {
-                                Console.WriteLine($"The wall is already destroyed" +
+                                Console.WriteLine($"The wall is already destroyed " +
                                     $"at position [{row}, {col - 1}]!");
                                 col = col - 1;
+                                input = Console.ReadLine();
                                 continue;
                             }
                             else
@@ -124,6 +142,8 @@ namespace _01._Hello_Softuni
                                 holesCreated++;
                                 matrix[row, col - 1] = '*';
                                 col = col - 1;
+                                matrix[startingLocation[0], startingLocation[1]] = '*';
+                                input = Console.ReadLine();
                                 continue;
                             }
                         }
@@ -135,20 +155,24 @@ namespace _01._Hello_Softuni
                             {
                                 Console.WriteLine("Vanko hit a rod!");
                                 rodsHit++;
+                                input = Console.ReadLine();
                                 continue;
                             }
                             else if (matrix[row, col + 1] == 'C')
                             {
                                 holesCreated++;
                                 matrix[row, col + 1] = 'E';
+                                startingLocation[0] = row;
+                                startingLocation[1] = col;
                                 isElectrocuted = true;
                                 break;
                             }
                             else if (matrix[row, col + 1] == '*')
                             {
-                                Console.WriteLine($"The wall is already destroyed" +
+                                Console.WriteLine($"The wall is already destroyed " +
                                     $"at position [{row}, {col + 1}]!");
                                 col = col + 1;
+                                input = Console.ReadLine();
                                 continue;
                             }
                             else
@@ -156,22 +180,26 @@ namespace _01._Hello_Softuni
                                 holesCreated++;
                                 matrix[row, col + 1] = '*';
                                 col = col + 1;
+                                matrix[startingLocation[0], startingLocation[1]] = '*';
+                                input = Console.ReadLine();
                                 continue;
                             }
                         }
                         break;
                 }
+
+                input = Console.ReadLine();
             }
 
             if (!isElectrocuted)
             {
-                Console.WriteLine($"Vanko managed to make {holesCreated} hole(s) " +
+                Console.WriteLine($"Vanko managed to make {holesCreated + 1} hole(s) " +
                     $"and he hit only {rodsHit} rod(s).");
             }
             else
             {
                 Console.WriteLine($"Vanko got electrocuted, but he managed to make " +
-                    $"{holesCreated} hole(s).");
+                    $"{holesCreated + 1} hole(s).");
             }
 
             //if (!isElectrocuted)
@@ -180,17 +208,21 @@ namespace _01._Hello_Softuni
                 {
                     for (int c = 0; c < n; c++)
                     {
-                        if (r == row && c == col && !isElectrocuted)
+                        if (r == startingLocation[0] && c == startingLocation[1] && !isElectrocuted)
                         {
                             Console.Write('V');
+                        }
+                        else if (r == startingLocation[0] && c == startingLocation[1] && isElectrocuted)
+                        {
+                            Console.Write('E');
                         }
                         else
                         {
                             Console.Write(matrix[r, c]);
                         }
-
-                        Console.WriteLine();
                     }
+
+                    Console.WriteLine();
                 }
             }
 
@@ -218,10 +250,8 @@ namespace _01._Hello_Softuni
 
             for (int row = 0; row < n; row++)
             {
-                char[] input = Console.ReadLine()
-                    .Split(" ", StringSplitOptions.RemoveEmptyEntries)
-                    .Select(char.Parse)
-                    .ToArray();
+                string rawInput = Console.ReadLine();
+                char[] input = rawInput.ToCharArray();
 
                 for (int col = 0; col < n; col++)
                 {
