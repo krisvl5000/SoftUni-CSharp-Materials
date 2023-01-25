@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Аdvanced Exam - 25 June 2022", "Аdvanced Exam - 25 June 2022\Аdvanced Exam - 25 June 2022.csproj", "{E979B23C-50CC-4199-B5B9-14DBA4714F90}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01. Tiles Master", "Аdvanced Exam - 25 June 2022\01. Tiles Master.csproj", "{E979B23C-50CC-4199-B5B9-14DBA4714F90}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02. Wall Destroyer", "02. Wall Destroyer\02. Wall Destroyer.csproj", "{0BE790CF-0573-4373-810B-B3D77710C1CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03. Renovators", "03. Renovators\03. Renovators.csproj", "{6E45D260-E88E-40C7-897F-8133A43F002C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{E979B23C-50CC-4199-B5B9-14DBA4714F90}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E979B23C-50CC-4199-B5B9-14DBA4714F90}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E979B23C-50CC-4199-B5B9-14DBA4714F90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BE790CF-0573-4373-810B-B3D77710C1CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BE790CF-0573-4373-810B-B3D77710C1CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BE790CF-0573-4373-810B-B3D77710C1CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BE790CF-0573-4373-810B-B3D77710C1CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E45D260-E88E-40C7-897F-8133A43F002C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E45D260-E88E-40C7-897F-8133A43F002C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E45D260-E88E-40C7-897F-8133A43F002C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E45D260-E88E-40C7-897F-8133A43F002C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
