@@ -2,12 +2,8 @@
 
 namespace _01._Hello_Softuni
 {
-    internal class Program
+    public class Program
     {
-        static void Main(string[] args)
-        {
 
-
-        }
     }
 }
