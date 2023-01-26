@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Inheritance_Lab
+namespace Demo
 {
-    internal class TeamLead
+    public class TeamLead : Employee
     {
+        public void FixBugs()
+        {
+            Console.WriteLine("I am fixing bugs by programmers all day");
+        }
     }
 }
