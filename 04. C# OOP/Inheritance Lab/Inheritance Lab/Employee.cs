@@ -8,6 +8,17 @@ namespace Demo
 {
     public class Employee
     {
+        public Employee()
+        {
+
+        }
+
+        public Employee(string name)
+        {
+            Console.WriteLine($"In employee constructor with the name {name}");
+            Name = name;
+        }
+
         public decimal Salary { get; set; }
 
         public string Name { get; set; }

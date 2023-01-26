@@ -6,7 +6,7 @@ namespace Demo
     {
         static void Main(string[] args)
         {
-            Programmer programmer = new Programmer();
+            Programmer programmer = new Programmer("Pesho");
             programmer.Name = "Dimitrichko";
             programmer.CreateBugs();
             programmer.GetPaid();
