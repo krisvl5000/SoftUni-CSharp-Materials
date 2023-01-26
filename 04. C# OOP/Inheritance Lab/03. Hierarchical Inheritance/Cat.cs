@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _03._Hierarchical_Inheritance
+namespace Farm
 {
-    internal class Cat
+    public class Cat : Animal
     {
+        public void Meow()
+        {
+            Console.WriteLine("meowing...");
+        }
     }
 }
