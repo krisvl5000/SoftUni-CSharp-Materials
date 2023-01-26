@@ -8,7 +8,7 @@ namespace Shadowing
         {
             //How to avoid confusion with variables when using inheritance
             Child c = new Child();
-            c.Add();
+            c.Add(1);
         }
     }
 
@@ -20,10 +20,14 @@ namespace Shadowing
     public class Child : Parent
     {
         public int number = 8; // When this is missing, it print 5, because it takes the 
-        // number from the parent class. When we add this line, shadowing occurrs, and we print 8
-        public void Add()
+        // number from the parent class. When we add this line, shadowing occurrs, and we print 8.
+        // If we put a parameter "number" int the brackets, it points to the number,
+        // coming from main.
+        public void Add(int number)
         {
-            Console.WriteLine(number);
+            Console.WriteLine($"Param {number}"); // this points to the parameter
+            Console.WriteLine($"Child {this.number}"); // this point to the instance in the class
+            Console.WriteLine($"Parent {base.number}"); // this points to the instance in the base
         }
     }
 }
