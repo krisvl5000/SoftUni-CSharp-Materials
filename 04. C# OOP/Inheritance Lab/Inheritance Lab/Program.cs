@@ -11,6 +11,10 @@ namespace Demo
             programmer.CreateBugs();
             programmer.GetPaid();
 
+            TeamLead teamLead = new TeamLead();
+            teamLead.FixBugs();
+            teamLead.GetPaid();
+
         }
     }
 }
