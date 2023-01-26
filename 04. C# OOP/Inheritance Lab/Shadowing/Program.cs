@@ -8,13 +8,20 @@ namespace Shadowing
         {
             //How to avoid confusion with variables when using inheritance
             Child c = new Child();
-            c.Add(1);
+            //c.Add(1);
+
+            c.Hello();
         }
     }
 
     public class Parent
     {
         public int number = 5;
+
+        public void Hello()
+        {
+            Console.WriteLine("Hello from Parent");
+        }
     }
 
     public class Child : Parent
@@ -28,6 +35,12 @@ namespace Shadowing
             Console.WriteLine($"Param {number}"); // this points to the parameter
             Console.WriteLine($"Child {this.number}"); // this point to the instance in the class
             Console.WriteLine($"Parent {base.number}"); // this points to the instance in the base
+        }
+
+        public void Hello()
+        {
+            base.Hello(); // This calls the method from the parent
+            Console.WriteLine("Hello from Child");
         }
     }
 }
