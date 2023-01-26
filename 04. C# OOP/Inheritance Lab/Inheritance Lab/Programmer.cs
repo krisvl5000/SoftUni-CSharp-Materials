@@ -8,7 +8,7 @@ namespace Demo
 {
     public class Programmer : Employee
     {
-        public Programmer(string name) : base(name)
+        public Programmer(string name) : base(55)
         {
             Console.WriteLine($"In programmer constructor with the name {name}");
         }
