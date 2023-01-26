@@ -1,12 +1,15 @@
 ﻿using System;
 
-namespace _01._Hello_Softuni
+namespace Farm
 {
-    internal class Program
+    public class StartUp
     {
         static void Main(string[] args)
         {
-
+            Puppy puppy = new Puppy();
+            puppy.Eat();
+            puppy.Bark();
+            puppy.Weep();
 
         }
     }
