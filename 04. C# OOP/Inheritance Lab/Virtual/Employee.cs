@@ -13,9 +13,15 @@ namespace Virtual
         public string Name { get; set; }
 
         public virtual void Work() // virtual means that that it can be overridden, and is even
-            // expected to be
+            // expected to be. You can also use the keyword "sealed" to prevent the class
+            // or method from being inherited.
         {
             Console.WriteLine("Gore - dolu bachkam, gledam i da si pochivam");
+        }
+
+        public override string ToString()
+        {
+            return $"Nashiq si ToString";
         }
     }
 }
