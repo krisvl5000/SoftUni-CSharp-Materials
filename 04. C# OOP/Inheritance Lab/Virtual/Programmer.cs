@@ -8,8 +8,9 @@ namespace Virtual
 {
     public class Programmer : Employee
     {
-        public void WOrk()
+        public override void Work()
         {
+            base.Work();
             Console.WriteLine("Programistite ne rabotqt!!!");
         }
     }

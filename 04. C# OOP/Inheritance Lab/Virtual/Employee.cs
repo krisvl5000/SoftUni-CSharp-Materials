@@ -12,7 +12,8 @@ namespace Virtual
 
         public string Name { get; set; }
 
-        public void Work()
+        public virtual void Work() // virtual means that that it can be overridden, and is even
+            // expected to be
         {
             Console.WriteLine("Gore - dolu bachkam, gledam i da si pochivam");
         }
