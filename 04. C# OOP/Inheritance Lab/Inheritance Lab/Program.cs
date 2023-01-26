@@ -1,12 +1,15 @@
 ﻿using System;
 
-namespace _01._Hello_Softuni
+namespace Demo
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-
+            Programmer programmer = new Programmer();
+            programmer.Name = "Dimitrichko";
+            programmer.CreateBugs();
+            programmer.GetPaid();
 
         }
     }
