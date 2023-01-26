@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Virtual
 {
-    internal class Programmer
+    public class Programmer : Employee
     {
+        public void WOrk()
+        {
+            Console.WriteLine("Programistite ne rabotqt!!!");
+        }
     }
 }

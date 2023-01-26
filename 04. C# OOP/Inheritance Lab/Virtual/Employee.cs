@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace Virtual
 {
-    internal class Employee
+    public class Employee
     {
+        public decimal Salary { get; set; }
+
+        public string Name { get; set; }
+
+        public void Work()
+        {
+            Console.WriteLine("Gore - dolu bachkam, gledam i da si pochivam");
+        }
     }
 }
