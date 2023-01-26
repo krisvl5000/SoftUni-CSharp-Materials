@@ -6,6 +6,8 @@ namespace Demo
     {
         static void Main(string[] args)
         {
+            Junior junior = new Junior("Goshko");
+
             Programmer programmer = new Programmer("Pesho");
             programmer.Name = "Dimitrichko";
             programmer.CreateBugs();
