@@ -8,7 +8,7 @@ namespace Shadowing
         {
             //How to avoid confusion with variables when using inheritance
             Child c = new Child();
-            //c.Add(1);
+            c.Add(1);
 
             c.Hello();
         }
