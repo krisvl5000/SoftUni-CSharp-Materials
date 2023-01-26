@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Inheritance_Lab
+namespace Demo
 {
-    internal class Programmer
+    public class Programmer : Employee
     {
+        public void CreateBugs()
+        {
+            Console.WriteLine("Sometimes I create  bugs");
+        }
     }
 }
