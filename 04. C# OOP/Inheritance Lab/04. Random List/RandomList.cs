@@ -4,9 +4,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _04._Random_List
+namespace CustomRandomList
 {
-    internal class RandomList
+    public class RandomList : List<string>
     {
+        private Random random;
+
+        public RandomList()
+        {
+            random = new Random();
+        }
+
+        public string RandomString()
+        {
+            int index = random.Next(0, Count);
+            string removedElement = this[index]; // this allows us to access the indexator
+            this.RemoveAt(index);
+
+            return removedElement;
+        }
     }
 }
