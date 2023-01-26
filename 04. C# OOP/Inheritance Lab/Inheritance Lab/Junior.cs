@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Inheritance_Lab
+namespace Demo
 {
-    internal class Junior
+    public class Junior : Programmer
     {
+        public Junior(string name) : base(name)
+        {
+            Console.WriteLine($"In Junior constructor with the name {name}");
+        }
     }
 }
