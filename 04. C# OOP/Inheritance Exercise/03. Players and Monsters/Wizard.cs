@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _03._Players_and_Monsters
+namespace Players
 {
-    internal class Wizard
+    public class Wizard : Hero
     {
+        public Wizard(string username, int level) : base(username, level)
+        {
+
+        }
     }
 }

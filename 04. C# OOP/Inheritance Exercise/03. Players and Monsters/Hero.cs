@@ -4,9 +4,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _03._Players_and_Monsters
+namespace Players
 {
-    internal class Hero
+    public class Hero
     {
+        private string username;
+        private int level;
+
+        public Hero(string username, int level)
+        {
+            Username = username;
+            Level = level;
+        }
+
+        public string Username { get; set; }
+
+        public int Level { get; set; }
+
+        public override string ToString()
+        {
+            return $"Type: {this.GetType().Name} Username: {this.Username} Level: {this.Level}";
+        }
     }
 }
