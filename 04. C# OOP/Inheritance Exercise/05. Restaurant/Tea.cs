@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _05._Restaurant
+namespace Restaurant
 {
-    internal class Tea
+    public class Tea : HotBeverage
     {
+        public Tea(string name, decimal price, double mililiters) : base(name, price, mililiters)
+        {
+
+        }
     }
 }

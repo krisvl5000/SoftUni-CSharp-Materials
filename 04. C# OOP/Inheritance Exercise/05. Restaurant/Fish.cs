@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _05._Restaurant
+namespace Restaurant
 {
-    internal class Fish
+    public class Fish : MainDish
     {
+        public Fish(string name, decimal price, double grams) : base(name, price, grams)
+        {
+            Grams = 22;
+        }
     }
 }

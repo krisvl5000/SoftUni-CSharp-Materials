@@ -4,9 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _05._Restaurant
+namespace Restaurant
 {
-    internal class Cake
+    public class Cake : Dessert
     {
+        public Cake(string name, decimal price, double grams, double calories)
+            : base(name, price, grams, calories)
+        {
+            Grams = 250;
+            Calories = 1000;
+            Price = 5;
+        }
     }
 }
