@@ -8,9 +8,6 @@ namespace Players
 {
     public class Hero
     {
-        private string username;
-        private int level;
-
         public Hero(string username, int level)
         {
             Username = username;
