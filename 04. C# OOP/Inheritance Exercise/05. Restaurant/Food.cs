@@ -13,6 +13,6 @@ namespace Restaurant
             Grams = grams;
         }
 
-        public virtual double Grams { get; set; }
+        public double Grams { get; set; }
     }
 }

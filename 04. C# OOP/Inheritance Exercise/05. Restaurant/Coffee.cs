@@ -8,15 +8,14 @@ namespace Restaurant
 {
     public class Coffee : HotBeverage
     {
-        public Coffee(string name, decimal price, double mililiters) : base(name, price, mililiters)
+        private const double COFFEE_MILILITERS = 50;
+        private const decimal COFFEE_PRICE = 3.5m;
+
+        public Coffee(string name, double caffeine) : base(name, COFFEE_PRICE, COFFEE_MILILITERS)
         {
-            
+            Caffeine = caffeine;
         }
 
-        public virtual double CoffeeMililiters { get; set; } = 50;
-
-        public virtual decimal CoffeePrice { get; set; } = 3.50m;
-
-        public virtual double Caffeine { get; set; }
+        public double Caffeine { get; set; }
     }
 }

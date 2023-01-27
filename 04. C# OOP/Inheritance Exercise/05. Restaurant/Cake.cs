@@ -8,12 +8,13 @@ namespace Restaurant
 {
     public class Cake : Dessert
     {
-        public Cake(string name, decimal price, double grams, double calories)
-            : base(name, price, grams, calories)
+        private const double CAKE_GRAMS = 250;
+        private const double CAKE_CALORIES = 1000;
+        private const decimal CAKE_PRICE = 5m;
+        public Cake(string name)
+            : base(name, CAKE_PRICE, CAKE_GRAMS, CAKE_CALORIES)
         {
-            Grams = 250;
-            Calories = 1000;
-            Price = 5;
+            Name = name;
         }
     }
 }
