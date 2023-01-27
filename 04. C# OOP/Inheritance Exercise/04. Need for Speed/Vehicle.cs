@@ -24,7 +24,7 @@ namespace NeedForSpeed
 
         public virtual void Drive(double kilometers)
         {
-            Fuel -= kilometers * this.FuelConsumption / 100;
+            Fuel -= kilometers * DefaultFuelConsumption / 100;
         }
     }
 }
