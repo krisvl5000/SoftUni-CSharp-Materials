@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _04._Need_for_Speed
+namespace NeedForSpeed
 {
-    internal class Motorcycle
+    public class Motorcycle : Vehicle
     {
+        public Motorcycle(int horsePower, double fuel) : base(horsePower, fuel)
+        {
+
+        }
     }
 }
