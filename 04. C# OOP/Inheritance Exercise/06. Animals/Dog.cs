@@ -4,9 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _06._Animals
+namespace Animals
 {
-    internal class Dog
+    public class Dog : Animal
     {
+        public Dog(string name, int age, string gender) : base(name, age, gender)
+        {
+
+        }
+
+        public override string ProduceSound() => "Woof!";
+
     }
 }

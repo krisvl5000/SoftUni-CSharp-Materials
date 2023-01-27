@@ -4,9 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _06._Animals
+namespace Animals
 {
-    internal class Tomcat
+    public class Tomcat : Cat
     {
+        public Tomcat(string name, int age) : base(name, age, "Male")
+        {
+
+        }
+
+        public override string ProduceSound() => "MEOW";
+
     }
 }

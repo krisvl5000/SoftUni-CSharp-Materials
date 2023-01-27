@@ -4,9 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _06._Animals
+namespace Animals
 {
-    internal class Kitten
+    public class Kitten : Cat
     {
+        public Kitten(string name, int age) : base(name, age, "Female")
+        {
+
+        }
+
+        public override string ProduceSound() => "Meow";
+
     }
 }
