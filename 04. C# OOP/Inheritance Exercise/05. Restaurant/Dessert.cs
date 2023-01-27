@@ -13,6 +13,6 @@ namespace Restaurant
             Calories = calories;
         }
 
-        public double Calories { get; set; }
+        public virtual double Calories { get; set; }
     }
 }

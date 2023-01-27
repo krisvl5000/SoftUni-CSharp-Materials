@@ -10,13 +10,13 @@ namespace Restaurant
     {
         public Coffee(string name, decimal price, double mililiters) : base(name, price, mililiters)
         {
-
+            
         }
 
-        public double CoffeeMililiters { get; set; } = 50;
+        public virtual double CoffeeMililiters { get; set; } = 50;
 
-        public decimal CoffeePrice { get; set; } = 3.50m;
+        public virtual decimal CoffeePrice { get; set; } = 3.50m;
 
-        public double Caffeine { get; set; }
+        public virtual double Caffeine { get; set; }
     }
 }

@@ -13,6 +13,6 @@ namespace Restaurant
             Mililiters = mililiters;
         }
 
-        public double Mililiters { get; set; }
+        public virtual double Mililiters { get; set; }
     }
 }
