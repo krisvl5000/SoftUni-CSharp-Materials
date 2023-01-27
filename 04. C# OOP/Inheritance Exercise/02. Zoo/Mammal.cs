@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _02._Zoo
+namespace Zoo
 {
-    internal class Mammal
+    public class Mammal : Animal
     {
+        public Mammal(string name) : base(name)
+        {
+
+        }
     }
 }
