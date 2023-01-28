@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Encapsulation_Lab
 {
-    internal class Shape
+    public class Shape
     {
+        
     }
 }
