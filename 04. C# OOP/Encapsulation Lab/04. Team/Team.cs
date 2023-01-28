@@ -4,9 +4,47 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _04._Team
+namespace PersonsInfo
 {
-    internal class Team
+    public class Team
     {
+        private string name;
+        private List<Person> firstTeam;
+        private List<Person> reserveTeam;
+
+        public Team(string name)
+        {
+            this.name = name;
+            firstTeam = new List<Person>();
+            reserveTeam = new List<Person>();
+        }
+
+        public IReadOnlyCollection<Person> FirstTeam 
+        {
+            get 
+            { 
+                return firstTeam.AsReadOnly();
+            }
+        }
+
+        public IReadOnlyCollection<Person> ReserveTeam
+        {
+            get
+            {
+                return reserveTeam.AsReadOnly();
+            }
+        }
+
+        public void AddPlayer(Person player)
+        {
+            if (player.Age < 40)
+            {
+                firstTeam.Add(player);
+            }
+            else
+            {
+                reserveTeam.Add(player);
+            }
+        }
     }
 }
