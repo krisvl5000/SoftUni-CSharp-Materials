@@ -25,7 +25,7 @@ namespace PersonsInfo
 
         public override string ToString()
         {
-            return $"{FirstName} {LastName} is {Age} years old.";
+            return $"{FirstName} {LastName} receives {Salary:F2} leva.";
         }
 
         public void IncreaseSalary(decimal percentage)
