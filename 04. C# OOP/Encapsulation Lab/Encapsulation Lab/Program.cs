@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace _01._Hello_Softuni
+namespace Inheritance
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
