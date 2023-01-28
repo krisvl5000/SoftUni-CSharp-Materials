@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _01._Class_Box_Data
+namespace ClassBoxData
 {
-    internal class Box
+    public class Box
     {
+
     }
 }
