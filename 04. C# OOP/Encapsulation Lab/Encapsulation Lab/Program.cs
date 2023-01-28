@@ -1,12 +1,13 @@
 ﻿using System;
 
-namespace Inheritance
+namespace Encapsulation
 {
     public class Program
     {
         static void Main(string[] args)
         {
-
+            Shape shape = new Shape();
+            shape.Draw();
 
         }
     }
