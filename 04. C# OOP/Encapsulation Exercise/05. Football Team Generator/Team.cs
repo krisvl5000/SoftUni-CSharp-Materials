@@ -9,8 +9,14 @@ namespace FootballTeamGenerator
     public class Team
     {
         private string name;
+        private List<Player> playerList;
 
-        public Team(string name)
+        private Team()
+        {
+            this.playerList = new List<Player>();
+        }
+
+        public Team(string name) : this()
         {
             Name = name;
         }
@@ -29,6 +35,29 @@ namespace FootballTeamGenerator
 
                 name = value;
             }
+        }
+
+        public int Rating 
+            => playerList.Count > 0 ?
+            (int)Math.Round(playerList.Average(p => p.OverallRating), 0) : 0;
+
+        public void AddPlayer(Player player)
+        {
+            playerList.Add(player);
+        }
+
+        public void RemovePlayer(string playerName)
+        {
+            Player playerToRemove = playerList.FirstOrDefault(p => p.Name == playerName);
+
+            if (playerToRemove == null)
+            {
+                throw new InvalidOperationException(String
+                    .Format(ExceptionMessages
+                    .MISSING_PLAYER_MESSAGE, playerName, Name));
+            }
+
+            playerList.Remove(playerToRemove);
         }
     }
 }
