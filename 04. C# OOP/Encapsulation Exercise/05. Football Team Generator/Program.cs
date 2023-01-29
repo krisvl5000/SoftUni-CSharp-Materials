@@ -24,26 +24,36 @@ namespace FootballTeamGenerator
                 string cmdType = cmdArgs[0];
                 string teamName = cmdArgs[1];
 
-                if (cmdType == "Team")
+                try
                 {
-                    AddNewTeam(teamName);
-                }
-                else if (cmdType == "Add")
-                {
-                    AddPlayerToTeam(teamName, cmdArgs);
-                }
-                else if (command == "Remove")
-                {
-                    string playerName = cmdArgs[2];
+                    if (cmdType == "Team")
+                    {
+                        AddNewTeam(teamName);
+                    }
+                    else if (cmdType == "Add")
+                    {
+                        AddPlayerToTeam(teamName, cmdArgs);
+                    }
+                    else if (command == "Remove")
+                    {
+                        string playerName = cmdArgs[2];
 
-                    RemovePlayerFromTeam(teamName, playerName);
+                        RemovePlayerFromTeam(teamName, playerName);
+                    }
+                    else if (command == "Rating")
+                    {
+                        RateTeam(teamName);
+                    }
                 }
-                else if (command == "Rating")
+                catch (ArgumentException ae)
                 {
-                    RateTeam(teamName);
+                    Console.WriteLine(ae.Message);
+                }
+                catch(InvalidOperationException ioe)
+                {
+                    Console.WriteLine(ioe.Message);
                 }
             }
-
         }
 
         static void RateTeam(string teamName)
