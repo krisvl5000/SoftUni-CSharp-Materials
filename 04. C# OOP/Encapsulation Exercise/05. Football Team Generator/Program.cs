@@ -34,13 +34,13 @@ namespace FootballTeamGenerator
                     {
                         AddPlayerToTeam(teamName, cmdArgs);
                     }
-                    else if (command == "Remove")
+                    else if (cmdType == "Remove")
                     {
                         string playerName = cmdArgs[2];
 
                         RemovePlayerFromTeam(teamName, playerName);
                     }
-                    else if (command == "Rating")
+                    else if (cmdType == "Rating")
                     {
                         RateTeam(teamName);
                     }
@@ -67,13 +67,13 @@ namespace FootballTeamGenerator
                 .INEXISTING_TEAM_MESSAGE, teamName));
             }
 
-            Console.WriteLine(teamToRate);
+            Console.WriteLine(teamToRate.ToString());
         }
 
         static void RemovePlayerFromTeam(string teamName, string playerName)
         {
             Team removingTeam = teamList
-                        .FirstOrDefault(t => t.Name == playerName);
+                        .FirstOrDefault(t => t.Name == teamName);
 
             if (removingTeam == null)
             {
