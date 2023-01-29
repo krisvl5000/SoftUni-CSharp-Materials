@@ -23,7 +23,7 @@ namespace ClassBoxData
         {
             get { return length; }
 
-            set
+            private set
             {
                 if (value <= 0)
                 {
