@@ -4,9 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _05._Football_Team_Generator
+namespace FootballTeamGenerator
 {
-    internal class ExceptionMessages
+    public static class ExceptionMessages
     {
+        public const string NAME_CANNOT_BE_NULL_OR_WHITESPACE =
+            "A name should not be empty.";
+
+        public const string INVALID_STAT_MESSAGE =
+            "{0} should be between 0 and 100.";
     }
 }
