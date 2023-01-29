@@ -28,7 +28,8 @@ namespace FootballTeamGenerator
                     // We should never directly write on the console in getters/setters/ctors/metohs
                     // and so on...
                     // We should not access directly the console or another writer in a model class
-                    throw new ArgumentException(ExceptionMessages.NAME_CANNOT_BE_NULL_OR_WHITESPACE);
+                    throw new ArgumentException(ExceptionMessages
+                        .NAME_CANNOT_BE_NULL_OR_WHITESPACE);
                 }
 
                 name = value;
