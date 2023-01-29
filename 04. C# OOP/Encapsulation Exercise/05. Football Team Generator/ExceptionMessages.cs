@@ -16,5 +16,8 @@ namespace FootballTeamGenerator
 
         public const string MISSING_PLAYER_MESSAGE =
             "Player {0} is not in {1} team.";
+
+        public const string INEXISTING_TEAM_MESSAGE =
+            "Team {0} does not exist.";
     }
 }
