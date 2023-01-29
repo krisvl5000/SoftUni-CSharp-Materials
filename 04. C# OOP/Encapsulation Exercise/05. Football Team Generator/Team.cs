@@ -59,5 +59,10 @@ namespace FootballTeamGenerator
 
             playerList.Remove(playerToRemove);
         }
+
+        public override string ToString()
+        {
+            return $"{Name} - {Rating}";
+        }
     }
 }
