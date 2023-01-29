@@ -13,5 +13,8 @@ namespace FootballTeamGenerator
 
         public const string INVALID_STAT_MESSAGE =
             "{0} should be between 0 and 100.";
+
+        public const string MISSING_PLAYER_MESSAGE =
+            "Player {0} is not in {1} team.";
     }
 }
