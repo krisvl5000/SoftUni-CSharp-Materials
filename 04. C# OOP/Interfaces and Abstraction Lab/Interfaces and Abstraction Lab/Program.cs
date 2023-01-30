@@ -12,6 +12,8 @@ namespace AbstractionAndInterfaces
             caretaker.Feed(new Crocodile());
             caretaker.Feed(new Fish());
 
+            IFeedable feedable = new Lion();
+            feedable.Eat();
         }
     }
 }
