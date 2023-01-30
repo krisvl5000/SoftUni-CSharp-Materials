@@ -35,7 +35,7 @@ namespace Shapes
 
             for (int i = 1; i < width - 1; i++)
             {
-                Console.WriteLine(mid);
+                Console.Write(mid);
             }
 
             Console.WriteLine(end);
