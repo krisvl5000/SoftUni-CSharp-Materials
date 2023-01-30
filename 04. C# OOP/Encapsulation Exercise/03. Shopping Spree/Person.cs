@@ -37,7 +37,7 @@ namespace ShoppingSpree
         {
             get { return money; }
 
-            private set
+             set
             {
                 if (double.IsNegative(value))
                 {
