@@ -69,18 +69,26 @@ namespace ShoppingSpree
 
             foreach (var person in personList)
             {
-                Console.Write($"{person.Name} - ");
-
-                List<string> productsBought = new List<string>();
-
-                foreach (var product in person.Products)
+                if (person.Products.Count > 0)
                 {
-                    productsBought.Add(product.Name);
+                    Console.Write($"{person.Name} - ");
+
+                    List<string> productsBought = new List<string>();
+
+                    foreach (var product in person.Products)
+                    {
+                        productsBought.Add(product.Name);
+                    }
+
+                    Console.Write(String.Join(", ", productsBought));
+
+                    Console.WriteLine();
                 }
-
-                Console.Write(String.Join(", ", productsBought));
-
-                Console.WriteLine();
+                else
+                {
+                    Console.Write($"{person.Name} - Nothing bought");
+                }
+                
             }
         }
     }
