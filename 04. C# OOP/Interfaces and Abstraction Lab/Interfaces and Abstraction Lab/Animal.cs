@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AbstractionAndInterfaces
 {
-    public class Animal
+    public class Animal : IFeedable
     {
         public Animal(FoodType type, int dose)
         {
