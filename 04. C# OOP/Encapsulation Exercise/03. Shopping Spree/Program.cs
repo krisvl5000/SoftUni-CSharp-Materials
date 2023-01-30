@@ -53,6 +53,9 @@ namespace ShoppingSpree
                     {
                         personToBuy.Products.Add(productToBeBought);
                         personToBuy.Money -= productToBeBought.Cost;
+
+                        Console.WriteLine($"{personToBuy.Name} bought " +
+                            $"{productToBeBought.Name}");
                     }
                     else
                     {
