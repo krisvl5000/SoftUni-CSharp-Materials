@@ -9,5 +9,9 @@ namespace AbstractionAndInterfaces
     public interface IFeedable
     {
         void Eat();
+
+        public int Dose { get; set; }
+
+        public FoodType FoodType { get; set; }
     }
 }
