@@ -58,6 +58,22 @@ namespace ShoppingSpree
                         $"can't afford {productToBeBought.Name}");
                 }
             }
+
+            foreach (var person in personList)
+            {
+                Console.Write($"{person.Name} - ");
+
+                List<string> productsBought = new List<string>();
+
+                foreach (var product in person.Products)
+                {
+                    productsBought.Add(product.Name);
+                }
+
+                Console.Write(String.Join(", ", productsBought));
+
+                Console.WriteLine();
+            }
         }
     }
 }
