@@ -8,6 +8,9 @@ namespace AbstractionAndInterfaces
 {
     public class Lion : IFeedable
     {
+        public int Dose { get; set; }
+
+        public FoodType FoodType { get; set; }
         public void Eat()
         {
 
