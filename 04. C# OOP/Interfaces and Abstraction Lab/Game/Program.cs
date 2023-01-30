@@ -6,10 +6,19 @@ namespace Game
     {
         static void Main(string[] args)
         {
+            List<IDrawable> drawableObjects = new List<IDrawable>();
+
+            drawableObjects.Add(new Bird());
+            drawableObjects.Add(new Column());
+
             while (true)
             {
                 Thread.Sleep(1000);
-                Console.WriteLine("Flap");
+
+                foreach (var item in drawableObjects)
+                {
+                    item.Draw();
+                }
             }
 
         }
