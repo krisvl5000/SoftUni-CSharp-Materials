@@ -12,51 +12,59 @@ namespace ShoppingSpree
             string[] peopleArgs = Console.ReadLine()
                 .Split(";", StringSplitOptions.RemoveEmptyEntries);
 
-            foreach (var item in peopleArgs)
+            try
             {
-                string name = item.Split('=')[0];
-                int money = int.Parse(item.Split('=')[1]);
-
-                Person person = new Person(name, money);
-                personList.Add(person);
-            }
-
-            string[] productArgs = Console.ReadLine()
-                .Split(";", StringSplitOptions.RemoveEmptyEntries);
-
-            foreach (var item in productArgs)
-            {
-                string name = item.Split('=')[0];
-                int cost = int.Parse(item.Split('=')[1]);
-
-                Product product = new Product(name, cost);
-                productList.Add(product);
-            }
-
-            string command;
-            while ((command = Console.ReadLine()) != "END")
-            {
-                string[] buyingArgs = command.Split(" ");
-
-                string name = buyingArgs[0];
-                string productToBuy = buyingArgs[1];
-
-                Person personToBuy = personList
-                    .First(x => x.Name == name);
-
-                Product productToBeBought = productList
-                    .First(x => x.Name == productToBuy);
-
-                if (personToBuy.Money >= productToBeBought.Cost)
+                foreach (var item in peopleArgs)
                 {
-                    personToBuy.Products.Add(productToBeBought);
-                    personToBuy.Money -= productToBeBought.Cost;
+                    string name = item.Split('=')[0];
+                    int money = int.Parse(item.Split('=')[1]);
+
+                    Person person = new Person(name, money);
+                    personList.Add(person);
                 }
-                else
+
+                string[] productArgs = Console.ReadLine()
+                    .Split(";", StringSplitOptions.RemoveEmptyEntries);
+
+                foreach (var item in productArgs)
                 {
-                    Console.WriteLine($"{personToBuy.Name} " +
-                        $"can't afford {productToBeBought.Name}");
+                    string name = item.Split('=')[0];
+                    int cost = int.Parse(item.Split('=')[1]);
+
+                    Product product = new Product(name, cost);
+                    productList.Add(product);
                 }
+
+                string command;
+                while ((command = Console.ReadLine()) != "END")
+                {
+                    string[] buyingArgs = command.Split(" ");
+
+                    string name = buyingArgs[0];
+                    string productToBuy = buyingArgs[1];
+
+                    Person personToBuy = personList
+                        .First(x => x.Name == name);
+
+                    Product productToBeBought = productList
+                        .First(x => x.Name == productToBuy);
+
+                    if (personToBuy.Money >= productToBeBought.Cost)
+                    {
+                        personToBuy.Products.Add(productToBeBought);
+                        personToBuy.Money -= productToBeBought.Cost;
+                    }
+                    else
+                    {
+                        Console.WriteLine($"{personToBuy.Name} " +
+                            $"can't afford {productToBeBought.Name}");
+                    }
+                }
+            }
+            catch (ArgumentException ae)
+            {
+                Console.WriteLine(ae.Message);
+                return;
             }
 
             foreach (var person in personList)
