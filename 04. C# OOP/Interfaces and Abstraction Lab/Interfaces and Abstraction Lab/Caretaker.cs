@@ -8,11 +8,11 @@ namespace AbstractionAndInterfaces
 {
     public class Caretaker
     {
-        public void Feed(Animal animal)
+        public void Feed(IFeedable feedable)
         {
-            Console.WriteLine($"Get {animal.Dose} {animal.FoodType} from inventory");
+            Console.WriteLine($"Get {feedable.Dose} {feedable.FoodType} from inventory");
             Console.WriteLine("Feeding animal");
-            animal.Eat();
+            feedable.Eat();
         }
     }
 }
