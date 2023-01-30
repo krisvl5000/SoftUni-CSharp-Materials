@@ -5,6 +5,10 @@ VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interfaces and Abstraction Lab", "Interfaces and Abstraction Lab\Interfaces and Abstraction Lab.csproj", "{725D6548-762A-48A9-8753-EE5611EDC350}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01. Shapes", "01. Shapes\01. Shapes.csproj", "{560C6A3E-2D7F-42C6-BAAC-740833C309AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02. Cars", "02. Cars\02. Cars.csproj", "{ED4CEA92-B82A-41D9-8AD8-264881B524B9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{725D6548-762A-48A9-8753-EE5611EDC350}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{725D6548-762A-48A9-8753-EE5611EDC350}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{725D6548-762A-48A9-8753-EE5611EDC350}.Release|Any CPU.Build.0 = Release|Any CPU
+		{560C6A3E-2D7F-42C6-BAAC-740833C309AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{560C6A3E-2D7F-42C6-BAAC-740833C309AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{560C6A3E-2D7F-42C6-BAAC-740833C309AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{560C6A3E-2D7F-42C6-BAAC-740833C309AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED4CEA92-B82A-41D9-8AD8-264881B524B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED4CEA92-B82A-41D9-8AD8-264881B524B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED4CEA92-B82A-41D9-8AD8-264881B524B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED4CEA92-B82A-41D9-8AD8-264881B524B9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
