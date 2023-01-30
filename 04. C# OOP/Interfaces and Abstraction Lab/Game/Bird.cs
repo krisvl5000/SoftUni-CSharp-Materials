@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    internal class Bird
+    public class Bird : IDrawable
     {
+        public void Draw()
+        {
+            Console.WriteLine("Flapping");
+        }
     }
 }
