@@ -31,7 +31,7 @@ namespace Shapes
 
         private void DrawLine(int width, char end, char mid)
         {
-            Console.WriteLine(end);
+            Console.Write(end);
 
             for (int i = 1; i < width - 1; i++)
             {
