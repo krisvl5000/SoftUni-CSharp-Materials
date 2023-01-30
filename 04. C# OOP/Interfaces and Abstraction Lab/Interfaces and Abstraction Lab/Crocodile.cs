@@ -4,9 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Interfaces_and_Abstraction_Lab
+namespace AbstractionAndInterfaces
 {
-    internal class Crocodile
+    public class Crocodile : Animal
     {
+        public Crocodile() : base(FoodType.Meat, 15)
+        {
+
+        }
+
+        public override void Eat()
+        {
+            Console.WriteLine("Eating everything");
+        }
+
+        public void ScarePeople()
+        {
+            Console.WriteLine("Pa");
+        }
     }
 }

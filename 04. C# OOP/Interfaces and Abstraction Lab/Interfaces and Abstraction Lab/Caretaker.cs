@@ -4,9 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Interfaces_and_Abstraction_Lab
+namespace AbstractionAndInterfaces
 {
-    internal class Caretaker
+    public class Caretaker
     {
+        public void Feed(Animal animal)
+        {
+            Console.WriteLine($"Get {animal.Dose} {animal.FoodType} from inventory");
+            Console.WriteLine("Feeding animal");
+            animal.Eat();
+        }
     }
 }

@@ -4,9 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Interfaces_and_Abstraction_Lab
+namespace AbstractionAndInterfaces
 {
-    internal class Fish
+    public class Fish : Animal
     {
+        public Fish() : base(FoodType.Wheat, 5)
+        {
+
+        }
+
+        public void Swim()
+        {
+            //Console.WriteLine("Swimming");
+        }
     }
 }

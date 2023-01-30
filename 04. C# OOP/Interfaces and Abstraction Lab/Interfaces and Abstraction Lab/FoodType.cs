@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Interfaces_and_Abstraction_Lab
+namespace AbstractionAndInterfaces
 {
-    internal class FoodType
+    public enum FoodType
     {
+        Oats,
+        Meat,
+        Wheat,
+        Greens
     }
 }

@@ -4,9 +4,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Interfaces_and_Abstraction_Lab
+namespace AbstractionAndInterfaces
 {
-    internal class Animal
+    public class Animal
     {
+        public Animal(FoodType type, int dose)
+        {
+            FoodType = type;
+            Dose = dose;
+        }
+
+        public FoodType FoodType { get; set; }
+
+        public int Dose { get; set; }
+
+        public virtual void Eat()
+        {
+            Console.WriteLine("I am eating");
+        }
+
+        public void Sleep()
+        {
+            Console.WriteLine("i am sleeping");
+        }
+
+        public void Play()
+        {
+            Console.WriteLine("Playing");
+        }
     }
 }

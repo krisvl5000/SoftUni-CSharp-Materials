@@ -4,9 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Interfaces_and_Abstraction_Lab
+namespace AbstractionAndInterfaces
 {
-    internal class Eagle
+    public class Eagle : Animal
     {
+        public Eagle() : base(FoodType.Oats, 10)
+        {
+
+        }
+
+        public void Fly()
+        {
+            Console.WriteLine("Flying");
+        }
     }
 }
