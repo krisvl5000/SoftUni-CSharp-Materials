@@ -4,9 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Interfaces_and_Abstraction_Lab
+namespace AbstractionAndInterfaces
 {
-    internal class Baby
+    public class Baby : IFeedable
     {
+        public int Dose { get; set; }
+
+        public FoodType FoodType { get; set; }
+
+        public void Eat()
+        {
+            Console.WriteLine("Mryn");
+        }
     }
 }
