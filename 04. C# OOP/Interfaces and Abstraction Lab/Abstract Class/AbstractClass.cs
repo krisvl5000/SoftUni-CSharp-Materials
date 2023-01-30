@@ -4,9 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Abstract_Class
+namespace AbstractClass
 {
-    internal class AbstractClass
+    public abstract class Printer
     {
+        public int Color { get; set; }
+
+        public int Size { get; set; }
+
+        public abstract void Print();
+
+        public void Clean()
+        {
+            Console.WriteLine("Clean printer");
+        }
     }
 }
