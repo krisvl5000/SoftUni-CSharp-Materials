@@ -20,7 +20,7 @@ namespace Shapes
             double rIn = radius - 0.4;
             double rOut = radius + 0.4;
 
-            for (int y = radius; y < rOut; y--)
+            for (int y = radius; y >= -radius; y--)
             {
                 for (double x = -radius; x < rOut; x += 0.5)
                 {
@@ -28,11 +28,11 @@ namespace Shapes
 
                     if (value >= rIn * rIn && value <= rOut * rOut)
                     {
-                        Console.WriteLine("*");
+                        Console.Write("*");
                     }
                     else
                     {
-                        Console.WriteLine(" ");
+                        Console.Write(" ");
                     }
                 }
 
