@@ -41,7 +41,7 @@ namespace ShoppingSpree
             {
                 if (double.IsNegative(value))
                 {
-                    throw new ArgumentException("Name cannot be empty");
+                    throw new ArgumentException("Money cannot be negative");
                 }
 
                 money = value;
