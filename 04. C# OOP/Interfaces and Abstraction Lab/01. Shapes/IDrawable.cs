@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _01._Shapes
+namespace Shapes
 {
-    internal interface IDrawable
+    public interface IDrawable
     {
+        void Draw()
+        {
+
+        }
     }
 }
