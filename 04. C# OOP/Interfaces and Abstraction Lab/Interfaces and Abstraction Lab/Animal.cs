@@ -25,7 +25,7 @@ namespace AbstractionAndInterfaces
 
         public void Sleep()
         {
-            Console.WriteLine("i am sleeping");
+            Console.WriteLine("I am sleeping");
         }
 
         public void Play()
