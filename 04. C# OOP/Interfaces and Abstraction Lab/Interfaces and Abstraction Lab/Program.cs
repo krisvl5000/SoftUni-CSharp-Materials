@@ -6,7 +6,11 @@ namespace AbstractionAndInterfaces
     {
         static void Main(string[] args)
         {
+            Caretaker caretaker = new Caretaker();
 
+            caretaker.Feed(new Eagle());
+            caretaker.Feed(new Crocodile());
+            caretaker.Feed(new Fish());
 
         }
     }
