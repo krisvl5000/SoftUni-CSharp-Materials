@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    internal class Column
+    public class Column : IDrawable
     {
+        public void Draw()
+        {
+            Console.WriteLine("Hitting birds");
+        }
     }
 }
