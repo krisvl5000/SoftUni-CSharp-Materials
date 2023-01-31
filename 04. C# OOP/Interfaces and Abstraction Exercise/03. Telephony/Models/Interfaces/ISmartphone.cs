@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Telephony.Models.Interfaces
 {
-    internal class ISmartphone
+    public interface ISmartphone : IStationaryPhone
     {
+        string BrowseURL(string url);
     }
 }

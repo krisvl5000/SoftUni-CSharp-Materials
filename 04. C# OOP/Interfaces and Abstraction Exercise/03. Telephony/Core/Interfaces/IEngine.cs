@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Telephony.Core.Interfaces
 {
-    internal class IEngine
+    public interface IEngine
     {
+        void Run();
     }
 }

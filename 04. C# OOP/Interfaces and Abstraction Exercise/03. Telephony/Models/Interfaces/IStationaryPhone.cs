@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Telephony.Models.Interfaces
 {
-    internal class IStationaryPhone
+    public interface IStationaryPhone
     {
+        string Call(string phoneNumber);
     }
 }

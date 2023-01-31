@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Telephony.IO.Interfaces
 {
-    internal class IWriter
+    public interface IWriter
     {
+        void Write(string text);
+        void WriteLine(string text);
     }
 }

@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Telephony.IO.Interfaces
 {
-    internal class IReader
+    public interface IReader
     {
+        // Does not necessarily refer to the console
+        // It can be the console, but also can be file.ReadLine
+        string ReadLine();
     }
 }
