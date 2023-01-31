@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace PersonInfo.Models.Interfaces
 {
-    internal class IPerson
+    public interface IPerson
     {
+        string Name { get; } // We write no setters to encapsulate it better
+
+        int Age { get; }
     }
 }
