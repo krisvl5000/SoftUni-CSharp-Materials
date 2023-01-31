@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace _01._Hello_Softuni
+﻿namespace Telephony
 {
-    internal class Program
+    public class StartUp
     {
         static void Main(string[] args)
         {
