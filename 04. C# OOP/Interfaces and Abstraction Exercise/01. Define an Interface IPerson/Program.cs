@@ -1,8 +1,4 @@
-﻿using PersonInfo.Models;
-using PersonInfo.Models.Interfaces;
-using System;
-
-namespace PersonInfo
+﻿namespace PersonInfo
 {
     public class StartUp
     {
