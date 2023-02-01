@@ -48,7 +48,14 @@ namespace Polymorphism
                 }
                 if (order == "robot clean")
                 {
-                    // TODO: add robot kitchen
+                    if (kitchen is RobotKitchen)
+                    {
+                        ((RobotKitchen)kitchen).RobotClean();
+                    }
+                    else
+                    {
+                        Console.WriteLine("Kuhnqta ti e stara");
+                    }
                 }
                 if (order == "change kitchen")
                 {
