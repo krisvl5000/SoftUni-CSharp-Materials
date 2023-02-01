@@ -6,7 +6,55 @@ namespace Polymorphism
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("What kitchen type do you want to use?");
+            string kitchenType = Console.ReadLine();
 
+            Kitchen kitchen = new OldKitchen();
+
+            if (kitchenType == "old")
+            {
+                kitchen = new OldKitchen();
+            }
+            else if (kitchenType == "normal")
+            {
+                kitchen = new NormalKitchen();
+            }
+            else if (kitchenType == "modern")
+            {
+                kitchen = new ModernKitchen();
+            }
+
+            while (true)
+            {
+                Console.WriteLine("What is your order?");
+
+                var order = Console.ReadLine();
+
+                if (order == "meat")
+                {
+                    kitchen.CookMeat();
+                }
+                if (order == "salad")
+                {
+                    kitchen.CookSalad();
+                }
+                if (order == "veggie")
+                {
+                    kitchen.CookVegetarian();
+                }
+                if (order == "clean")
+                {
+                    kitchen.CleanKitchen();
+                }
+                if (order == "robot clean")
+                {
+                    // TODO: add robot kitchen
+                }
+                if (order == "change kitchen")
+                {
+                    // TODO: change at any time
+                }
+            }
 
         }
     }
