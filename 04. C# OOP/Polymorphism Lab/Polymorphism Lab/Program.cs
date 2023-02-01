@@ -23,6 +23,10 @@ namespace Polymorphism
             {
                 kitchen = new ModernKitchen();
             }
+            else if (kitchenType == "robot")
+            {
+                kitchen = new RobotKitchen();
+            }
 
             while (true)
             {
