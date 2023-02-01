@@ -15,7 +15,7 @@ namespace Polymorphism
 
         public override void CookMeat()
         {
-            Console.WriteLine("Modern Kitchen: slozhi go na ogunq i gledai da ne se oparish");
+            Console.WriteLine("Modern Kitchen: sgotvi mesoto");
         }
 
         public override void CookVegetarian()
