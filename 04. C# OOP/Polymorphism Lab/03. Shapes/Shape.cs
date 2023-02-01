@@ -14,7 +14,7 @@ namespace System
 
         public virtual string Draw()
         {
-            return $"Drawing {typeof(object)}";
+            return $"Drawing {typeof(Shape)}";
         }
     }
 }
