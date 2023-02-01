@@ -28,7 +28,7 @@ namespace Polymorphism
             Console.WriteLine("gurme salata (nqma q)");
         }
 
-        public void RobotClean()
+        public virtual void RobotClean()
         {
             Console.WriteLine("Modern Kitchen : Robotite shte ni prevzemat");
         }
