@@ -9,7 +9,7 @@ namespace Polymorphism
             Console.WriteLine("What kitchen type do you want to use?");
             string kitchenType = Console.ReadLine();
 
-            Kitchen kitchen = new OldKitchen();
+            Kitchen kitchen = new RobotKitchen();
 
             if (kitchenType == "old")
             {
