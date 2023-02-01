@@ -33,7 +33,7 @@ namespace System
 
         public override string Draw()
         {
-            return base.Draw();
+            return $"Drawing {typeof(Rectangle)}";
         }
     }
 }
