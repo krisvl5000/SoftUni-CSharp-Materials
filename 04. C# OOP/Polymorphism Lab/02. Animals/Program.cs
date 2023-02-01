@@ -1,13 +1,16 @@
 ﻿using System;
 
-namespace _01._Hello_Softuni
+namespace Animals
 {
-    internal class Program
+    public class StartUp
     {
         static void Main(string[] args)
         {
+            Animal cat = new Cat("Peter", "Whiskas");
+            Animal dog = new Dog("George", "Meat");
 
-
+            Console.WriteLine(cat.ExplainSelf());
+            Console.WriteLine(dog.ExplainSelf());
         }
     }
 }
