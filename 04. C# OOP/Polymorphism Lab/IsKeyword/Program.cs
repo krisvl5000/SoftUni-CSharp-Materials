@@ -19,6 +19,12 @@ namespace IsKeyword
 
             shape.Draw();
 
+            if (shape is Circle)
+            {
+                int radius = ((Circle)shape).Raduis;
+                Console.WriteLine(radius);
+            }
+
         }
     }
 }
