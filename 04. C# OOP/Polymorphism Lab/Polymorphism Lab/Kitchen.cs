@@ -18,5 +18,7 @@ namespace Polymorphism
         }
 
         public abstract void CookVegetarian();
+
+        //public abstract void RobotClean();
     }
 }
