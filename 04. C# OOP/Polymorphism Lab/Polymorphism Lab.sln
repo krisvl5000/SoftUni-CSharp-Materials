@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02. Animals", "02. Animals\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03. Shapes", "03. Shapes\03. Shapes.csproj", "{EAA042EE-A526-4519-B1D1-E4383639B1C2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IsKeyword", "IsKeyword\IsKeyword.csproj", "{6F474FAA-A8F6-4670-99DC-5C1BB1497682}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{EAA042EE-A526-4519-B1D1-E4383639B1C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EAA042EE-A526-4519-B1D1-E4383639B1C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EAA042EE-A526-4519-B1D1-E4383639B1C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F474FAA-A8F6-4670-99DC-5C1BB1497682}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F474FAA-A8F6-4670-99DC-5C1BB1497682}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F474FAA-A8F6-4670-99DC-5C1BB1497682}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F474FAA-A8F6-4670-99DC-5C1BB1497682}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
