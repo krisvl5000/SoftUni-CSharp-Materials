@@ -18,7 +18,7 @@ namespace Polymorphism
             Console.WriteLine("Robot Kitchen: gurme salata (nqma q)");
         }
 
-        public void RobotClean()
+        public override void RobotClean()
         {
             Console.WriteLine("Robot Kitchen : Robotite shte ni prevzemat");
         }
