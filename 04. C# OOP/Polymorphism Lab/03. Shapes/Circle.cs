@@ -29,7 +29,7 @@ namespace Shapes
 
         public override string Draw()
         {
-            return $"Drawing {typeof(Circle)}";
+            return $"Drawing {this.GetType().Name}";
         }
     }
 }
