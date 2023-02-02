@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _01._Vehicles.Exceptions
+namespace Vehicles
 {
-    internal class InsufficientFuelException
+    public class InsufficientFuelException : Exception
     {
+        public InsufficientFuelException(string message) : base(message)
+        {
+
+        }
     }
 }
