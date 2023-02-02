@@ -4,9 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _01._Vehicles.Core
+namespace Vehicles
 {
-    internal class Engine
+    public class Engine : IEngine
     {
+        private readonly IReader reader;
+        private readonly IWriter writer;
+
+        public void Run()
+        {
+            
+        }
     }
 }
