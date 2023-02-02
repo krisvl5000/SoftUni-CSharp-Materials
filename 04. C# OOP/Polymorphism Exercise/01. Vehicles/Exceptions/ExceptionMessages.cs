@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _01._Vehicles.Exceptions
+namespace Vehicles
 {
-    internal class ExceptionMessages
+    public static class ExceptionMessages
     {
+        public const string INSUFFICIENT_FUEL_EXCEPTION_MESSAGE = 
+            "{0} needs refueling";
     }
 }
