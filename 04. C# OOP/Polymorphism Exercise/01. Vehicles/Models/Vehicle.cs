@@ -39,5 +39,10 @@ namespace Vehicles
         {
             FuelQuantity += liters;
         }
+
+        public override string ToString()
+        {
+            return $"{GetType().Name} : {FuelConsumption:F2}";
+        }
     }
 }
