@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _01._Vehicles.Core.Interfaces
+namespace Vehicles
 {
-    internal class IEngine
+    public interface IEngine
     {
+        void Run();
     }
 }
