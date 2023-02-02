@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _01._Vehicles.IO.Interfaces
+namespace Vehicles
 {
-    internal class IReader
+    public interface IReader
     {
+        string ReadLine();
     }
 }
