@@ -55,6 +55,8 @@ namespace Vehicles
                     throw;
                 }
             }
+
+
         }
 
         private IVehicle BuildVehicleUsingFactory()
@@ -94,6 +96,14 @@ namespace Vehicles
             else if (cmdType == "Refuel")
             {
                 vehicleToProcess.Refuel(arg);
+            }
+        }
+
+        private void PrintAllVehicles()
+        {
+            foreach (IVehicle item in vehicles)
+            {
+                writer.WriteLine(item.ToString());
             }
         }
     }
