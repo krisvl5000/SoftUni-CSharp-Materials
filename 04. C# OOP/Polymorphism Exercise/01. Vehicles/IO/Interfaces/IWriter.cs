@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _01._Vehicles.IO.Interfaces
+namespace Vehicles
 {
-    internal class IWriter
+    public interface IWriter
     {
+        void Write(string text);
+
+        void WriteLine(string text);
     }
 }
