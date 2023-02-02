@@ -4,9 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _01._Vehicles.Exceptions
+namespace Vehicles
 {
-    internal class InvalidVehicleTypeException
+    public class InvalidVehicleTypeException : Exception
     {
+        private const string DEFAULT_MESSAGE = "Vehicle type not supported!";
+        public InvalidVehicleTypeException() : base(DEFAULT_MESSAGE)
+        {
+
+        }
+
+        public InvalidVehicleTypeException(string message) : base(message)
+        {
+
+        }
     }
 }
