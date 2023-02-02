@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _01._Vehicles.Factories.Interfaces
+namespace Vehicles
 {
-    internal class IVehicleFactory
+    public interface IVehicleFactory
     {
+        IVehicle CreateVehicle(string type, double fuelQuantity, double fuelConsumption);
     }
 }
