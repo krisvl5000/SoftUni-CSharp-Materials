@@ -10,8 +10,9 @@ namespace Vehicles
     {
         private const double FUEL_CONSUMPTION_INCEREMENT = 0.9;
         public Car(double fuelQuantity, 
-            double fuelConsumption) : 
-            base(fuelQuantity, fuelConsumption, FUEL_CONSUMPTION_INCEREMENT)
+            double fuelConsumption, double tankCapacity) : 
+            base(fuelQuantity, fuelConsumption, 
+                FUEL_CONSUMPTION_INCEREMENT, tankCapacity)
         {
 
         }
