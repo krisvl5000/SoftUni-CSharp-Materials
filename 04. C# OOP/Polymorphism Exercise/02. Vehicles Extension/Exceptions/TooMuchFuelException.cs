@@ -4,9 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _02._Vehicles_Extension.Exceptions
+namespace Vehicles
 {
-    internal class TooMuchFuelException
+    public class TooMuchFuelException : Exception
     {
+        public const string DEFAULT_MESSAGE = "Cannot fill {0} fuel in the tank";
+
+        public TooMuchFuelException()
+        {
+
+        }
+
+        public TooMuchFuelException(string message) : base()
+        {
+
+        }
     }
 }
