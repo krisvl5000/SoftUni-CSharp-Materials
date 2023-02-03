@@ -8,6 +8,10 @@ namespace Vehicles
 {
     public interface IVehicleFactory
     {
-        IVehicle CreateVehicle(string type, double fuelQuantity, double fuelConsumption);
+        IVehicle CreateVehicle
+            (string type, 
+            double fuelQuantity, 
+            double fuelConsumption, 
+            double tankCapacity);
     }
 }
