@@ -4,9 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _02._Vehicles_Extension.Models
+namespace Vehicles
 {
-    internal class Bus
+    public class Bus : Vehicle
     {
+        public Bus(double fuelQuantity, 
+            double fuelConsumption, 
+            double fuelConsumptionIncrement,
+            double tankCapacity) : 
+            base(fuelQuantity, fuelConsumption, fuelConsumptionIncrement, tankCapacity)
+        {
+
+        }
     }
 }
