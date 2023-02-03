@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _03._Raiding.Core.Interfaces
+namespace Raiding
 {
-    internal class IEngine
+    public interface IEngine
     {
+        void Run();
     }
 }
