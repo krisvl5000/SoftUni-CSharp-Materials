@@ -10,6 +10,7 @@ namespace Vehicles
     {
         double FuelQuantity { get; }
         double FuelConsumption { get; }
+        double TankCapacity { get; }
 
         string Drive(double distance);
 
