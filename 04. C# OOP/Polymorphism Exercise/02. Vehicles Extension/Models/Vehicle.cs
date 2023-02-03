@@ -35,7 +35,7 @@ namespace Vehicles
 
         public double FuelConsumption { get; private set; }
 
-        public double TankCapacity {get; private set; }
+        public double TankCapacity { get; private set; }
 
         public string Drive(double distance)
         {
