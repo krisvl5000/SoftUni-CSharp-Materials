@@ -8,11 +8,11 @@ namespace Vehicles
 {
     public class Bus : Vehicle
     {
+        public const double FUEL_CONSUMPTION_INCREMENT = 0.0;
         public Bus(double fuelQuantity, 
-            double fuelConsumption, 
-            double fuelConsumptionIncrement,
-            double tankCapacity) : 
-            base(fuelQuantity, fuelConsumption, fuelConsumptionIncrement, tankCapacity)
+            double fuelConsumption,
+            double tankCapacity) :
+            base(fuelQuantity, fuelConsumption, FUEL_CONSUMPTION_INCREMENT, tankCapacity)
         {
 
         }
