@@ -70,9 +70,12 @@ namespace Vehicles
             string vehicleType = vehicleArgs[0];
             double vehicleFuelQuantity = double.Parse(vehicleArgs[1]);
             double vehicleFuelConsumption = double.Parse(vehicleArgs[2]);
+            double vehicleTankCapacity = double.Parse(vehicleArgs[3]);
 
             IVehicle vehicle = vehicleFactory.CreateVehicle
-                (vehicleType, vehicleFuelQuantity, vehicleFuelConsumption);
+                (vehicleType, vehicleFuelQuantity, 
+                vehicleFuelConsumption, vehicleTankCapacity);
+
             return vehicle;
         }
 
@@ -100,6 +103,10 @@ namespace Vehicles
             else if (cmdType == "Refuel")
             {
                 vehicleToProcess.Refuel(arg);
+            }
+            else if (cmdType == "DriveEmpty")
+            {
+                
             }
         }
 
