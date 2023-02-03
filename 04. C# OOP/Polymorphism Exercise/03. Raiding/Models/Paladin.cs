@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _03._Raiding.Models
+namespace Raiding
 {
-    internal class Paladin
+    public class Paladin : BaseHero
     {
+        public override string CastAbility()
+        {
+            return $"{GetType().Name} - {Name} healed for {Power}";
+        }
     }
 }

@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _03._Raiding.Models.Interfaces
+namespace Raiding
 {
-    internal class IBaseHero
+    public interface IBaseHero
     {
+        string Name { get; }
+        int Power { get; }
+
+        string CastAbility();
     }
 }

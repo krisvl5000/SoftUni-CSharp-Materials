@@ -4,9 +4,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _03._Raiding.Models
+namespace Raiding
 {
-    internal class BaseHero
+    public abstract class BaseHero : IBaseHero
     {
+        public BaseHero()
+        {
+
+        }
+
+        public BaseHero(string name, int power) : this()
+        {
+            Name = name;
+            Power = power;
+        }
+
+        public string Name { get; set; }
+
+        public int Power { get; set; }
+
+        public abstract string CastAbility();
     }
 }

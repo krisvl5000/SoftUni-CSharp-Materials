@@ -4,9 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _03._Raiding.IO
+namespace Raiding
 {
-    internal class ConsoleReader
+    public class ConsoleReader : IReader
     {
+        public string ReadLine()
+        {
+            string text = Console.ReadLine();
+            return text;
+        }
     }
 }

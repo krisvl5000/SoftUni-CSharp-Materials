@@ -4,9 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _03._Raiding.IO
+namespace Raiding
 {
-    internal class ConsoleWriter
+    public class ConsoleWriter : IWriter
     {
+        public void Write(string text)
+        {
+            Console.Write(text);
+        }
+
+        public void WriteLine(string text)
+        {
+            Console.WriteLine(text);
+        }
     }
 }

@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _03._Raiding.IO.Interfaces
+namespace Raiding
 {
-    internal class IReader
+    public interface IReader
     {
+        string ReadLine();
     }
 }
