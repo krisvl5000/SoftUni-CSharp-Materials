@@ -29,9 +29,69 @@ namespace Raiding
 
             for (int i = 0; i < n; i++)
             {
-                string name = reader.ReadLine();
-                string type = reader.ReadLine();
+                try
+                {
+                    ProcessCommand();
+                }
+                catch (InvalidHeroTypeException ihte)
+                {
+                    throw new InvalidHeroTypeException(ihte.Message);
+                }
+                catch
+                {
+                    throw;
+                }
             }
+
+            int bossPower = int.Parse(reader.ReadLine());
+            int totalPower = 0;
+
+            foreach (var hero in heroes)
+            {
+                writer.WriteLine(hero.CastAbility());
+                totalPower += hero.Power;
+            }
+
+            if (totalPower >= bossPower)
+            {
+                writer.WriteLine("Victory!");
+            }
+            else
+            {
+                Console.WriteLine("Defeat...");
+            }
+        }
+
+        private void ProcessCommand()
+        {
+            string name = reader.ReadLine();
+            string type = reader.ReadLine();
+
+            IBaseHero hero = null;
+
+            if (type == "Druid")
+            {
+                hero = new Druid(name);
+            }
+            else if (type == "Paladin")
+            {
+                hero = new Paladin(name);
+            }
+            else if (type == "Rogue")
+            {
+                hero = new Rogue(name);
+            }
+            else if (type == "Warrior")
+            {
+                hero = new Warrior(name);
+            }
+            else
+            {
+                throw new InvalidHeroTypeException(string
+                    .Format(ExceptionMessages.INVALID_HERO_MESSAGE));
+            }
+
+            heroes.Add(hero);
         }
     }
 }
