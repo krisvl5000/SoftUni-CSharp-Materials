@@ -12,6 +12,6 @@ namespace Vehicles
             "{0} needs refueling";
 
         public const string TOO_MUCH_FUEL_EXCEPTION_MESSAGE = 
-            "Cannot fill {0} fuel in the tank";
+            "Cannot fit {0} fuel in the tank";
     }
 }
