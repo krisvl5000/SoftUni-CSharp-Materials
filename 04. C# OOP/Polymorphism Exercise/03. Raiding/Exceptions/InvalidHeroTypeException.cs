@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _03._Raiding.Exceptions
+namespace Raiding
 {
-    internal class InvalidHeroTypeException
+    public class InvalidHeroTypeException : Exception
     {
+        public InvalidHeroTypeException(string message)
+        {
+
+        }
     }
 }
