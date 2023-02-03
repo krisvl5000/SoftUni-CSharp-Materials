@@ -10,10 +10,12 @@ namespace Vehicles
     {
         protected Vehicle(double fuelQuantity, 
             double fuelConsumption, 
-            double fuelConsumptionIncrement)
+            double fuelConsumptionIncrement,
+            double tankCapacity)
         {
             FuelQuantity = fuelQuantity;
             FuelConsumption = fuelConsumption + fuelConsumptionIncrement;
+            TankCapacity = tankCapacity;
         }
 
         public double FuelQuantity
@@ -58,6 +60,7 @@ namespace Vehicles
                     (String.Format(ExceptionMessages
                     .TOO_MUCH_FUEL_EXCEPTION_MESSAGE, liters));
             }
+
             FuelQuantity += liters;
         }
 
