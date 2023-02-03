@@ -13,17 +13,18 @@ namespace Vehicles
 
         }
 
-        public IVehicle CreateVehicle(string type, double fuelQuantity, double fuelConsumption)
+        public IVehicle CreateVehicle
+            (string type, double fuelQuantity, double fuelConsumption, double tankCapacity)
         {
             IVehicle vehicle;
 
             if (type == "Car")
             {
-                vehicle = new Car(fuelQuantity, fuelConsumption);
+                vehicle = new Car(fuelQuantity, fuelConsumption, tankCapacity);
             }
             else if (type == "Truck")
             {
-                vehicle = new Truck(fuelQuantity, fuelConsumption);
+                vehicle = new Truck(fuelQuantity, fuelConsumption, tankCapacity);
             }
             else
             {
