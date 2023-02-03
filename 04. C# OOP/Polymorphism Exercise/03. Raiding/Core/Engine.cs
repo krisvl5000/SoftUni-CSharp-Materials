@@ -35,7 +35,7 @@ namespace Raiding
                 }
                 catch (InvalidHeroTypeException ihte)
                 {
-                    throw new InvalidHeroTypeException(ihte.Message);
+                    writer.WriteLine(ihte.Message);
                 }
                 catch
                 {
