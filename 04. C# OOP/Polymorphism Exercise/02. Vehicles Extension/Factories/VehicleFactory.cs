@@ -26,6 +26,10 @@ namespace Vehicles
             {
                 vehicle = new Truck(fuelQuantity, fuelConsumption, tankCapacity);
             }
+            else if (type == "Bus")
+            {
+                vehicle = new Bus(fuelQuantity, fuelConsumption, tankCapacity);
+            }
             else
             {
                 throw new InvalidVehicleTypeException();
