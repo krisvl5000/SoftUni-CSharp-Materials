@@ -56,7 +56,7 @@ namespace Vehicles
                 }
             }
 
-
+            PrintAllVehicles();
         }
 
         private IVehicle BuildVehicleUsingFactory()
