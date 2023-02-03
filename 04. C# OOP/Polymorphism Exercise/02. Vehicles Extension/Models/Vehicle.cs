@@ -16,9 +16,24 @@ namespace Vehicles
             FuelConsumption = fuelConsumption + fuelConsumptionIncrement;
         }
 
-        public double FuelQuantity { get; private set; }
+        public double FuelQuantity
+        {
+            get { return FuelQuantity; }
+
+            private set
+            {
+                if (value > TankCapacity)
+                {
+                    FuelQuantity = 0;
+                }
+
+                FuelQuantity = value;
+            }
+        }
 
         public double FuelConsumption { get; private set; }
+
+        public double TankCapacity {get; private set; }
 
         public string Drive(double distance)
         {
@@ -37,6 +52,12 @@ namespace Vehicles
 
         public virtual void Refuel(double liters)
         {
+            if (liters > TankCapacity)
+            {
+                throw new TooMuchFuelException
+                    (String.Format(ExceptionMessages
+                    .TOO_MUCH_FUEL_EXCEPTION_MESSAGE, liters));
+            }
             FuelQuantity += liters;
         }
 
