@@ -10,8 +10,8 @@ namespace Vehicles
     {
         private const double FUEL_CONSUMPTION_INCREMENT = 1.6;
         public Truck(double fuelQuantity, 
-            double fuelConsumption) : 
-            base(fuelQuantity, fuelConsumption, FUEL_CONSUMPTION_INCREMENT)
+            double fuelConsumption, double tankCapacity) : 
+            base(fuelQuantity, fuelConsumption, FUEL_CONSUMPTION_INCREMENT, tankCapacity)
         {
 
         }
