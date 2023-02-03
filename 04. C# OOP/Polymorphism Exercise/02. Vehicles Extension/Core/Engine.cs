@@ -50,6 +50,10 @@ namespace Vehicles
                 {
                     writer.WriteLine(ivte.Message);
                 }
+                catch (TooMuchFuelException tmfe)
+                {
+                    writer.WriteLine(tmfe.Message);
+                }
                 catch (Exception)
                 {
                     throw;
