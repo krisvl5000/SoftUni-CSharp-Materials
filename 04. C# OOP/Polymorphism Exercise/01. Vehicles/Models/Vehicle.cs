@@ -42,7 +42,7 @@ namespace Vehicles
 
         public override string ToString()
         {
-            return $"{GetType().Name} : {FuelConsumption:F2}";
+            return $"{GetType().Name}: {FuelQuantity:F2}";
         }
     }
 }
