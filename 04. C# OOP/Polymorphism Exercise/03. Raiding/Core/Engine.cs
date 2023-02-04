@@ -87,8 +87,10 @@ namespace Raiding
             }
             else
             {
-                throw new InvalidHeroTypeException(string
-                    .Format(ExceptionMessages.INVALID_HERO_MESSAGE));
+                writer.WriteLine("Invalid hero!");
+                return;
+                //throw new InvalidHeroTypeException(string
+                //    .Format(ExceptionMessages.INVALID_HERO_MESSAGE));
             }
 
             heroes.Add(hero);
