@@ -4,9 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _04._Wild_Farm.Exceptions
+namespace WildFarm
 {
-    internal class InvalidAnimalTypeException
+    public class InvalidAnimalTypeException : Exception
     {
+        private const string DEFAULT_MESSAGE = "invalid animal type!";
+
+        public InvalidAnimalTypeException() : base(DEFAULT_MESSAGE)
+        {
+
+        }
+
+        public InvalidAnimalTypeException(string message) : base(message)
+        {
+
+        }
     }
 }

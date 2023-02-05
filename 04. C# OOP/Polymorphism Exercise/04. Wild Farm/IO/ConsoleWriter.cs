@@ -8,14 +8,14 @@ namespace WildFarm
 {
     public class ConsoleWriter : IWriter
     {
-        public void Write(string text)
+        public void Write(object text)
         {
-            Console.Write(text);
+            Console.Write(text.ToString());
         }
 
-        public void WriteLine(string text)
+        public void WriteLine(object text)
         {
-            Console.WriteLine(text);
+            Console.WriteLine(text.ToString());
         }
     }
 }

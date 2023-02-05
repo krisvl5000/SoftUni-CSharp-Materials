@@ -4,9 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _04._Wild_Farm.Exceptions
+namespace WildFarm
 {
-    internal class InvalidFoodTypeException
+    public class InvalidFoodTypeException : Exception
     {
+        private const string DEFAULT_MESSAGE = "Invalid food type!";
+        public InvalidFoodTypeException() : base(DEFAULT_MESSAGE)
+        {
+
+        }
+
+        public InvalidFoodTypeException(string message) : base(message)
+        {
+
+        }
     }
 }

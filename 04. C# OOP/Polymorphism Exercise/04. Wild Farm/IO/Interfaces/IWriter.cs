@@ -8,8 +8,8 @@ namespace WildFarm
 {
     public interface IWriter
     {
-        void Write(string text);
+        void Write(object text);
 
-        void WriteLine(string text);
+        void WriteLine(object text);
     }
 }

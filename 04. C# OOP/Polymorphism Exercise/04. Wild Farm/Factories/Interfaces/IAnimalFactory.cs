@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _04._Wild_Farm.Factories.Interfaces
+namespace WildFarm
 {
-    internal class IAnimalFactory
+    public interface IAnimalFactory
     {
+        IAnimal CreateAnimal(string[] cmdArgs);
     }
 }
