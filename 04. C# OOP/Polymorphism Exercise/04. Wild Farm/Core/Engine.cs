@@ -31,7 +31,7 @@ namespace WildFarm
                 IAnimal currentAnimal = BuildAnimalUsingFactory(command);
                 IFood currentFood = BuildFoodUsingFactory();
 
-                currentAnimal.ProduceSound();
+                writer.WriteLine(currentAnimal.ProduceSound());
             }
         }
 
