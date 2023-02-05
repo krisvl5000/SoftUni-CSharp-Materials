@@ -4,9 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _04._Wild_Farm.Models.Animals
+namespace WildFarm
 {
-    internal class Feline
+    public abstract class Feline : Animal, IFeline
     {
+        public Feline(string name, double weight, string breed)
+            : base(name, weight)
+        {
+            Breed = breed;
+        }
+
+        public string Breed { get; private set; }
     }
 }

@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _04._Wild_Farm.Models.Interfaces
+namespace WildFarm
 {
-    internal class IFeline
+    public interface IFeline
     {
+        string Breed { get; }
     }
 }

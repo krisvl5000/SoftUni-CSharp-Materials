@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _04._Wild_Farm.Exceptions
+namespace WildFarm
 {
-    internal class ExceptionMessages
+    public static class ExceptionMessages
     {
+        public const string FOOD_NOT_EDIBLE_EXCEPTION_MESSAGE = 
+            "{0} does not eat {1}!";
     }
 }

@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _04._Wild_Farm.Models.Foods
+namespace WildFarm
 {
-    internal class Meat
+    public class Meat : Food
     {
+        public Meat(int quantity) : base(quantity)
+        {
+
+        }
     }
 }

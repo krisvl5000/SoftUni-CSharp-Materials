@@ -4,9 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _04._Wild_Farm.Models.Interfaces
+namespace WildFarm
 {
-    internal class IAnimal
+    public interface IAnimal
     {
+        string Name { get; }
+
+        double Weight { get; }
+
+        int FoodEaten { get; }
+
+        string ProduceSound();
+
+        void Eat(IFood food);
     }
 }

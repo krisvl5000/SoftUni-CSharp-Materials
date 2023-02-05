@@ -4,9 +4,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _04._Wild_Farm.Models.Animals
+namespace WildFarm
 {
-    internal class Cat
+    public class Cat : Feline
     {
+        private const double CAT_WEIGHT_MULTIPLIER = 0.30;
+
+        public Cat(string name, double weight, string breed)
+            : base(name, weight, breed)
+        {
+
+        }
+
+        public override IReadOnlyCollection<Type> PreferredFoods => 
+            new HashSet<Type> { typeof(Meat), typeof(Vegetable) };
+
+        protected override double WeightMultiplier =>
+            CAT_WEIGHT_MULTIPLIER;
+
+        public override string ProduceSound()
+        {
+            return "Meow";
+        }
     }
 }

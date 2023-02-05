@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _04._Wild_Farm.Exceptions
+namespace WildFarm
 {
-    internal class FoodNotEdibleException
+    public class FoodNotEdibleException : Exception
     {
+        public FoodNotEdibleException(string message) : base(message)
+        {
+
+        }
     }
 }

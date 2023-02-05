@@ -4,9 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _04._Wild_Farm.Models.Animals
+namespace WildFarm
 {
-    internal class Mammal
+    public abstract class Mammal : Animal, IMammal
     {
+        public Mammal(string name, double weight, string livingRegion)
+            : base (name, weight)
+        {
+            LivingRegion = livingRegion;
+        }
+
+        public string LivingRegion { get; private set; }
     }
 }
