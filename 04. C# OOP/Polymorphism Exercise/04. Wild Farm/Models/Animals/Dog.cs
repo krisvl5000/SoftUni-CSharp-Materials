@@ -16,7 +16,7 @@ namespace WildFarm
         }
 
         public override IReadOnlyCollection<Type> PreferredFoods => 
-            new HashSet<Type> { typeof(Meat)};
+            new HashSet<Type>() { typeof(Meat)};
 
         protected override double WeightMultiplier =>
             DOG_WEIGHT_MULTIPLIER;

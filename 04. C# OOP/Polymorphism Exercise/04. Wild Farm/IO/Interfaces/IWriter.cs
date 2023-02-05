@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _04._Wild_Farm.IO.Interfaces
+namespace WildFarm
 {
-    internal class IWriter
+    public interface IWriter
     {
+        void Write(string text);
+
+        void WriteLine(string text);
     }
 }

@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _04._Wild_Farm.Core.Interfaces
+namespace WildFarm
 {
-    internal class IEngine
+    public interface IEngine
     {
+        void Run();
     }
 }

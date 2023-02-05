@@ -4,9 +4,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _04._Wild_Farm.Core
+namespace WildFarm
 {
-    internal class Engine
+    public class Engine : IEngine
     {
+        private readonly IReader reader;
+        private readonly IWriter writer;
+
+        public Engine()
+        {
+
+        }
+
+        public Engine(IReader reader, IWriter writer) : this()
+        {
+            this.reader = reader;
+            this.writer = writer;
+        }
+
+        public void Run()
+        {
+            
+        }
     }
 }

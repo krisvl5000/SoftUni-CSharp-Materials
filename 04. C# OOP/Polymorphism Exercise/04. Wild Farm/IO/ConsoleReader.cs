@@ -4,9 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _04._Wild_Farm.IO
+namespace WildFarm
 {
-    internal class ConsoleReader
+    public class ConsoleReader : IReader
     {
+        public string ReadLine()
+        {
+            string text = Console.ReadLine();
+            return text;
+        }
     }
 }

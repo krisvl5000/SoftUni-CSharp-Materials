@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _04._Wild_Farm.IO.Interfaces
+namespace WildFarm
 {
-    internal class IReader
+    public interface IReader
     {
+        string ReadLine();
     }
 }
