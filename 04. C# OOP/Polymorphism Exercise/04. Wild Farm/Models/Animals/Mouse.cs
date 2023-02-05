@@ -26,5 +26,10 @@ namespace WildFarm
         {
             return "Squeak";
         }
+
+        public override string ToString()
+        {
+            return base.ToString() + $"{Weight}, {LivingRegion}, {FoodEaten}]";
+        }
     }
 }

@@ -44,5 +44,10 @@ namespace WildFarm
         }
 
         public abstract string ProduceSound();
+
+        public override string ToString()
+        {
+            return $"{GetType().Name} [{Name}], ";
+        }
     }
 }

@@ -12,11 +12,11 @@ namespace WildFarm
         public Dog(string name, double weight, string livingRegion)
             : base(name, weight, livingRegion)
         {
-
+            
         }
 
         public override IReadOnlyCollection<Type> PreferredFoods => 
-            new HashSet<Type>() { typeof(Meat)};
+            new HashSet<Type>() { typeof(Meat) };
 
         protected override double WeightMultiplier =>
             DOG_WEIGHT_MULTIPLIER;
@@ -24,6 +24,11 @@ namespace WildFarm
         public override string ProduceSound()
         {
             return "Woof!";
+        }
+
+        public override string ToString()
+        {
+            return base.ToString() + $"{Weight}, {LivingRegion}, {FoodEaten}]";
         }
     }
 }

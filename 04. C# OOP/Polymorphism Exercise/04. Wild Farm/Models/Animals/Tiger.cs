@@ -10,8 +10,8 @@ namespace WildFarm
     {
         private const double TIGER_WEIGHT_MULTIPLIER = 1.00;
 
-        public Tiger(string name, double weight, string breed)
-            : base(name, weight, breed)
+        public Tiger(string name, double weight, string livingRegion, string breed)
+            : base(name, weight, livingRegion, breed)
         {
 
         }
