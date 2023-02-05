@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WildFarm
 {
-    public interface IFeline
+    public interface IFeline : IAnimal
     {
         string Breed { get; }
     }
