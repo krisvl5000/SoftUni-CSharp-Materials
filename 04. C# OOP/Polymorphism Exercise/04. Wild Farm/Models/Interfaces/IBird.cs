@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WildFarm
 {
-    public interface IBird
+    public interface IBird : IAnimal
     {
         double WingSize { get; }
     }
