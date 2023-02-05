@@ -14,8 +14,15 @@ namespace WildFarm
         private readonly IAnimalFactory animalFactory;
         private readonly IFoodFactory foodFactory;
 
+        private readonly ICollection<IAnimal> animals;
+
+        private Engine()
+        {
+            animals = new HashSet<IAnimal>();
+        }
+
         public Engine(IReader reader, IWriter writer,
-            IAnimalFactory animalFactory, IFoodFactory foodFactory)
+            IAnimalFactory animalFactory, IFoodFactory foodFactory) : this()
         {
             this.reader = reader;
             this.writer = writer;
@@ -28,10 +35,7 @@ namespace WildFarm
             string command;
             while ((command = Console.ReadLine()) != "End")
             {
-                IAnimal currentAnimal = BuildAnimalUsingFactory(command);
-                IFood currentFood = BuildFoodUsingFactory();
-
-                writer.WriteLine(currentAnimal.ProduceSound());
+                HandleInput(command);
             }
         }
 
@@ -54,6 +58,44 @@ namespace WildFarm
             IFood currentFood = foodFactory
                 .CreateFood(foodType, foodQuantity);
             return currentFood;
+        }
+
+        private void HandleInput(string command)
+        {
+            try
+            {
+                IAnimal currentAnimal = BuildAnimalUsingFactory(command);
+                IFood currentFood = BuildFoodUsingFactory();
+
+                writer.WriteLine(currentAnimal.ProduceSound());
+                currentAnimal.Eat(currentFood);
+
+                animals.Add(currentAnimal);
+            }
+            catch (InvalidAnimalTypeException iate)
+            {
+                writer.WriteLine(iate.Message);
+            }
+            catch (InvalidFoodTypeException ifte)
+            {
+                writer.WriteLine(ifte.Message);
+            }
+            catch (FoodNotEdibleException fnee)
+            {
+                writer.WriteLine(fnee.Message);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        private void PrintAllAnimals()
+        {
+            foreach (var item in animals)
+            {
+                writer.WriteLine(item);
+            }
         }
     }
 }
