@@ -104,7 +104,7 @@ namespace _01._Hello_Softuni
             {
                 Console.WriteLine($"Vanko managed to make {holes} hole(s) " +
                     $"and he hit only {rods} rod(s).");
-                matrix[currentCol, currentRow] = 'V';
+                matrix[currentRow, currentCol] = 'V';
             }
 
             for (int row = 0; row < n; row++)
