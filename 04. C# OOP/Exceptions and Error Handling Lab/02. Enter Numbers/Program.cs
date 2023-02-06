@@ -43,13 +43,13 @@ namespace _01._Hello_Softuni
             }
             catch (FormatException)
             {
-                throw new FormatException("Invalid number!");
+                throw new FormatException("Invalid Number!");
             }
 
             if (num <= start || num >= end)
             {
                 throw new ArgumentException
-                    ($"Your number is not in range ({start} - {end}!)");
+                    ($"Your number is not in range ({start} - {end})");
             }
 
             return num;
