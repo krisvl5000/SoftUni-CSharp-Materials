@@ -49,7 +49,7 @@ namespace _01._Hello_Softuni
             if (num <= start || num >= end)
             {
                 throw new ArgumentException
-                    ($"Your number is not in range ({start} - {end})");
+                    ($"Your number is not in range {start} - {end}!");
             }
 
             return num;
