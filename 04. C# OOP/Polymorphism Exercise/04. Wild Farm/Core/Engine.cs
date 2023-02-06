@@ -37,6 +37,8 @@ namespace WildFarm
             {
                 HandleInput(command);
             }
+
+            PrintAllAnimals();
         }
 
         private IAnimal BuildAnimalUsingFactory(string command)
