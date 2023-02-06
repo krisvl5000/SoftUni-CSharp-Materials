@@ -24,7 +24,7 @@ namespace _01._Hello_Softuni
                 }
                 catch (OverflowException ofe)
                 {
-                    Console.WriteLine($"The '{input[i]}' is out of range!");
+                    Console.WriteLine($"The element '{input[i]}' is out of range!");
                 }
 
                 Console.WriteLine($"Element '{input[i]}' processed - " +
