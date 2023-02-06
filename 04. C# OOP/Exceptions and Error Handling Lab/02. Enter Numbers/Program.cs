@@ -8,24 +8,51 @@ namespace _01._Hello_Softuni
         {
             List<int> list = new List<int>();
 
-        }
-
-        static void ReadNumber(int start, int end)
-        {
-            try
+            while (list.Count < 10)
             {
-                int n = int.Parse(Console.ReadLine());
-
-                if (n < start || n > end)
+                try
                 {
-                    throw new Exception();
+                    if (!list.Any())
+                    {
+                        list.Add(ReadNumber(1, 100));
+                    }
+                    else
+                    {
+                        list.Add(ReadNumber(list.Max(), 100));
+                    }
+                }
+                catch (FormatException fe)
+                {
+                    Console.WriteLine(fe.Message);
+                }
+                catch (ArgumentException ae)
+                {
+                    Console.WriteLine(ae.Message);
                 }
             }
-            catch (Exception)
-            {
 
-                
+            Console.WriteLine(String.Join(", ", list));
+        }
+
+        static int ReadNumber(int start, int end)
+        {
+            int num;
+            try
+            {
+                num = int.Parse(Console.ReadLine());
             }
+            catch (FormatException)
+            {
+                throw new FormatException("Invalid number!");
+            }
+
+            if (num <= start || num >= end)
+            {
+                throw new ArgumentException
+                    ($"Your number is not in range ({start} - {end}!)");
+            }
+
+            return num;
         }
     }
 }
