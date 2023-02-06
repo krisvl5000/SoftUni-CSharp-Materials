@@ -7,7 +7,7 @@ namespace _01._Hello_Softuni
         static void Main(string[] args)
         {
             string[] input = Console.ReadLine()
-                .Split(" ", StringSplitOptions.RemoveEmptyEntries);
+                .Split(" ");
 
             int totalSum = 0;
 
