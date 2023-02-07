@@ -14,7 +14,7 @@ namespace _01._Hello_Softuni
             BranchesLeft = branchesLeft;
         }
 
-        public int RowIndex { get; set; }
+        public int RowIndex { get; set; } 
 
         public int ColIndex { get; set; }
 
