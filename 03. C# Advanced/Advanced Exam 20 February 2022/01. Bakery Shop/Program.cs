@@ -107,7 +107,7 @@ namespace _01._Hello_Softuni
 
             if (waterQueue.Count > 0)
             {
-                Console.WriteLine(String.Join(", ", waterQueue));
+                Console.WriteLine("Water left: " + String.Join(", ", waterQueue));
             }
             else
             {
@@ -116,7 +116,7 @@ namespace _01._Hello_Softuni
 
             if (flourStack.Count > 0)
             {
-                Console.WriteLine(String.Join(", ", flourStack));
+                Console.WriteLine("Flour left: " + String.Join(", ", flourStack));
             }
             else
             {
