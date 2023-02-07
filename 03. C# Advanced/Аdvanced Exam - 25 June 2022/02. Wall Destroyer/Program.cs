@@ -111,7 +111,7 @@
 //            {
 //                for (int col = 0; col < n; col++)
 //                {
-//                    Console.Write(matrix[col, col]);
+//                    Console.Write(matrix[row, col]);
 //                }
 
 //                Console.WriteLine();
@@ -143,7 +143,7 @@ namespace _01._Hello_Softuni
                 {
                     matrix[row, col] = line[col];
 
-                    if (matrix[row, col] == 'V')
+                    if (line[col] == 'V')
                     {
                         currentRow = row;
                         currentCol = col;
@@ -152,6 +152,8 @@ namespace _01._Hello_Softuni
             }
 
             string input = Console.ReadLine().ToLower();
+
+            matrix[currentRow, currentCol] = '*';
 
             int holes = 1;
             int rods = 0;
@@ -220,6 +222,12 @@ namespace _01._Hello_Softuni
             {
                 Console.WriteLine($"Vanko got electrocuted, but he managed to make " +
                     $"{holes} hole(s).");
+            }
+            else
+            {
+                Console.WriteLine($"Vanko managed to make {holes} hole(s) " +
+                    $"and he hit only {rods} rod(s).");
+                matrix[currentRow, currentCol] = 'V';
             }
 
             for (int row = 0; row < n; row++)
