@@ -160,7 +160,8 @@ namespace _01._Hello_Softuni
 
             for (int row = 0; row < size; row++)
             {
-                string line = Console.ReadLine();
+                char[] line = Console.ReadLine().ToCharArray()
+                    .Where(x => x != ' ').ToArray();
                 for (int col = 0; col < size; col++)
                 {
                     pond[row, col] = line[col];
