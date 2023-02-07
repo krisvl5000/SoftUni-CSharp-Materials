@@ -16,7 +16,7 @@ namespace _01._Hello_Softuni
 
             var dict = new Dictionary<string, int>();
 
-            while (waterQueue.Count > 0 || flourStack.Count > 0)
+            while (waterQueue.Count > 0 && flourStack.Count > 0)
             {
                 double water = waterQueue.Peek();
                 double flour = flourStack.Peek();
@@ -25,76 +25,103 @@ namespace _01._Hello_Softuni
 
                 if (waterRatio == 50)
                 {
-                    if (!dict.ContainsKey("croissant"))
+                    if (!dict.ContainsKey("Croissant"))
                     {
-                        dict.Add("croissant", 0);
+                        dict.Add("Croissant", 0);
                     }
 
-                    dict["croissant"]++;
+                    dict["Croissant"]++;
 
                     waterQueue.Dequeue();
                     flourStack.Pop();
                 }
                 else if (waterRatio == 40)
                 {
-                    if (!dict.ContainsKey("muffin"))
+                    if (!dict.ContainsKey("Muffin"))
                     {
-                        dict.Add("muffin", 0);
+                        dict.Add("Muffin", 0);
                     }
 
-                    dict["muffin"]++;
+                    dict["Muffin"]++;
 
                     waterQueue.Dequeue();
                     flourStack.Pop();
                 }
                 else if (waterRatio == 30)
                 {
-                    if (!dict.ContainsKey("baguette"))
+                    if (!dict.ContainsKey("Baguette"))
                     {
-                        dict.Add("baguette", 0);
+                        dict.Add("Baguette", 0);
                     }
 
-                    dict["baguette"]++;
+                    dict["Baguette"]++;
 
                     waterQueue.Dequeue();
                     flourStack.Pop();
                 }
                 else if (waterRatio == 20)
                 {
-                    if (!dict.ContainsKey("bagel"))
+                    if (!dict.ContainsKey("Bagel"))
                     {
-                        dict.Add("bagel", 0);
+                        dict.Add("Bagel", 0);
                     }
 
-                    dict["bagel"]++;
+                    dict["Bagel"]++;
 
                     waterQueue.Dequeue();
                     flourStack.Pop();
                 }
                 else
                 {
-                    if (!dict.ContainsKey("croissant"))
+                    flourStack.Pop();
+                    waterQueue.Dequeue();
+
+                    if (!dict.ContainsKey("Croissant"))
                     {
-                        dict.Add("croissant", 0);
+                        dict.Add("Croissant", 0);
                     }
 
-                    dict["croissant"]++;
+                    dict["Croissant"]++;
 
-                    double flourUsed = flourStack.Pop();
-                    flourUsed -= water;
-                    flourStack.Push(flourUsed);
+                    //water 25, flour 30
 
-                    while (flour < water) // might need some refactoring
+                    if (flour > water)
                     {
-                        flourUsed = flourStack.Pop();
-                        flourUsed -= water;
-                        flourStack.Push(flourUsed);
+                        double leftOverFlour = flour - water;
+                        flourStack.Push(leftOverFlour);
+                    }
+                    else
+                    {
+                        double leftOverWater = water - flour;
+                        waterQueue.Enqueue(leftOverWater);
                     }
                 }
             }
 
+            foreach (var item in dict
+                .OrderByDescending(x => x.Value)
+                .ThenBy(x => x.Key))
+            {
+                Console.WriteLine($"{item.Key}: {item.Value}");
+            }
 
+            if (waterQueue.Count > 0)
+            {
+                Console.WriteLine(String.Join(", ", waterQueue));
+            }
+            else
+            {
+                Console.WriteLine("Water left: None");
+            }
 
+            if (flourStack.Count > 0)
+            {
+                Console.WriteLine(String.Join(", ", flourStack));
+            }
+            else
+            {
+                Console.WriteLine("Flour left: None");
+            }
         }
     }
 }
