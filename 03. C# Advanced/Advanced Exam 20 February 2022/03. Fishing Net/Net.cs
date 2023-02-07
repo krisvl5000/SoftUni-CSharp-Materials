@@ -49,6 +49,8 @@ namespace FishingNet
                 return false;
             }
 
+            fish.Remove(fishToRealease);
+
             return true;
         }
 
