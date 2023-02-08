@@ -63,8 +63,6 @@ namespace StockMarket
             // Director: Bobby Kotick
             // Price per share: $78.53
             // Market capitalization: $433485.60
-
-
         }
     }
 }
