@@ -1,7 +1,29 @@
 ﻿using System;
+using System.Linq;
+using System.Linq.Expressions;
 
 namespace _01._Hello_Softuni
 {
+    class Dict
+    {
+        public List<KVP> List { get; set; } = new List<KVP>();
+    }
+
+    class KVP
+    {
+        public KVP(string key, int value)
+        {
+            Key = key;
+            Value = value;
+            FoundLetters = new List<char>();
+        }
+
+        public string Key { get; set; }
+
+        public int Value { get; set; }
+
+        public List<char> FoundLetters { get; set; }
+    }
     internal class Program
     {
         static void Main(string[] args)
@@ -21,31 +43,19 @@ namespace _01._Hello_Softuni
 
             List<string> completeWords = new List<string>();
 
-            var dict = new Dictionary<string, int>();
-            dict.Add("pear", 4);
-            dict.Add("flour", 5);
-            dict.Add("pork", 4);
-            dict.Add("olive", 5);
+            Dict dict = new Dict();
+
+            dict.List.Add(new KVP("pear", 4));
+            dict.List.Add(new KVP("flour", 5));
+            dict.List.Add(new KVP("pork", 4));
+            dict.List.Add(new KVP("olive", 5));
 
             while (consonantsStack.Count > 0)
             {
                 char vowel = vowelsQueue.Dequeue();
                 char consonant = consonantsStack.Pop();
 
-                foreach (var item in dict)
-                {
-                    string key = item.Key;
-                    if (key.Contains(vowel) || key.Contains(consonant))
-                    {
-                        dict[key]--;
 
-                        if (dict[key] == 0)
-                        {
-                            completeWords.Add(key);
-                            dict.Remove(key);
-                        }
-                    }
-                }
 
                 vowelsQueue.Enqueue(vowel);
             }
