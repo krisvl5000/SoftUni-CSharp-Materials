@@ -32,8 +32,8 @@ namespace StockMarket
             StringBuilder sb = new StringBuilder();
             sb.AppendLine($"Company: {CompanyName}");
             sb.AppendLine($"Director: {Director}");
-            sb.AppendLine($"Price per share: {PricePerShare}");
-            sb.AppendLine($"Market capitalization: {MarketCapitalization}");
+            sb.AppendLine($"Price per share: ${PricePerShare}");
+            sb.AppendLine($"Market capitalization: ${MarketCapitalization}");
 
             return sb.ToString().TrimEnd();
         }
