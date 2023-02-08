@@ -6,8 +6,15 @@ namespace _01._Hello_Softuni
     {
         static void Main(string[] args)
         {
-            char[] vowelsArr = Console.ReadLine().Split().Select(char.Parse).ToArray();
-            char[] consonantsArr = Console.ReadLine().Split().Select(char.Parse).ToArray();
+            char[] vowelsArr = Console.ReadLine()
+                .Split(" ", StringSplitOptions.RemoveEmptyEntries)
+                .Select(char.Parse)
+                .ToArray();
+
+            char[] consonantsArr = Console.ReadLine()
+                .Split(" ", StringSplitOptions.RemoveEmptyEntries)
+                .Select(char.Parse)
+                .ToArray();
 
             Queue<char> vowelsQueue = new Queue<char>(vowelsArr);
             Stack<char> consonantsStack = new Stack<char>(consonantsArr);
