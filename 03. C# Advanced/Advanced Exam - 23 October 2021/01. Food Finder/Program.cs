@@ -43,7 +43,7 @@ namespace _01._Hello_Softuni
                 }
             }
 
-            Console.WriteLine($"Word found: {validWords.Count}");
+            Console.WriteLine($"Words found: {validWords.Count}");
             Console.WriteLine(String.Join("\n", validWords));
         }
     }
