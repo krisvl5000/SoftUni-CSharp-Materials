@@ -4,26 +4,6 @@ using System.Linq.Expressions;
 
 namespace _01._Hello_Softuni
 {
-    class Dict
-    {
-        public List<KVP> List { get; set; } = new List<KVP>();
-    }
-
-    class KVP
-    {
-        public KVP(string key, int value)
-        {
-            Key = key;
-            Value = value;
-            FoundLetters = new List<char>();
-        }
-
-        public string Key { get; set; }
-
-        public int Value { get; set; }
-
-        public List<char> FoundLetters { get; set; }
-    }
     internal class Program
     {
         static void Main(string[] args)
@@ -38,35 +18,33 @@ namespace _01._Hello_Softuni
                 .Select(char.Parse)
                 .ToArray();
 
-            Queue<char> vowelsQueue = new Queue<char>(vowelsArr);
-            Stack<char> consonantsStack = new Stack<char>(consonantsArr);
+            Queue<char> vowels = new Queue<char>(vowelsArr);
+            Stack<char> consonants = new Stack<char>(consonantsArr);
 
-            List<string> completeWords = new List<string>();
+            HashSet<string> wordSet = new HashSet<string>(new string[] 
+            { "pear", "flour", "pork", "olive" });
 
-            Dict dict = new Dict();
+            HashSet<char> usedLetters = new HashSet<char>();
 
-            dict.List.Add(new KVP("pear", 4));
-            dict.List.Add(new KVP("flour", 5));
-            dict.List.Add(new KVP("pork", 4));
-            dict.List.Add(new KVP("olive", 5));
-
-            while (consonantsStack.Count > 0)
+            while (consonants.Any())
             {
-                char vowel = vowelsQueue.Dequeue();
-                char consonant = consonantsStack.Pop();
-
-
-
-                vowelsQueue.Enqueue(vowel);
+                usedLetters.Add(consonants.Pop());
+                usedLetters.Add(vowels.Peek());
+                vowels.Enqueue(vowels.Dequeue());
             }
 
-            Console.WriteLine($"Words found: {completeWords.Count}");
+            List<string> validWords = new List<string>();
 
-            foreach (var item in completeWords)
+            foreach (var word in wordSet)
             {
-                Console.WriteLine(item);
+                if (String.Join("", word.Intersect(usedLetters)) == word)
+                {
+                    validWords.Add(word);
+                }
             }
 
+            Console.WriteLine($"Word found: {validWords.Count}");
+            Console.WriteLine(String.Join("\n", validWords));
         }
     }
 }
