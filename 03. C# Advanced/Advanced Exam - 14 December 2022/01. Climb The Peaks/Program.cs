@@ -41,6 +41,28 @@ namespace _01._Hello_Softuni
                 counter--;
             }
 
+            if (dict.Count == 0)
+            {
+                Console.WriteLine("Alex did it! He climbed all top five " +
+                    "Pirin peaks in one week -> @FIVEinAWEEK");
+            }
+            else
+            {
+                Console.WriteLine("Alex failed! He has to organize his journey " +
+                    "better next time -> @PIRINWINS");
+            }
+
+            if (conqueredPeaks.Count > 0)
+            {
+                Console.WriteLine("Conquered peaks:");
+
+                foreach (var item in conqueredPeaks)
+                {
+                    Console.WriteLine(item);
+                }
+            }
+            
+
         }
     }
 }
