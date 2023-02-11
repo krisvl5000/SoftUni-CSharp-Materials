@@ -57,7 +57,7 @@ namespace WildFarm
             string foodType = foodArgs[0];
             int foodQuantity = int.Parse(foodArgs[1]);
 
-            IFood currentFood = foodFactory
+            IFood currentFood = foodFactory 
                 .CreateFood(foodType, foodQuantity);
             return currentFood;
         }
