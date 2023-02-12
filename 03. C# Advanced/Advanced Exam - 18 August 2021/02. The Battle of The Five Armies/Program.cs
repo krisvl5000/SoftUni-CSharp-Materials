@@ -101,12 +101,7 @@ namespace _01._Hello_Softuni
 
             for (int row = 0; row < n; row++)
             {
-                char[] line = Console.ReadLine().ToCharArray();
-
-                for (int col = 0; col < line.Length; col++)
-                {
-                    matrix[row][col] = line[col];
-                }
+                matrix[row] = Console.ReadLine().ToArray();
             }
 
             return matrix;
@@ -114,9 +109,9 @@ namespace _01._Hello_Softuni
 
         static (int, int) GetInitialPosition(char[][] matrix)
         {
-            for (int row = 0; row < matrix.GetLength(0); row++)
+            for (int row = 0; row < matrix.Length; row++)
             {
-                for (int col = 0; col < matrix.GetLength(1); col++)
+                for (int col = 0; col < matrix[row].Length; col++)
                 {
                     if (matrix[row][col] == 'A')
                     {
@@ -135,9 +130,9 @@ namespace _01._Hello_Softuni
 
         static void PrintMatrix(char[][] matrix)
         {
-            for (int row = 0; row < matrix.GetLength(0); row++)
+            for (int row = 0; row < matrix.Length; row++)
             {
-                for (int col = 0; col < matrix.GetLength(1); col++)
+                for (int col = 0; col < matrix[row].Length; col++)
                 {
                     Console.Write(matrix[row][col]);
                 }
