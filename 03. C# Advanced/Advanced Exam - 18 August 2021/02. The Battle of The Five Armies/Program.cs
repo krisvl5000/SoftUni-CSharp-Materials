@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace _01._Hello_Softuni
 {
@@ -10,9 +12,9 @@ namespace _01._Hello_Softuni
 
             int n = int.Parse(Console.ReadLine());
 
-            char[,] matrix = CreateField(n);
+            char[][] matrix = CreateField(n);
             (int row, int col) = GetInitialPosition(matrix);
-            matrix[row, col] = '-';
+            matrix[row][col] = '-';
 
             bool battleIsWon = false;
 
@@ -29,7 +31,7 @@ namespace _01._Hello_Softuni
                 int spawnRow = int.Parse(input[1]);
                 int spawnCol = int.Parse(input[2]);
 
-                matrix[spawnRow, spawnCol] = 'O';
+                matrix[spawnRow][spawnCol] = 'O';
 
                 switch (direction)
                 {
@@ -51,23 +53,23 @@ namespace _01._Hello_Softuni
 
                 if (IsPositionValid(row, col, n))
                 {
-                    if (matrix[row, col] == 'O')
+                    if (matrix[row][col] == 'O')
                     {
                         armor -= 2;
 
                         if (armor <= 0)
                         {
-                            matrix[row, col] = 'X';
+                            matrix[row][col] = 'X';
                             break;
                         }
                         else
                         {
-                            matrix[row, col] = '-';
+                            matrix[row][col] = '-';
                         }
                     }
-                    else if (matrix[row, col] == 'M')
+                    else if (matrix[row][col] == 'M')
                     {
-                        matrix[row, col] = '-';
+                        matrix[row][col] = '-';
                         battleIsWon = true;
                         break;
                     }
@@ -93,29 +95,30 @@ namespace _01._Hello_Softuni
 
         }
 
-        static char[,] CreateField(int n)
+        static char[][] CreateField(int n)
         {
-            char[,] matrix = new char[n, n];
+            char[][] matrix = new char[n][];
 
             for (int row = 0; row < n; row++)
             {
-                string line = Console.ReadLine();
-                for (int col = 0; col < n; col++)
+                char[] line = Console.ReadLine().ToCharArray();
+
+                for (int col = 0; col < line.Length; col++)
                 {
-                    matrix[row, col] = line[col];
+                    matrix[row][col] = line[col];
                 }
             }
 
             return matrix;
         }
 
-        static (int, int) GetInitialPosition(char[,] matrix)
+        static (int, int) GetInitialPosition(char[][] matrix)
         {
             for (int row = 0; row < matrix.GetLength(0); row++)
             {
                 for (int col = 0; col < matrix.GetLength(1); col++)
                 {
-                    if (matrix[row, col] == 'A')
+                    if (matrix[row][col] == 'A')
                     {
                         return (row, col);
                     }
@@ -130,13 +133,13 @@ namespace _01._Hello_Softuni
             return row >= 0 && row < size && col >= 0 && col < size;
         }
 
-        static void PrintMatrix(char[,] matrix)
+        static void PrintMatrix(char[][] matrix)
         {
             for (int row = 0; row < matrix.GetLength(0); row++)
             {
                 for (int col = 0; col < matrix.GetLength(1); col++)
                 {
-                    Console.Write(matrix[row, col]);
+                    Console.Write(matrix[row][col]);
                 }
 
                 Console.WriteLine();
