@@ -17,6 +17,8 @@ namespace _01._Hello_Softuni
             int blackCounter = 0;
             int summerCounter = 0;
 
+            int trufflesEatenByTheBoar = 0;
+
             while (true)
             {
                 string[] input = Console.ReadLine()
@@ -75,6 +77,11 @@ namespace _01._Hello_Softuni
                 }
 
             }
+
+        }
+
+        static void MoveBoar(char[,] matrix)
+        {
 
         }
 
