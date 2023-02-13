@@ -46,8 +46,6 @@ namespace Zoo
             Console.WriteLine(zoo.RemoveAnimals("elephant")); // 2
             Console.WriteLine($"There are {zoo.Animals.Count} animals living in the zoo.");
             // Animals living in the zoo: 4.
-
-
         }
     }
 }
