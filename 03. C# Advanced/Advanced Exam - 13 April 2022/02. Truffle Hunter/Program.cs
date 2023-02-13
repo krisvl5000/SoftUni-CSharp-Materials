@@ -20,6 +20,7 @@ namespace _01._Hello_Softuni
             int summerCounter = 0;
 
             int trufflesEatenByTheBoar = 0;
+            int counter = 0;
 
             HashSet<char> truffleTypes = new HashSet<char>()
             {
@@ -65,14 +66,14 @@ namespace _01._Hello_Softuni
                     switch (direction)
                     {
                         case "up":
-                            for (int row1 = n - 1; row1 >= 0; row1-=2)
+                            for (int boarRow = n - 1; boarRow >= 0; boarRow-=2)
                             {
-                                if (IsInIndex(row1, col, n))
+                                if (IsInIndex(boarRow, col, n))
                                 {
-                                    if (truffleTypes.Contains(matrix[row1, col]))
+                                    if (truffleTypes.Contains(matrix[boarRow, col]))
                                     {
+                                        matrix[boarRow, col] = '-';
                                         trufflesEatenByTheBoar++;
-                                        matrix[row1, col] = '-';
                                     }
                                 }
                                 else
@@ -82,14 +83,14 @@ namespace _01._Hello_Softuni
                             }
                             break;
                         case "down":
-                            for (int row1 = n - 1; row1 >= 0; row1 += 2)
+                            for (int boarRow = 0; boarRow < n; boarRow+=2)
                             {
-                                if (IsInIndex(row1, col, n))
+                                if (IsInIndex(boarRow, col, n))
                                 {
-                                    if (truffleTypes.Contains(matrix[row1, col]))
+                                    if (truffleTypes.Contains(matrix[boarRow, col]))
                                     {
+                                        matrix[boarRow, col] = '-';
                                         trufflesEatenByTheBoar++;
-                                        matrix[row1, col] = '-';
                                     }
                                 }
                                 else
@@ -99,14 +100,14 @@ namespace _01._Hello_Softuni
                             }
                             break;
                         case "left":
-                            for (int col1 = n - 1; col1 >= 0; col1 -= 2)
+                            for (int boarCol = n - 1; boarCol >= 0; boarCol -= 2)
                             {
-                                if (IsInIndex(row, col1, n))
+                                if (IsInIndex(row, boarCol, n))
                                 {
-                                    if (truffleTypes.Contains(matrix[row, col1]))
+                                    if (truffleTypes.Contains(matrix[row, boarCol]))
                                     {
+                                        matrix[row, boarCol] = '-';
                                         trufflesEatenByTheBoar++;
-                                        matrix[row, col1] = '-';
                                     }
                                 }
                                 else
@@ -116,14 +117,14 @@ namespace _01._Hello_Softuni
                             }
                             break;
                         case "right":
-                            for (int col1 = n - 1; col1 >= 0; col1 += 2)
+                            for (int boarCol = 0; boarCol < n; boarCol+=2)
                             {
-                                if (IsInIndex(row, col1, n))
+                                if (IsInIndex(row, boarCol, n))
                                 {
-                                    if (truffleTypes.Contains(matrix[row, col1]))
+                                    if (truffleTypes.Contains(matrix[row, boarCol]))
                                     {
+                                        matrix[row, boarCol] = '-';
                                         trufflesEatenByTheBoar++;
-                                        matrix[row, col1] = '-';
                                     }
                                 }
                                 else
