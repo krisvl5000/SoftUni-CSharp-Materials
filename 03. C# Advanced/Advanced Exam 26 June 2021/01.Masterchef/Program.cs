@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace _01._Hello_Softuni
 {
@@ -17,7 +19,7 @@ namespace _01._Hello_Softuni
                 .ToArray());
 
             var dict = new Dictionary<string, int>();
-            dict.Add("Dipping Sauce", 150);
+            dict.Add("Dipping sauce", 150);
             dict.Add("Green salad", 250);
             dict.Add("Chocolate cake", 300);
             dict.Add("Lobster", 400);
@@ -90,7 +92,7 @@ namespace _01._Hello_Softuni
 
             foreach (var item in orderedMealsMade)
             {
-                Console.WriteLine($"# {item.Key}--> {item.Value}");
+                Console.WriteLine($" # {item.Key} --> {item.Value}");
             }
         }
     }
