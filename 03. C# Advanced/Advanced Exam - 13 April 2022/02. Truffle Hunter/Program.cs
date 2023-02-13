@@ -67,40 +67,68 @@ namespace _01._Hello_Softuni
                         case "up":
                             for (int row1 = n - 1; row1 >= 0; row1-=2)
                             {
-                                if (truffleTypes.Contains(matrix[row1, col]))
+                                if (IsInIndex(row1, col, n))
                                 {
-                                    trufflesEatenByTheBoar++;
-                                    matrix[row1, col] = '-';
+                                    if (truffleTypes.Contains(matrix[row1, col]))
+                                    {
+                                        trufflesEatenByTheBoar++;
+                                        matrix[row1, col] = '-';
+                                    }
+                                }
+                                else
+                                {
+                                    break;
                                 }
                             }
                             break;
                         case "down":
                             for (int row1 = n - 1; row1 >= 0; row1 += 2)
                             {
-                                if (truffleTypes.Contains(matrix[row1, col]))
+                                if (IsInIndex(row1, col, n))
                                 {
-                                    trufflesEatenByTheBoar++;
-                                    matrix[row1, col] = '-';
+                                    if (truffleTypes.Contains(matrix[row1, col]))
+                                    {
+                                        trufflesEatenByTheBoar++;
+                                        matrix[row1, col] = '-';
+                                    }
+                                }
+                                else
+                                {
+                                    break;
                                 }
                             }
                             break;
                         case "left":
                             for (int col1 = n - 1; col1 >= 0; col1 -= 2)
                             {
-                                if (truffleTypes.Contains(matrix[row, col1]))
+                                if (IsInIndex(row, col1, n))
                                 {
-                                    trufflesEatenByTheBoar++;
-                                    matrix[row, col1] = '-';
+                                    if (truffleTypes.Contains(matrix[row, col1]))
+                                    {
+                                        trufflesEatenByTheBoar++;
+                                        matrix[row, col1] = '-';
+                                    }
+                                }
+                                else
+                                {
+                                    break;
                                 }
                             }
                             break;
                         case "right":
                             for (int col1 = n - 1; col1 >= 0; col1 += 2)
                             {
-                                if (truffleTypes.Contains(matrix[row, col1]))
+                                if (IsInIndex(row, col1, n))
                                 {
-                                    trufflesEatenByTheBoar++;
-                                    matrix[row, col1] = '-';
+                                    if (truffleTypes.Contains(matrix[row, col1]))
+                                    {
+                                        trufflesEatenByTheBoar++;
+                                        matrix[row, col1] = '-';
+                                    }
+                                }
+                                else
+                                {
+                                    break;
                                 }
                             }
                             break;
@@ -122,6 +150,11 @@ namespace _01._Hello_Softuni
 
         }
 
+        static bool IsInIndex(int row, int col, int n)
+        {
+            return row >= 0 && row < n && col >= 0 && col < n;
+        }
+
         private static void PrintMatrix(char[,] matrix)
         {
             List<char> list = new List<char>();
@@ -136,7 +169,6 @@ namespace _01._Hello_Softuni
                 }
 
                 Console.WriteLine(String.Join(" ", list));
-                Console.WriteLine();
             }
         }
 
