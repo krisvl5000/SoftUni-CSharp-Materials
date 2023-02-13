@@ -40,6 +40,10 @@ namespace _01._Hello_Softuni
 
                         mealsMade[item.Key]++;
                         dishWasMade = true;
+
+                        ingredients.Dequeue();
+                        freshness.Pop();
+                        break;
                     }
                 }
 
@@ -76,11 +80,15 @@ namespace _01._Hello_Softuni
                 {
                     ingredientsLeft += ingredients.Dequeue();
                 }
+
+                Console.WriteLine($"Ingredients left: {ingredientsLeft}");
             }
 
-            mealsMade = (Dictionary<string, int>)mealsMade.OrderByDescending(x => x.Key);
+            var orderedMealsMade = mealsMade
+                .OrderByDescending(x => x.Value)
+                .ThenBy(x => x.Key);
 
-            foreach (var item in mealsMade)
+            foreach (var item in orderedMealsMade)
             {
                 Console.WriteLine($"# {item.Key}--> {item.Value}");
             }
