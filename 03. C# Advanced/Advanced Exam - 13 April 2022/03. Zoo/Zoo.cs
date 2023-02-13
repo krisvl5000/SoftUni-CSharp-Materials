@@ -47,7 +47,7 @@ namespace Zoo
         public int RemoveAnimals(string species)
         {
             int count = 0;
-            List<Animal> list = animals;
+            List<Animal> list = new List<Animal>(animals);
 
             foreach (Animal animal in list)
             {
