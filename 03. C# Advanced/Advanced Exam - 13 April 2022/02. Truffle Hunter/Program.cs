@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace _01._Hello_Softuni
 {
@@ -18,6 +20,11 @@ namespace _01._Hello_Softuni
             int summerCounter = 0;
 
             int trufflesEatenByTheBoar = 0;
+
+            HashSet<char> truffleTypes = new HashSet<char>()
+            {
+                'S', 'W', 'B'
+            };
 
             while (true)
             {
@@ -58,16 +65,44 @@ namespace _01._Hello_Softuni
                     switch (direction)
                     {
                         case "up":
-
+                            for (int row1 = n - 1; row1 >= 0; row1-=2)
+                            {
+                                if (truffleTypes.Contains(matrix[row1, col]))
+                                {
+                                    trufflesEatenByTheBoar++;
+                                    matrix[row1, col] = '-';
+                                }
+                            }
                             break;
                         case "down":
-
+                            for (int row1 = n - 1; row1 >= 0; row1 += 2)
+                            {
+                                if (truffleTypes.Contains(matrix[row1, col]))
+                                {
+                                    trufflesEatenByTheBoar++;
+                                    matrix[row1, col] = '-';
+                                }
+                            }
                             break;
                         case "left":
-
+                            for (int col1 = n - 1; col1 >= 0; col1 -= 2)
+                            {
+                                if (truffleTypes.Contains(matrix[row, col1]))
+                                {
+                                    trufflesEatenByTheBoar++;
+                                    matrix[row, col1] = '-';
+                                }
+                            }
                             break;
                         case "right":
-
+                            for (int col1 = n - 1; col1 >= 0; col1 += 2)
+                            {
+                                if (truffleTypes.Contains(matrix[row, col1]))
+                                {
+                                    trufflesEatenByTheBoar++;
+                                    matrix[row, col1] = '-';
+                                }
+                            }
                             break;
                     }
                 }
@@ -75,14 +110,34 @@ namespace _01._Hello_Softuni
                 {
                     break;
                 }
-
             }
+
+            Console.WriteLine($"Peter manages to harvest {blackCounter} black, " +
+                $"{summerCounter} summer, and {whiteCounter} white truffles.");
+
+            Console.WriteLine($"The wild boar has eaten {trufflesEatenByTheBoar} " +
+                $"truffles.");
+
+            PrintMatrix(matrix);
 
         }
 
-        static void MoveBoar(char[,] matrix)
+        private static void PrintMatrix(char[,] matrix)
         {
+            List<char> list = new List<char>();
 
+            for (int row = 0; row < matrix.GetLength(0); row++)
+            {
+                list = new List<char>();
+
+                for (int col = 0; col < matrix.GetLength(1); col++)
+                {
+                    list.Add(matrix[row, col]);
+                }
+
+                Console.WriteLine(String.Join(" ", list));
+                Console.WriteLine();
+            }
         }
 
         static char[,] GetMatrix(int n)
