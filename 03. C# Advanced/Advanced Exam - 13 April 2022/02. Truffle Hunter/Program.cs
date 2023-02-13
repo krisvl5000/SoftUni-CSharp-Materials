@@ -13,6 +13,10 @@ namespace _01._Hello_Softuni
             int row = 0;
             int col = 0;
 
+            int whiteCounter = 0;
+            int blackCounter = 0;
+            int summerCounter = 0;
+
             while (true)
             {
                 string[] input = Console.ReadLine()
@@ -26,7 +30,22 @@ namespace _01._Hello_Softuni
                     row = int.Parse(input[1]);
                     col = int.Parse(input[2]);
 
+                    char type = matrix[row, col];
 
+                    switch (type)
+                    {
+                        case 'S':
+                            summerCounter++;
+                            break;
+                        case 'W':
+                            whiteCounter++;
+                            break;
+                        case 'B':
+                            blackCounter++;
+                            break;
+                    }
+
+                    matrix[row, col] = '-';
                 }
                 else if (command == "Wild_Boar")
                 {
