@@ -28,6 +28,21 @@ namespace _01._Hello_Softuni
 
             while (ingredientsQueue.Count > 0 && freshnessStack.Count > 0)
             {
+                if (ingredientsQueue.Peek() == 0)
+                {
+                    ingredientsQueue.Dequeue();
+                }
+
+                if (ingredientsQueue.Count == 0)
+                {
+                    break;
+                }
+
+                if (freshnessStack.Count == 0)
+                {
+                    break;
+                }
+
                 int totalFreshness = ingredientsQueue.Peek() * freshnessStack.Peek();
                 bool dishWasMade = false;
 
