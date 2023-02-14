@@ -53,7 +53,7 @@ namespace _01._Hello_Softuni
                     }
                     else
                     {
-                        continue; // not quite sure, will confirm later
+                        continue;
                     }
 
                     switch (direction)
@@ -159,7 +159,7 @@ namespace _01._Hello_Softuni
             for (int row = 0; row < n; row++)
             {
                 matrix[row] = Console.ReadLine()
-                    .Split()
+                    .Split(" ", StringSplitOptions.RemoveEmptyEntries)
                     .Select(char.Parse)
                     .ToArray();
             }
@@ -179,11 +179,6 @@ namespace _01._Hello_Softuni
         {
             return row >= 0 && row < matrix.GetLength(0)
                 && col >= 0 && col < matrix[row].Length;
-        }
-
-        static bool IndexIsAToken(int row, int col, char[][] matrix)
-        {
-            return matrix[row][col] == 'T';
         }
     }
 }
