@@ -55,7 +55,6 @@ namespace _01._Hello_Softuni
 
             Console.WriteLine($"The most expensive set is: {sets.Max()}");
             Console.WriteLine(String.Join(" ", sets));
-
         }
     }
 }
