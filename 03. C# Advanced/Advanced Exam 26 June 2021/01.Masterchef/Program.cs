@@ -8,12 +8,12 @@ namespace _01._Hello_Softuni
     {
         static void Main(string[] args)
         {
-            Queue<int> ingredients = new Queue<int>(Console.ReadLine()
+            Queue<int> ingredientsQueue = new Queue<int>(Console.ReadLine()
                 .Split(" ", StringSplitOptions.RemoveEmptyEntries)
                 .Select(int.Parse)
                 .ToArray());
 
-            Stack<int> freshness = new Stack<int>(Console.ReadLine()
+            Stack<int> freshnessStack = new Stack<int>(Console.ReadLine()
                 .Split(" ", StringSplitOptions.RemoveEmptyEntries)
                 .Select(int.Parse)
                 .ToArray());
@@ -26,9 +26,9 @@ namespace _01._Hello_Softuni
 
             var mealsMade = new Dictionary<string, int>();
 
-            while (ingredients.Count > 0 && freshness.Count > 0)
+            while (ingredientsQueue.Count > 0 && freshnessStack.Count > 0)
             {
-                int totalFreshness = ingredients.Peek() * freshness.Peek();
+                int totalFreshness = ingredientsQueue.Peek() * freshnessStack.Peek();
                 bool dishWasMade = false;
 
                 foreach (var item in dict)
@@ -43,17 +43,17 @@ namespace _01._Hello_Softuni
                         mealsMade[item.Key]++;
                         dishWasMade = true;
 
-                        ingredients.Dequeue();
-                        freshness.Pop();
+                        ingredientsQueue.Dequeue();
+                        freshnessStack.Pop();
                         break;
                     }
                 }
 
                 if (!dishWasMade)
                 {
-                    freshness.Pop();
-                    int newIngredient = ingredients.Dequeue() + 5;
-                    ingredients.Enqueue(newIngredient);
+                    freshnessStack.Pop();
+                    int newIngredient = ingredientsQueue.Dequeue() + 5;
+                    ingredientsQueue.Enqueue(newIngredient);
                 }
             }
 
@@ -76,11 +76,11 @@ namespace _01._Hello_Softuni
 
             int ingredientsLeft = 0;
 
-            if (ingredients.Count > 0)
+            if (ingredientsQueue.Count > 0)
             {
-                while (ingredients.Count != 0)
+                while (ingredientsQueue.Count != 0)
                 {
-                    ingredientsLeft += ingredients.Dequeue();
+                    ingredientsLeft += ingredientsQueue.Dequeue();
                 }
 
                 Console.WriteLine($"Ingredients left: {ingredientsLeft}");
