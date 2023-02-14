@@ -6,51 +6,56 @@ namespace _01._Hello_Softuni
     {
         static void Main(string[] args)
         {
-            int[] miligramsOfCaffeine = Console.ReadLine()
+            Stack<int> caffeineStack = new Stack<int>(Console.ReadLine()
                 .Split(", ", StringSplitOptions.RemoveEmptyEntries)
                 .Select(int.Parse)
-                .ToArray();
+                .ToArray());
 
-            int[] energyDrinks = Console.ReadLine()
+            Queue<int> enerdyDrinkQueue = new Queue<int>(Console.ReadLine()
                 .Split(", ", StringSplitOptions.RemoveEmptyEntries)
                 .Select(int.Parse)
-                .ToArray();
+                .ToArray());
 
-            int totalCaffeine = 0;
-            const int MAXCAFFEINE = 300;
+            const int MAX_CAFFEINE = 300;
 
-            Stack<int> caffeineStack = new Stack<int>(miligramsOfCaffeine);
-            Queue<int> drinksQueue = new Queue<int>(energyDrinks);
+            int initialCaffeine = 0;
 
-            while (caffeineStack.Count > 0 && drinksQueue.Count > 0)
+            while (true)
             {
-                int caffeineInjested = caffeineStack.Peek() * drinksQueue.Peek();
+                if (caffeineStack.Count == 0)
+                {
+                    break;
+                }
 
-                if (caffeineInjested + totalCaffeine <= MAXCAFFEINE)
+                if (enerdyDrinkQueue.Count == 0)
+                {
+                    break;
+                }
+
+                int caffeine = caffeineStack.Peek() * enerdyDrinkQueue.Peek();
+
+                if (caffeine + initialCaffeine <= MAX_CAFFEINE)
                 {
                     caffeineStack.Pop();
-                    drinksQueue.Dequeue();
-
-                    totalCaffeine += caffeineInjested;
+                    enerdyDrinkQueue.Dequeue();
+                    initialCaffeine += caffeine;
                 }
                 else
                 {
                     caffeineStack.Pop();
-                    int temp = drinksQueue.Dequeue();
-                    drinksQueue.Enqueue(temp);
+                    enerdyDrinkQueue.Enqueue(enerdyDrinkQueue.Dequeue());
+                    initialCaffeine -= 30;
 
-                    totalCaffeine -= 30;
-
-                    if (totalCaffeine < 0)
+                    if (initialCaffeine < 0)
                     {
-                        totalCaffeine = 0;
+                        initialCaffeine = 0;
                     }
                 }
             }
 
-            if (drinksQueue.Count > 0)
+            if (enerdyDrinkQueue.Count > 0)
             {
-                Console.WriteLine($"Drinks left: {String.Join(", ", drinksQueue)}");
+                Console.WriteLine($"Drinks left: {String.Join(", ", enerdyDrinkQueue)}");
             }
             else
             {
@@ -58,8 +63,9 @@ namespace _01._Hello_Softuni
                     "the maximum caffeine.");
             }
 
-            Console.WriteLine($"Stamat is going to " +
-                $"sleep with {totalCaffeine} mg caffeine.");
+            Console.WriteLine($"Stamat is going to sleep with " +
+                $"{initialCaffeine} mg caffeine.");
+
         }
     }
 }
