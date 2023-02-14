@@ -12,7 +12,7 @@ namespace _01._Hello_Softuni
                 .ToArray());
 
             Queue<int> enerdyDrinkQueue = new Queue<int>(Console.ReadLine()
-                .Split(", ", StringSplitOptions.RemoveEmptyEntries)
+                .Split(" ", StringSplitOptions.RemoveEmptyEntries)
                 .Select(int.Parse)
                 .ToArray());
 
