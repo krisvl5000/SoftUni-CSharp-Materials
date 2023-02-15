@@ -8,10 +8,115 @@ namespace _01._Hello_Softuni
         {
             int n = int.Parse(Console.ReadLine());
 
-            char[,] matrix = new char[n, n];
+            char[,] matrix = GetMatrix(n);
 
-            int currentRow = 0;
-            int currentCol = 0;
+            (int row, int col) = GetPosition(matrix);
+
+            matrix[row, col] = '*';
+
+            int holesmade = 1;
+            int rodsHit = 0;
+            bool isElectrocuted = false;
+
+            while (true)
+            {
+                int oldRow = row;
+                int oldCol = col;
+
+                string input = Console.ReadLine();
+
+                if (input == "End")
+                {
+                    break;
+                }
+
+                switch (input)
+                {
+                    case "up":
+                        row--;
+                        break;
+                    case "down":
+                        row++;
+                        break;
+                    case "left":
+                        col--;
+                        break;
+                    case "right":
+                        col++;
+                        break;
+                }
+
+                if (!IsIndexValid(row, col, matrix))
+                {
+                    row = oldRow;
+                    col = oldCol;
+                    continue;
+                }
+
+                if (matrix[row, col] == '*')
+                {
+                    Console.WriteLine($"The wall is already destroyed at position " +
+                        $"[{row}, {col}]!");
+                }
+                else if (matrix[row, col] == 'R')
+                {
+                    Console.WriteLine("Vanko hit a rod!");
+                    rodsHit++;
+
+                    row = oldRow;
+                    col = oldCol;
+                    continue;
+                }
+                else if (matrix[row, col] == 'C')
+                {
+                    holesmade++;
+
+                    matrix[row, col] = 'E';
+                    isElectrocuted = true;
+                    break;
+                }
+                else
+                {
+                    matrix[row, col] = '*';
+                    holesmade++;
+                }    
+            }
+
+            if (!isElectrocuted)
+            {
+                Console.WriteLine($"Vanko managed to make {holesmade} hole(s) " +
+                    $"and he only hit {rodsHit} rod(s).");
+                matrix[row, col] = 'V';
+            }
+            else
+            {
+                Console.WriteLine($"Vanko got electrocuted, but he managed to make " +
+                    $"{holesmade} hole(s).");
+            }
+
+            PrintMatrix(matrix);
+
+        }
+
+        private static (int row, int col) GetPosition(char[,] matrix)
+        {
+            for (int row = 0; row < matrix.GetLength(0); row++)
+            {
+                for (int col = 0; col < matrix.GetLength(1); col++)
+                {
+                    if (matrix[row, col] == 'V')
+                    {
+                        return (row, col);
+                    }
+                }
+            }
+
+            throw new ArgumentException();
+        }
+
+        static char[,] GetMatrix(int n)
+        {
+            char[,] matrix = new char[n, n];
 
             for (int row = 0; row < n; row++)
             {
@@ -19,104 +124,29 @@ namespace _01._Hello_Softuni
                 for (int col = 0; col < n; col++)
                 {
                     matrix[row, col] = line[col];
-
-                    if (line[col] == 'V')
-                    {
-                        currentRow = row;
-                        currentCol = col;
-                    }
                 }
             }
 
-            string input = Console.ReadLine().ToLower();
+            return matrix;
+        }
 
-            matrix[currentRow, currentCol] = '*';
-
-            int holes = 1;
-            int rods = 0;
-            bool isElectrocuted = false;
-
-            while (input != "end")
+        static void PrintMatrix(char[,] matrix)
+        {
+            for (int row = 0; row < matrix.GetLength(0); row++)
             {
-                int oldRow = currentRow;
-                int oldCol = currentCol;
-
-                switch (input)
-                {
-                    case "up":
-                        currentRow--;
-                        break;
-                    case "down":
-                        currentRow++;
-                        break;
-                    case "left":
-                        currentCol--;
-                        break;
-                    case "right":
-                        currentCol++;
-                        break;
-                }
-
-                if (currentRow >= 0 && currentRow < n &&
-                    currentCol >= 0 && currentCol < n)
-                {
-                    if (matrix[currentRow, currentCol] == '-')
-                    {
-                        matrix[currentRow, currentCol] = '*';
-                        holes++;
-                    }
-                    else if (matrix[currentRow, currentCol] == '*')
-                    {
-                        Console.WriteLine($"The wall is already destroyed at position " +
-                            $"[{currentRow}, {currentCol}]!");
-                    }
-                    else if (matrix[currentRow, currentCol] == 'R')
-                    {
-                        Console.WriteLine("Vanko hit a rod!");
-                        rods++;
-
-                        currentRow = oldRow;
-                        currentCol = oldCol;
-                    }
-                    else if (matrix[currentRow, currentCol] == 'C')
-                    {
-                        matrix[currentRow, currentCol] = 'E';
-                        holes++;
-                        isElectrocuted = true;
-                        break;
-                    }
-                }
-                else
-                {
-                    currentRow = oldRow;
-                    currentCol = oldCol;
-                }
-
-                input = Console.ReadLine().ToLower();
-            }
-
-            if (isElectrocuted)
-            {
-                Console.WriteLine($"Vanko got electrocuted, but he managed to make " +
-                    $"{holes} hole(s).");
-            }
-            else
-            {
-                Console.WriteLine($"Vanko managed to make {holes} hole(s) " +
-                    $"and he hit only {rods} rod(s).");
-                matrix[currentRow, currentCol] = 'V';
-            }
-
-            for (int row = 0; row < n; row++)
-            {
-                for (int col = 0; col < n; col++)
+                for (int col = 0; col < matrix.GetLength(1); col++)
                 {
                     Console.Write(matrix[row, col]);
                 }
 
                 Console.WriteLine();
             }
+        }
 
+        static bool IsIndexValid(int row, int col, char[,] matrix)
+        {
+            return row >= 0 && row < matrix.GetLength(0)
+                && col >= 0 && col < matrix.GetLength(1);
         }
     }
 }
