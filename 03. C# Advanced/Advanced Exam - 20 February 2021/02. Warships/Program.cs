@@ -18,9 +18,6 @@ namespace _01._Hello_Softuni
 
             int totalShipsSunk = 0;
 
-            int row = 0;
-            int col = 0;
-
             for (int i = 0; i < input.Length; i++)
             {
                 string command = input[i];
@@ -29,87 +26,50 @@ namespace _01._Hello_Softuni
                 //    .Select(int.Parse)
                 //    .ToArray();
 
-                row = command.Split(" ").Select(int.Parse).First();
-                col = command.Split(" ").Select(int.Parse).Last();
+                int rowIndex = command.Split(" ").Select(int.Parse).First();
+                int colIndex = command.Split(" ").Select(int.Parse).Last();
 
-                if (!IsIndexValid(row, col, matrix))
+                if (!IsIndexValid(rowIndex, colIndex, matrix))
                 {
                     continue;
                 }
 
-                char symbol = matrix[row, col];
+                char symbol = matrix[rowIndex, colIndex];
 
                 switch (symbol)
                 {
                     case '<':
-                        matrix[row, col] = 'X';
+                        matrix[rowIndex, colIndex] = 'X';
                         playerOneShips--;
                         totalShipsSunk++;
                         break;
                     case '>':
-                        matrix[row, col] = 'X';
+                        matrix[rowIndex, colIndex] = 'X';
                         playerTwoShips--;
                         totalShipsSunk++;
                         break;
-                    case '#':
-                        if (IsIndexValid(row++, col, matrix))
+                        case '#':
+                        for (int row = rowIndex - 1; row <= rowIndex + 1; row++)
                         {
-                            if (matrix[row, col] == '<')
+                            for (int col = colIndex - 1; col <= colIndex + 1; col++)
                             {
-                                matrix[row, col] = 'X';
-                                playerOneShips--;
-                                totalShipsSunk++;
-                            }
-                            else if (matrix[row, col] == '>')
-                            {
-                                matrix[row, col] = 'X';
-                                playerTwoShips--;
-                                totalShipsSunk++;
-                            }
-                        }
-                        if (IsIndexValid(row, col++, matrix))
-                        {
-                            if (matrix[row, col] == '<')
-                            {
-                                matrix[row, col] = 'X';
-                                playerOneShips--;
-                                totalShipsSunk++;
-                            }
-                            else if (matrix[row, col] == '>')
-                            {
-                                matrix[row, col] = 'X';
-                                playerTwoShips--;
-                                totalShipsSunk++;
-                            }
-                        }
-                        if (IsIndexValid(row--, col, matrix))
-                        {
-                            if (matrix[row, col] == '<')
-                            {
-                                matrix[row, col] = 'X';
-                                playerOneShips--;
-                                totalShipsSunk++;
-                            }
-                            else if (matrix[row, col] == '>')
-                            {
-                                matrix[row, col] = 'X';
-                                playerTwoShips--;
-                                totalShipsSunk++;
-                            }
-                        }
-                        if (IsIndexValid(row, col--, matrix))
-                        {
-                            if (matrix[row, col] == '<')
-                            {
-                                matrix[row, col] = 'X';
-                                playerOneShips--;
-                                totalShipsSunk++;
-                            }
-                            else if (matrix[row, col] == '>')
-                            {
-                                matrix[row, col] = 'X';
-                                playerTwoShips--;
-                                totalShipsSunk++;
+                                if (!IsIndexValid(row, col, matrix))
+                                {
+                                    continue;
+                                }
+
+                                if (matrix[row, col] == '<')
+                                {
+                                    playerOneShips--;
+                                    matrix[row, col] = 'X';
+                                    totalShipsSunk++;
+                                }
+                                else if (matrix[row, col] == '>')
+                                {
+                                    playerTwoShips--;
+                                    matrix[row, col] = 'X';
+                                    totalShipsSunk++;
+                                }
                             }
                         }
                         break;
@@ -133,7 +93,7 @@ namespace _01._Hello_Softuni
             }
             else
             {
-                Console.WriteLine($"It's a draw! Player one has {playerOneShips} " +
+                Console.WriteLine($"It's a draw! Player One has {playerOneShips} " +
                     $"ships left. Player Two has {playerTwoShips} ships left.");
             }
 
