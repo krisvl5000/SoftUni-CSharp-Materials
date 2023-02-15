@@ -8,94 +8,103 @@ namespace _01._Hello_Softuni
     {
         static void Main(string[] args)
         {
-            int[] whiteTiles = Console.ReadLine()
+            Stack<int> white = new Stack<int>(Console.ReadLine()
                 .Split(" ", StringSplitOptions.RemoveEmptyEntries)
                 .Select(int.Parse)
-                .ToArray();
+                .ToArray());
 
-            int[] greyTiles = Console.ReadLine()
+            Queue<int> grey = new Queue<int>(Console.ReadLine()
                 .Split(" ", StringSplitOptions.RemoveEmptyEntries)
                 .Select(int.Parse)
-                .ToArray();
+                .ToArray());
 
-            Stack<int> whiteStack = new Stack<int>(whiteTiles);
-            Queue<int> greyQueue = new Queue<int>(greyTiles);
+            var dict = new Dictionary<string, int>();
+            dict.Add("Sink", 40);
+            dict.Add("Oven", 50);
+            dict.Add("Countertop", 60);
+            dict.Add("Wall", 70);
 
-            int sink = 0;
-            int oven = 0;
-            int counterTop = 0;
-            int wall = 0;
-            int floor = 0;
+            var itemsMade = new Dictionary<string, int>();
 
-            while (whiteStack.Count > 0 && greyQueue.Count > 0)
+            while (true)
             {
-                int whiteTile = whiteStack.Pop();
-                int greyTile = greyQueue.Dequeue();
+                int whiteTile = white.Peek();
+                int greyTile = grey.Peek();
 
                 if (whiteTile == greyTile)
                 {
-                    int newTile = whiteTile + greyTile;
+                    int largeTile = whiteTile + greyTile;
 
-                    if (newTile == 40)
+                    bool itemIsPresent = false;
+
+                    foreach (var item in dict)
                     {
-                        sink++;
+                        if (item.Value == largeTile)
+                        {
+                            if (!itemsMade.ContainsKey(item.Key))
+                            {
+                                itemsMade.Add(item.Key, 0);
+                            }
+
+                            itemsMade[item.Key]++;
+                            itemIsPresent = true;
+                            break;
+                        }
                     }
-                    else if (newTile == 50)
+
+                    if (!itemIsPresent)
                     {
-                        oven++;
+                        if (!itemsMade.ContainsKey("Floor"))
+                        {
+                            itemsMade.Add("Floor", 0);
+                        }
+
+                        itemsMade["Floor"]++;
                     }
-                    else if (newTile == 60)
-                    {
-                        counterTop++;
-                    }
-                    else if (newTile == 70)
-                    {
-                        wall++;
-                    }
-                    else
-                    {
-                        floor++;
-                    }
+
+                    white.Pop();
+                    grey.Dequeue();
                 }
                 else
                 {
-                    whiteStack.Push(whiteTile / 2);
-                    greyQueue.Enqueue(greyTile);
+                    whiteTile = white.Pop();
+                    whiteTile /= 2;
+                    white.Push(whiteTile);
+
+                    grey.Enqueue(grey.Dequeue());
+                }
+
+                if (white.Count == 0 || grey.Count == 0)
+                {
+                    break;
                 }
             }
 
-            if (whiteStack.Count == 0)
+            if (white.Count == 0)
             {
                 Console.WriteLine("White tiles left: none");
             }
             else
             {
-                Console.WriteLine($"White tiles left: {String.Join(", ", whiteStack)}");
+                Console.WriteLine($"White tiles left: {String.Join(", ", white)}");
             }
 
-            if (greyQueue.Count == 0)
+            if (grey.Count == 0)
             {
                 Console.WriteLine("Grey tiles left: none");
             }
             else
             {
-                Console.WriteLine($"Grey tiles left: {String.Join(", ", greyQueue)}");
+                Console.WriteLine($"Grey tiles left: {String.Join(", ", grey)}");
             }
 
-            Dictionary<string, int> dict = new Dictionary<string, int>();
+            var orderedDict = itemsMade
+                .OrderByDescending(x => x.Value)
+                .ThenBy(x => x.Key);
 
-            dict.Add("Countertop", counterTop);
-            dict.Add("Floor", floor);
-            dict.Add("Oven", oven);
-            dict.Add("Sink", sink);
-            dict.Add("Wall", wall);
-
-            foreach (var tile in dict.OrderByDescending(x => x.Value).ThenBy(x => x.Key))
+            foreach (var item in orderedDict)
             {
-                if (tile.Value > 0)
-                {
-                    Console.WriteLine($"{tile.Key}: {tile.Value}");
-                }
+                Console.WriteLine($"{item.Key}: {item.Value}");
             }
         }
     }
