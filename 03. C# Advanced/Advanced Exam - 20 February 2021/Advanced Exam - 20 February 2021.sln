@@ -3,11 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01. The Fight for Gondor", "Advanced Exam - 20 February 2021\01. The Fight for Gondor.csproj", "{7D7F7245-7FA4-4B2C-A39F-8677FA484DC3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "01. The Fight for Gondor", "Advanced Exam - 20 February 2021\01. The Fight for Gondor.csproj", "{7D7F7245-7FA4-4B2C-A39F-8677FA484DC3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02. Warships", "02. Warships\02. Warships.csproj", "{113CAA75-99E6-4815-9B14-203EAEABABD9}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03. The Race", "03. The Race\03. The Race.csproj", "{60153204-CDE2-433A-A6F5-AD1E983A4AD3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "03. The Race", "03. The Race\03. The Race.csproj", "{60153204-CDE2-433A-A6F5-AD1E983A4AD3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,10 +17,6 @@ Global
 		{7D7F7245-7FA4-4B2C-A39F-8677FA484DC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D7F7245-7FA4-4B2C-A39F-8677FA484DC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D7F7245-7FA4-4B2C-A39F-8677FA484DC3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{113CAA75-99E6-4815-9B14-203EAEABABD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{113CAA75-99E6-4815-9B14-203EAEABABD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{113CAA75-99E6-4815-9B14-203EAEABABD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{113CAA75-99E6-4815-9B14-203EAEABABD9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{60153204-CDE2-433A-A6F5-AD1E983A4AD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{60153204-CDE2-433A-A6F5-AD1E983A4AD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60153204-CDE2-433A-A6F5-AD1E983A4AD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
