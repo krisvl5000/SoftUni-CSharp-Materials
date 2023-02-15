@@ -85,7 +85,7 @@ namespace _01._Hello_Softuni
             if (!isElectrocuted)
             {
                 Console.WriteLine($"Vanko managed to make {holesmade} hole(s) " +
-                    $"and he only hit {rodsHit} rod(s).");
+                    $"and he hit only {rodsHit} rod(s).");
                 matrix[row, col] = 'V';
             }
             else
