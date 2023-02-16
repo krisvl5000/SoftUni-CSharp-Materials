@@ -8,120 +8,113 @@ namespace _01._Hello_Softuni
     {
         static void Main(string[] args)
         {
-            double[] waterArr = Console.ReadLine().Split().Select(double.Parse).ToArray();
-            Queue<double> waterQueue = new Queue<double>(waterArr);
+            Queue<double> waterQueue = new Queue<double>(Console.ReadLine()
+                .Split(" ", StringSplitOptions.RemoveEmptyEntries)
+                .Select(double.Parse)
+                .ToArray());
 
-            double[] flourArr = Console.ReadLine().Split().Select(double.Parse).ToArray();
-            Stack<double> flourStack = new Stack<double>(flourArr);
+            Stack<double> flourStack = new Stack<double>(Console.ReadLine()
+                .Split(" ", StringSplitOptions.RemoveEmptyEntries)
+                .Select(double.Parse)
+                .ToArray());
 
             var dict = new Dictionary<string, int>();
 
-            while (waterQueue.Count > 0 && flourStack.Count > 0)
+            dict.Add("Croissant", 50);
+            dict.Add("Muffin", 40);
+            dict.Add("Baguette", 30);
+            dict.Add("Bagel", 20);
+
+            var productsMade = new Dictionary<string, int>();
+
+            while (waterQueue.Count != 0 && flourStack.Count != 0)
             {
+                bool itemWasMade = false;
+
                 double water = waterQueue.Peek();
                 double flour = flourStack.Peek();
-
                 double waterRatio = water * 100 / (water + flour);
 
-                if (waterRatio == 50)
+                foreach (var item in dict)
                 {
-                    if (!dict.ContainsKey("Croissant"))
+                    if (waterRatio == item.Value)
                     {
-                        dict.Add("Croissant", 0);
+                        if (!productsMade.ContainsKey(item.Key))
+                        {
+                            productsMade.Add(item.Key, 0);
+                        }
+
+                        productsMade[item.Key]++;
+                        itemWasMade = true;
+                        break;
                     }
-
-                    dict["Croissant"]++;
-
-                    waterQueue.Dequeue();
-                    flourStack.Pop();
                 }
-                else if (waterRatio == 40)
+
+                if (itemWasMade)
                 {
-                    if (!dict.ContainsKey("Muffin"))
-                    {
-                        dict.Add("Muffin", 0);
-                    }
-
-                    dict["Muffin"]++;
-
                     waterQueue.Dequeue();
                     flourStack.Pop();
-                }
-                else if (waterRatio == 30)
-                {
-                    if (!dict.ContainsKey("Baguette"))
-                    {
-                        dict.Add("Baguette", 0);
-                    }
 
-                    dict["Baguette"]++;
-
-                    waterQueue.Dequeue();
-                    flourStack.Pop();
-                }
-                else if (waterRatio == 20)
-                {
-                    if (!dict.ContainsKey("Bagel"))
-                    {
-                        dict.Add("Bagel", 0);
-                    }
-
-                    dict["Bagel"]++;
-
-                    waterQueue.Dequeue();
-                    flourStack.Pop();
+                    continue;
                 }
                 else
                 {
-                    flourStack.Pop();
+                    if (flour < water)
+                    {
+                        while (flour < water)
+                        {
+                            flour += flourStack.Pop();
+
+                            if (!flourStack.Any())
+                            {
+                                break;
+                            }
+                        }
+                    }
+
+                    flour -= water;
+
+                    if (!productsMade.ContainsKey("Croissant"))
+                    {
+                        productsMade.Add("Croissant", 0);
+                    }
+
+                    productsMade["Croissant"]++;
+
                     waterQueue.Dequeue();
-
-                    if (!dict.ContainsKey("Croissant"))
-                    {
-                        dict.Add("Croissant", 0);
-                    }
-
-                    dict["Croissant"]++;
-
-                    //water 25, flour 30
-
-                    if (flour > water)
-                    {
-                        double leftOverFlour = flour - water;
-                        flourStack.Push(leftOverFlour);
-                    }
-                    else
-                    {
-                        double leftOverWater = water - flour;
-                        waterQueue.Enqueue(leftOverWater);
-                    }
+                    flourStack.Pop();
+                    flourStack.Push(flour);
                 }
+
             }
 
-            foreach (var item in dict
+            var orderedDict = productsMade
                 .OrderByDescending(x => x.Value)
-                .ThenBy(x => x.Key))
+                .ThenBy(x => x.Key);
+
+            foreach (var item in orderedDict)
             {
                 Console.WriteLine($"{item.Key}: {item.Value}");
             }
 
-            if (waterQueue.Count > 0)
+            if (waterQueue.Any())
             {
-                Console.WriteLine("Water left: " + String.Join(", ", waterQueue));
+                Console.WriteLine($"Water left: {String.Join(", ", waterQueue)}");
             }
             else
             {
                 Console.WriteLine("Water left: None");
             }
 
-            if (flourStack.Count > 0)
+            if (flourStack.Any())
             {
-                Console.WriteLine("Flour left: " + String.Join(", ", flourStack));
+                Console.WriteLine($"Flour left: {String.Join(", ", flourStack)}");
             }
             else
             {
                 Console.WriteLine("Flour left: None");
             }
+
         }
     }
 }
