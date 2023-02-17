@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace _01._Hello_Softuni
 {
@@ -88,7 +90,7 @@ namespace _01._Hello_Softuni
                                 direction = "up";
                                 break;
                             case "left":
-                                direction = "right";
+                                direction = "right"; 
                                 break;
                             case "right":
                                 direction = "left";
@@ -131,7 +133,7 @@ namespace _01._Hello_Softuni
             {
                 Console.WriteLine($"The Beaver successfully collect " +
                     $"{branchesCollected.Count} wood branches: " +
-                    $"{String.Join(", ", branchesCollected)}.");
+                    $"{String.Join(", ", branchesCollected.Reverse())}.");
             }
             else
             {
