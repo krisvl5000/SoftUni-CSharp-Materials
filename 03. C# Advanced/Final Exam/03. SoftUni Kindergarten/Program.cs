@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SoftUniKindergarted
+namespace SoftUniKindergarten
 {
     public class StartUp
     {
