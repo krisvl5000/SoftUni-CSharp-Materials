@@ -21,6 +21,8 @@ namespace _01._Hello_Softuni
             int peopleTouched = 0;
             int movesMade = 0;
 
+            matrix[row][col] = '-';
+
             while (true)
             {
                 int oldRow = row;
