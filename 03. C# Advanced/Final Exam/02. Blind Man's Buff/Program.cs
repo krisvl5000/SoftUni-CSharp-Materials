@@ -6,7 +6,10 @@ namespace _01._Hello_Softuni
     {
         static void Main(string[] args)
         {
-            int[] dimensionArgs = Console.ReadLine().Split().Select(int.Parse).ToArray();
+            int[] dimensionArgs = Console.ReadLine()
+                .Split(" ", StringSplitOptions.RemoveEmptyEntries)
+                .Select(int.Parse)
+                .ToArray();
 
             int n = dimensionArgs[0];
             int m = dimensionArgs[1];
@@ -55,28 +58,26 @@ namespace _01._Hello_Softuni
 
                 char symbol = matrix[row][col];
 
-                if (symbol == '-')
-                {
-                    movesMade++;
-                }
-                else if (symbol == 'P')
+                if (matrix[row][col] == 'P')
                 {
                     peopleTouched++;
-                    movesMade++;
                     matrix[row][col] = '-';
+                    movesMade++;
+
+                    if (peopleTouched == 3)
+                    {
+                        break;
+                    }
                 }
-                else if (symbol == 'O')
+                else if (matrix[row][col] == 'O')
                 {
                     row = oldRow;
                     col = oldCol;
-                    continue;
                 }
-
-                if (peopleTouched == 3)
+                else if (matrix[row][col] == '-')
                 {
-                    break;
+                    movesMade++;
                 }
-
             }
 
             Console.WriteLine("Game over!");
