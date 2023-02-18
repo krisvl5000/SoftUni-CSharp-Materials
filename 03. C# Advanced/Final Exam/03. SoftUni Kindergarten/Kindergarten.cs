@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SoftUniKindergarted
+namespace SoftUniKindergarten
 {
     public class Kindergarten
     {
