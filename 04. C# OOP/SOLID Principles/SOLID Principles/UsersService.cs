@@ -30,7 +30,7 @@ namespace Solid
             return true;
         }
 
-        private bool IsEmailValid(string email)
+        private bool IsEmailValid(string email)   
         {
             // 50 lines of email validation
             return true;
