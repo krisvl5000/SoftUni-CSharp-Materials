@@ -4,9 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _07._Military_Elite.Models
+namespace MilitaryElite
 {
-    internal class Mission
+    public class Mission
     {
+        public Mission(string codeName, string state)
+        {
+            CodeName = codeName;
+            State = state;
+        }
+
+        string CodeName { get; set; }
+
+        public string State { get; set; }
     }
 }

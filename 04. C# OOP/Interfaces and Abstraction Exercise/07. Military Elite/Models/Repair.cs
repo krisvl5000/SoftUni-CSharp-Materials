@@ -4,9 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _07._Military_Elite.Models
+namespace MilitaryElite
 {
-    internal class Repair
+    public class Repair
     {
+        public Repair(string name, int hoursWorked)
+        {
+            Name = name;
+            HoursWorked = hoursWorked;
+        }
+
+        public string Name { get; set; }
+
+        public int HoursWorked { get; set; }
     }
 }

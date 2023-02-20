@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _07._Military_Elite.Models
+namespace MilitaryElite
 {
-    internal class Private
+    public class Private : Soldier, IPrivate
     {
+        public decimal Salary { get; set; }
     }
 }

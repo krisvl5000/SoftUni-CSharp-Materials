@@ -4,9 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _07._Military_Elite.Models
+namespace MilitaryElite
 {
-    internal class Engineer
+    public class Engineer : Soldier, IEngineer
     {
+        public Engineer(string corps)
+        {
+            Corps = corps;
+            RepairList = new List<Repair>();
+        }
+
+        public ICollection<Repair> RepairList {get; set;}
+
+        public string Corps { get; set; }
     }
 }

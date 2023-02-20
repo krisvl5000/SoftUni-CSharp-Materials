@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _07._Military_Elite.Models
+namespace MilitaryElite
 {
-    internal class LieutenantGeneral
+    public class LieutenantGeneral : Soldier, ILieutenantGeneral
     {
+        public ICollection<IPrivate> privatesList => new List<IPrivate>();
     }
 }

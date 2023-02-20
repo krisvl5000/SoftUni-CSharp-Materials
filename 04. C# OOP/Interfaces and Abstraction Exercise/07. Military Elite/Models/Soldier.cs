@@ -4,9 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _07._Military_Elite.Models
+namespace MilitaryElite
 {
-    internal class Soldier
+    public class Soldier : ISoldier
     {
+        public string Id { get; set; }
+
+        public string FirstName {get; set; }
+
+        public string LastName {get; set; }
     }
 }
