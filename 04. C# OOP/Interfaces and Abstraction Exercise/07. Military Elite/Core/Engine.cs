@@ -11,7 +11,14 @@ namespace MilitaryElite
         private readonly IWriter writer;
         private readonly IReader reader;
 
-        public Engine(IWriter writer, IReader reader)
+        private readonly ICollection<ISoldier> soldiers;
+
+        public Engine()
+        {
+            soldiers = new List<ISoldier>();
+        }
+
+        public Engine(IWriter writer, IReader reader) : this()
         {
             this.writer = writer;
             this.reader = reader;
@@ -19,7 +26,38 @@ namespace MilitaryElite
 
         public void Run()
         {
-            throw new NotImplementedException();
+            while (true)
+            {
+                ISoldier soldier = null;
+
+                string input = reader.ReadLine();
+
+                if (input == "End")
+                {
+                    break;
+                }
+
+                string[] args = input.Split(' ');
+
+                string id = args[1];
+                string firstName = args[2];
+                string lastName = args[3];
+                decimal salary = decimal.Parse(args[4]);
+
+                if (args[0] == "Private")
+                {
+                    soldier = new Private(id, firstName, lastName, salary);
+                }
+                else if (args[0] == "Commando")
+                {
+                    string corps = args[5];
+                    soldier = new Commando(firstName);
+
+                }
+
+                soldiers.Add(soldier);
+            }
+
         }
     }
 }
