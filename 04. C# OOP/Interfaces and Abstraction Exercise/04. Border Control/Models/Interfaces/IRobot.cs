@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace BorderControl
 {
-    public interface IRobot
+    public interface IRobot : IEntity
     {
         string Model { get; }
-
-        int Id { get; }
     }
 }
