@@ -8,6 +8,8 @@ namespace MilitaryElite
 {
     public class Commando : Soldier, ICommando
     {
+        private string corps;
+
         public Commando(string corps)
         {
             Corps = corps;
@@ -16,7 +18,20 @@ namespace MilitaryElite
 
         public ICollection<Mission> Missions { get; set; }
 
-        public string Corps {get; set; }
+        public string Corps
+        {
+            get { return corps; }
+
+            set
+            {
+                if (value == "Airforces" || value == "Marines")
+                {
+                    corps = value;
+                }
+
+                return;
+            }
+        }
 
         public void CompleteMission()
         {
