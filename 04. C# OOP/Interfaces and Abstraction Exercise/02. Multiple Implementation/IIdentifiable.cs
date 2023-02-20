@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PersonInfo
+namespace _02._Multiple_Implementation
 {
-    public interface IIdentifiable
+    internal class IIdentifiable
     {
-        string Id { get; }
     }
 }
