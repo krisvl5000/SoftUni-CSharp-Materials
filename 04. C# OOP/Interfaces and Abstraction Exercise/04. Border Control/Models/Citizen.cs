@@ -8,6 +8,18 @@ namespace BorderControl
 {
     public class Citizen : ICitizen
     {
+        public Citizen()
+        {
+
+        }
+
+        public Citizen(string name, int age, int id) : this()
+        {
+            Name = name;
+            Age = age;
+            Id = id;
+        }
+
         public string Name {get; set;}
 
         public int Age {get; set;}
