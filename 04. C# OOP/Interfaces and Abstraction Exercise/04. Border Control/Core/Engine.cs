@@ -14,10 +14,14 @@ namespace BorderControl
         private readonly ICitizen citizen;
         private readonly IRobot robot;
 
-        public Engine()
+        private ICollection<IEntity> list;
+
+        private Engine()
         {
             this.citizen = new Citizen();
             this.robot = new Robot();
+
+            this.list = new List<IEntity>();
         }
 
         public Engine(IReader reader, IWriter writer) : this()
@@ -38,20 +42,34 @@ namespace BorderControl
 
                 string[] args = input.Split(' ');
 
+                IEntity entity = null;
+
                 if (args.Length == 2)
                 {
                     string model = args[0];
-                    int id = int.Parse(args[1]);
+                    string id = args[1];
 
-                    IRobot robot = new Robot(model, id);
+                    entity = new Robot(model, id);
                 }
                 else if (args.Length == 3)
                 {
                     string name = args[0];
                     int age = int.Parse(args[1]);
-                    int id = int.Parse(args[2]);
+                    string id = args[2];
 
-                    ICitizen citizen = new Citizen(name, age, id);
+                    entity = new Citizen(name, age, id);
+                }
+
+                list.Add(entity);
+            }
+
+            string fakeIdSequence = reader.ReadLine();
+
+            foreach (var entity in list)
+            {
+                if (entity.Id.EndsWith(fakeIdSequence))
+                {
+                    writer.WriteLine(entity.Id);
                 }
             }
         }
