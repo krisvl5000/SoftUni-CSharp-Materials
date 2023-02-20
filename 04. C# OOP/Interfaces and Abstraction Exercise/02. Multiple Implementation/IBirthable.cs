@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Telephony.Models.Interfaces
+namespace PersonInfo
 {
-    public interface IStationaryPhone
+    public interface IBirthable
     {
-        string Call(string phoneNumber);
+        string Birthdate { get; }
     }
 }
