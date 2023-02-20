@@ -13,7 +13,7 @@ namespace BorderControl
 
         }
 
-        public Robot(string model, int id) : this()
+        public Robot(string model, string id) : this()
         {
             Model = model;
             Id = id;
@@ -21,6 +21,6 @@ namespace BorderControl
 
         public string Model {get;set;}
 
-        public int Id {get;set;}
+        public string Id {get;set;}
     }
 }
