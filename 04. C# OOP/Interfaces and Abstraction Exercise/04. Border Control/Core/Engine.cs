@@ -27,7 +27,33 @@ namespace BorderControl
         }
         public void Run()
         {
-            throw new NotImplementedException();
+            while (true)
+            {
+                string input = reader.ReadLine();
+
+                if (input == "End")
+                {
+                    break;
+                }
+
+                string[] args = input.Split(' ');
+
+                if (args.Length == 2)
+                {
+                    string model = args[0];
+                    int id = int.Parse(args[1]);
+
+                    IRobot robot = new Robot(model, id);
+                }
+                else if (args.Length == 3)
+                {
+                    string name = args[0];
+                    int age = int.Parse(args[1]);
+                    int id = int.Parse(args[2]);
+
+                    ICitizen citizen = new Citizen(name, age, id);
+                }
+            }
         }
     }
 }
