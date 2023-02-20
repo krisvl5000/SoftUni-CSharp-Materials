@@ -13,7 +13,7 @@ namespace BorderControl
 
         }
 
-        public Citizen(string name, int age, int id) : this()
+        public Citizen(string name, int age, string id) : this()
         {
             Name = name;
             Age = age;
@@ -24,6 +24,6 @@ namespace BorderControl
 
         public int Age {get; set;}
 
-        public int Id { get; set;}
+        public string Id { get; set;}
     }
 }
