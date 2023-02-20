@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Telephony.Core.Interfaces
+namespace Telephony
 {
-    internal class IEngine
+    public interface IEngine
     {
+        void Run();
     }
 }

@@ -6,7 +6,24 @@ using System.Threading.Tasks;
 
 namespace Telephony.Models
 {
-    internal class StationaryPhone
+    public class StationaryPhone : IStationaryPhone
     {
+        public StationaryPhone()
+        {
+
+        }
+
+        public string Call(string phoneNumber)
+        {
+            if (!ValidatePhoneNumber(phoneNumber))
+            {
+                throw new InvalidPhoneNumberException();
+            }
+
+            return $"Dialing... {phoneNumber}";
+        }
+
+        private bool ValidatePhoneNumber(string phoneNumber)
+            => phoneNumber.All(x => char.IsLetterOrDigit(x));
     }
 }

@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Telephony.Models.Interfaces
+namespace Telephony
 {
-    internal class IStatioonaryphone
+    public interface IStationaryPhone
     {
+        string Call(string phoneNumber);
     }
 }

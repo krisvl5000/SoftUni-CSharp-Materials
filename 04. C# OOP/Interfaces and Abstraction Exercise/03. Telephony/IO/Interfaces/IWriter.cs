@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Telephony.IO.Interfaces
+namespace Telephony
 {
-    internal class IWriter
+    public interface IWriter
     {
+        void Write(string text);
+
+        void WriteLine(string text);
     }
 }

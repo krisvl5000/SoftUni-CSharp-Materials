@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Telephony.IO.Interfaces
+namespace Telephony
 {
-    internal class IReader
+    public interface IReader
     {
+        string ReadLine();
     }
 }
