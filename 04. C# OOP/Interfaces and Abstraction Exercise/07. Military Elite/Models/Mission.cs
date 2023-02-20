@@ -8,6 +8,8 @@ namespace MilitaryElite
 {
     public class Mission
     {
+        private string state;
+
         public Mission(string codeName, string state)
         {
             CodeName = codeName;
@@ -16,6 +18,19 @@ namespace MilitaryElite
 
         string CodeName { get; set; }
 
-        public string State { get; set; }
+        public string State
+        {
+            get { return State; }
+
+            set
+            {
+                if (state == "inProgress" || state == "Finished")
+                {
+                    state = value;
+                }
+
+                return;
+            }
+        }
     }
 }
