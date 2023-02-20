@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace BorderControl
 {
-    public interface ICitizen
+    public interface ICitizen : IEntity
     {
         string Name { get; }
 
         int Age { get; }
-
-        int Id { get; }
     }
 }
