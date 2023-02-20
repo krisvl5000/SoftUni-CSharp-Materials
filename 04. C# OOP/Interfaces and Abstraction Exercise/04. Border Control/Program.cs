@@ -1,13 +1,16 @@
 ﻿using System;
 
-namespace _01._Hello_Softuni
+namespace BorderControl
 {
-    internal class Program
+    public class StartUp
     {
         static void Main(string[] args)
         {
+            IReader reader = new ConsoleReader();
+            IWriter writer = new ConsoleWriter();
 
-
+            IEngine engine = new Engine();
+            engine.Run();
         }
     }
 }

@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _04._Border_Control.Core.Interfaces
+namespace BorderControl
 {
-    internal class IEngine
+    public interface IEngine
     {
+        void Run();
     }
 }

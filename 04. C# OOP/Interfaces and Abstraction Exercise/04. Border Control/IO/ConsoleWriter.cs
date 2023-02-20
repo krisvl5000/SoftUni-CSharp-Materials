@@ -4,9 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _04._Border_Control.IO
+namespace BorderControl
 {
-    internal class ConsoleWriter
+    public class ConsoleWriter : IWriter
     {
+        public void Write(object value)
+        {
+            Console.Write(value);
+        }
+
+        public void WriteLine(object value)
+        {
+            Console.WriteLine(value);
+        }
     }
 }

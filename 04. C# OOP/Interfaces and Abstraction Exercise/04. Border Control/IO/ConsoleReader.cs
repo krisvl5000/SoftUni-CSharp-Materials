@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _04._Border_Control.IO
+namespace BorderControl
 {
-    internal class ConsoleReader
+    public class ConsoleReader : IReader
     {
+        public string ReadLine()
+            => Console.ReadLine();
     }
 }

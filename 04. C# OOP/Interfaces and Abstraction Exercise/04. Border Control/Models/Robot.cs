@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _04._Border_Control.Models
+namespace BorderControl
 {
-    internal class Robto
+    public class Robot : IRobot
     {
+        public string Model {get;set;}
+
+        public int Id {get;set;}
     }
 }

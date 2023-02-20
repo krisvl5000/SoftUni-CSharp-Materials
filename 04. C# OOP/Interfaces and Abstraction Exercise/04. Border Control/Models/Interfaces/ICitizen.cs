@@ -4,9 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _04._Border_Control.Models.Interfaces
+namespace BorderControl
 {
-    internal class ICitizen
+    public interface ICitizen
     {
+        string Name { get; }
+
+        int Age { get; }
+
+        int Id { get; }
     }
 }

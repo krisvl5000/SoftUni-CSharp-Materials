@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _04._Border_Control.Models.Interfaces
+namespace BorderControl
 {
-    internal class IRobot
+    public interface IRobot
     {
+        string Model { get; }
+
+        int Id { get; }
     }
 }

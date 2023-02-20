@@ -4,9 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _04._Border_Control.Models
+namespace BorderControl
 {
-    internal class Citizen
+    public class Citizen : ICitizen
     {
+        public string Name {get; set;}
+
+        public int Age {get; set;}
+
+        public int Id { get; set;}
     }
 }
