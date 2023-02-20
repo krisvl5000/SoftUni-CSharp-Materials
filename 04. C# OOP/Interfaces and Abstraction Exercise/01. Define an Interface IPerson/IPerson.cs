@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace PersonInfo
 {
-    internal class IPerson
+    public interface IPerson
     {
+        public string Name { get; }
+
+        public int Age { get; }
+
     }
 }
