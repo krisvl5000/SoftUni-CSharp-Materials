@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MilitaryElite
 {
-    public class Engineer : Soldier, IEngineer
+    public class Engineer : Private, IEngineer
     {
         private string corps;
 
