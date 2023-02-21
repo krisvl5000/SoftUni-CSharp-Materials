@@ -6,24 +6,19 @@ using System.Threading.Tasks;
 
 namespace MilitaryElite
 {
-    public class Soldier : ISoldier
+    public abstract class Private : ISoldier
     {
-        public Soldier()
-        {
-
-        }
-
-        public Soldier(string id, string firstName, string lastName) : this()
+        protected Private(int id, string firstName, string lastName)
         {
             Id = id;
             FirstName = firstName;
             LastName = lastName;
         }
 
-        public string Id { get; set; }
+        public int Id { get; private set; }
 
-        public string FirstName {get; set; }
+        public string FirstName {get; private set; }
 
-        public string LastName {get; set; }
+        public string LastName {get; private set; }
     }
 }
