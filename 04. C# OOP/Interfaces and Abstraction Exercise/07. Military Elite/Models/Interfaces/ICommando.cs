@@ -8,8 +8,6 @@ namespace MilitaryElite
 {
     public interface ICommando : ISpecialisedSoldier
     {
-        ICollection<Mission> Missions { get; }
-
-        void CompleteMission();
+        IReadOnlyCollection<IMission> Missions { get; }
     }
 }

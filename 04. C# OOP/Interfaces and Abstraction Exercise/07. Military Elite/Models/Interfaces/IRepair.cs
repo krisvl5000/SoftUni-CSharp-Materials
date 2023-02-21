@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _07._Military_Elite.Models.Interfaces
+namespace MilitaryElite
 {
-    internal class IRepair
+    public interface IRepair
     {
+        string PartName { get; }
+
+        int HoursWorked { get; }
     }
 }

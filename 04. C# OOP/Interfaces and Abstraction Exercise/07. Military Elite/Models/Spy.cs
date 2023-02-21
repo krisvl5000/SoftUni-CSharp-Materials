@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace MilitaryElite
 {
-    public class Spy : SpecialisedSoldier, ISpy
+    public class Spy : Soldier, ISpy
     {
-        public Spy(int codeNumber)
+        public Spy(int id, string firstName, string lastName, int codeNumber)
+            : base(id, firstName, lastName)
         {
             CodeNumber = codeNumber;
         }
 
-        public int CodeNumber {get; set;}
+        public int CodeNumber { get; private set; }
     }
 }

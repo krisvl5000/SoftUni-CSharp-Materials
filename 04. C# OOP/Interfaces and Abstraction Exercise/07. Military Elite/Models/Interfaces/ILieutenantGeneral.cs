@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace MilitaryElite
 {
-    public interface ILieutenantGeneral : ISoldier
+    public interface ILieutenantGeneral : IPrivate
     {
-        ICollection<IPrivate> privatesList { get; }
+        IReadOnlyCollection<IPrivate> Privates { get; }
     }
 }

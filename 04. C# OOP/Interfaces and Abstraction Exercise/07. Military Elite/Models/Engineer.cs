@@ -6,31 +6,18 @@ using System.Threading.Tasks;
 
 namespace MilitaryElite
 {
-    public class Engineer : Private, IEngineer
+    public class Engineer : SpecialisedSoldier, IEngineer
     {
-        private string corps;
+        private readonly ICollection<IRepair> repairs;
 
-        public Engineer(string corps)
+        public Engineer(int id, string firstName, string lastName,
+            decimal salary, Corps corps)
+            : base(id, firstName, lastName, salary, corps)
         {
-            Corps = corps;
-            RepairList = new List<Repair>();
+            repairs = new HashSet<IRepair>();
         }
 
-        public ICollection<Repair> RepairList {get; set;}
-
-        public string Corps
-        {
-            get { return corps; }
-
-            set
-            {
-                if (value == "Airforces" || value == "Marines")
-                {
-                    corps = value;
-                }
-
-                return;
-            }
-        }
+        public IReadOnlyCollection<IRepair> Repairs
+            => (IReadOnlyCollection<IRepair>)repairs;
     }
 }

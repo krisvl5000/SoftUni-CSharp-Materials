@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _07._Military_Elite.Models.Enums
+namespace MilitaryElite
 {
-    internal class State
+    public enum State
     {
+        inProgress = 0,
+        Finished = 1
     }
 }

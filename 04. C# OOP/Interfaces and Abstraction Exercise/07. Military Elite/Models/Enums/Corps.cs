@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _07._Military_Elite.Models.Enums
+namespace MilitaryElite
 {
-    internal class Corps
+    public enum Corps
     {
+        Airforces = 0,
+        Marines = 1
     }
 }

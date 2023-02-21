@@ -39,7 +39,7 @@ namespace MilitaryElite
 
                 string[] args = input.Split(' ');
 
-                string id = args[1];
+                int id = int.Parse(args[1]);
                 string firstName = args[2];
                 string lastName = args[3];
                 decimal salary = decimal.Parse(args[4]);
@@ -50,8 +50,7 @@ namespace MilitaryElite
                 }
                 else if (args[0] == "Commando")
                 {
-                    string corps = args[5];
-                    soldier = new Commando(firstName);
+                    
 
                 }
 

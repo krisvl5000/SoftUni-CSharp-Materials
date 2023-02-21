@@ -4,9 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _07._Military_Elite.Models.Interfaces
+namespace MilitaryElite
 {
-    internal class IMission
+    public interface IMission
     {
+        string CodeName { get; }
+
+        State State { get; }
+
+        void CompleteMission();
     }
 }

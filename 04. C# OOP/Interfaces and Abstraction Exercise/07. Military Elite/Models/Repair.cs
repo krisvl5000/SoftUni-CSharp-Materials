@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace MilitaryElite
 {
-    public class Repair
+    public class Repair : IRepair
     {
         public Repair(string name, int hoursWorked)
         {
-            Name = name;
+            PartName = name;
             HoursWorked = hoursWorked;
         }
 
-        public string Name { get; set; }
+        public string PartName { get; private set; }
 
-        public int HoursWorked { get; set; }
+        public int HoursWorked { get; private set; }
     }
 }

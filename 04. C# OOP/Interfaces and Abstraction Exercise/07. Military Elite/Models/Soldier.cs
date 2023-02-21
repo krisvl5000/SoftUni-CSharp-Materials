@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace MilitaryElite
 {
-    public abstract class Private : ISoldier
+    public abstract class Soldier : ISoldier
     {
-        protected Private(int id, string firstName, string lastName)
+        protected Soldier(int id, string firstName, string lastName)
         {
             Id = id;
             FirstName = firstName;

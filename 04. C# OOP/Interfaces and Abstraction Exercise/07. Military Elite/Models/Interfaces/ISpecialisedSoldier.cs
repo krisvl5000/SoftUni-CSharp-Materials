@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace MilitaryElite
 {
-    public interface ISpecialisedSoldier : ISoldier
+    public interface ISpecialisedSoldier : IPrivate
     {
-        string Corps { get; }
+        Corps Corps { get; }
     }
 }

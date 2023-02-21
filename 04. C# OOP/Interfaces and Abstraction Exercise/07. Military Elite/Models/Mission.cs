@@ -6,31 +6,21 @@ using System.Threading.Tasks;
 
 namespace MilitaryElite
 {
-    public class Mission
+    public class Mission : IMission
     {
-        private string state;
-
-        public Mission(string codeName, string state)
+        public Mission(string codeName, State state)
         {
             CodeName = codeName;
             State = state;
         }
 
-        string CodeName { get; set; }
+        public string CodeName { get; private set; }
 
-        public string State
+        public State State {get; private set; }
+
+        public void CompleteMission()
         {
-            get { return State; }
-
-            set
-            {
-                if (state == "inProgress" || state == "Finished")
-                {
-                    state = value;
-                }
-
-                return;
-            }
+            State = State.Finished;
         }
     }
 }
