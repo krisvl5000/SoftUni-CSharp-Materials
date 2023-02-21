@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace MilitaryElite
 {
-    public class Private : Private, IPrivate
+    public class SpecialisedSoldier : Soldier, IPrivate
     {
-        public Private(int id, string firstName, string lastName, decimal salary)
+        public SpecialisedSoldier(int id, string firstName, string lastName, decimal salary)
             : base(id, firstName, lastName)
         {
             Salary = salary;
