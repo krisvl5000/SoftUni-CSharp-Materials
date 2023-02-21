@@ -6,17 +6,14 @@ using System.Threading.Tasks;
 
 namespace MilitaryElite
 {
-    public class Private : Soldier, IPrivate
+    public class Private : Private, IPrivate
     {
-        public Private( string id, string firstName, string lastName, decimal salary)
+        public Private(int id, string firstName, string lastName, decimal salary)
             : base(id, firstName, lastName)
         {
             Salary = salary;
-            Id = id;
-            FirstName = firstName;
-            LastName = lastName;
         }
 
-        public decimal Salary { get; set; }
+        public decimal Salary {get; private set;}
     }
 }
