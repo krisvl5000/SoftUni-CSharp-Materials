@@ -6,8 +6,18 @@ using System.Threading.Tasks;
 
 namespace MilitaryElite
 {
-    public class LieutenantGeneral : Soldier, ILieutenantGeneral
+    public class LieutenantGeneral : SpecialisedSoldier, ILieutenantGeneral
     {
-        public ICollection<IPrivate> privatesList => new List<IPrivate>();
+        private readonly ICollection<IPrivate> privates;
+
+        public LieutenantGeneral(int id, string firstName, 
+            string lastName, decimal salary)
+            : base(id, firstName, lastName, salary)
+        {
+            privates = new HashSet<IPrivate>();
+        }
+
+        public IReadOnlyCollection<IPrivate> Privates
+            => (IReadOnlyCollection<IPrivate>)privates;
     }
 }
