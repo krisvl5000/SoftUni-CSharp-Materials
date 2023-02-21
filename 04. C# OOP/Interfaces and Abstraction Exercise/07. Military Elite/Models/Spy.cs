@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MilitaryElite
 {
-    public class Spy : Private, ISpy
+    public class Spy : SpecialisedSoldier, ISpy
     {
         public Spy(int codeNumber)
         {
