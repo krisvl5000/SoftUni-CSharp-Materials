@@ -1,7 +1,6 @@
 ﻿using ChristmasPastryShop.Core.Contracts;
 using ChristmasPastryShop.Models.Booths;
 using ChristmasPastryShop.Models.Booths.Contracts;
-using ChristmasPastryShop.Models.Cocktails;
 using ChristmasPastryShop.Models.Delicacies;
 using ChristmasPastryShop.Models.Delicacies.Contracts;
 using ChristmasPastryShop.Repositories;
@@ -10,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using ChristmasPastryShop.Models.Cocktails;
 
 namespace ChristmasPastryShop.Core
 {
@@ -61,7 +61,7 @@ namespace ChristmasPastryShop.Core
 
             booth.DelicacyMenu.AddModel(delicacy);
 
-            return String
+            return string
                 .Format(OutputMessages.NewDelicacyAdded, delicacyTypeName, delicacyName);
         }
 
@@ -70,11 +70,11 @@ namespace ChristmasPastryShop.Core
         {
             var booth = booths.Models.FirstOrDefault(x => x.BoothId == boothId);
 
-            if (cocktailTypeName != nameof(MulledWine) &&
-                cocktailTypeName != nameof(Hibernation))
+            if (cocktailTypeName != nameof(Hibernation) &&
+                cocktailTypeName != nameof(MulledWine))
             {
 
-            }    
+            }
         }
 
         public string BoothReport(int boothId)
