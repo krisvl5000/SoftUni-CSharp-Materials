@@ -4,7 +4,13 @@ using System.Text;
 
 namespace ChristmasPastryShop.Models.Delicacies
 {
-    internal class Stolen
+    public class Stolen : Delicacy
     {
+        private const double PRICE = 3.50;
+        public Stolen(string delicacyName)
+            : base(delicacyName, PRICE)
+        {
+
+        }
     }
 }
