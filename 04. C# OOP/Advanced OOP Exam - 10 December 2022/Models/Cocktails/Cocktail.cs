@@ -37,7 +37,7 @@ namespace ChristmasPastryShop.Models.Cocktails
 
         public double Price
         {
-            get { return price; }
+            get => price;
 
             private set
             {
