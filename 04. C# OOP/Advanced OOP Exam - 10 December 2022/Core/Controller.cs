@@ -166,32 +166,56 @@ namespace ChristmasPastryShop.Core
                     .FirstOrDefault(x => x.Name == itemName &&
                                          x.Size == size &&
                                          x.GetType().Name == itemTypeName);
-                if (item != null)
-                {
-                    booth.UpdateCurrentBill(item.Price * countOfPieces);
 
-                    return string
-                        .Format(OutputMessages
-                            .SuccessfullyOrdered, boothId, countOfPieces, itemName);
-                }
+                if (item == null) return String.Format(OutputMessages
+                    .CocktailStillNotAdded, size, itemName);
 
-                return String.Format(OutputMessages.CocktailStillNotAdded, size, itemName);
-            }
-            else
-            {
-                
+                booth.UpdateCurrentBill(item.Price * countOfPieces);
+
+                return string
+                    .Format(OutputMessages
+                        .SuccessfullyOrdered, boothId, countOfPieces, itemName);
+
             }
 
+            var delicacy = booth.DelicacyMenu.Models
+                .FirstOrDefault(x => x.Name == itemName &&
+                                     x.GetType().Name == itemTypeName);
+
+            if (delicacy == null) return String.Format(OutputMessages
+                .DelicacyStillNotAdded, itemTypeName, itemName);
+
+            booth.UpdateCurrentBill(delicacy.Price * countOfPieces);
+
+            return string
+                .Format(OutputMessages
+                    .SuccessfullyOrdered, boothId, countOfPieces, itemName);
+
+        }
+        public string LeaveBooth(int boothId)
+        {
+            var booth = booths.Models
+                .First(x => x.BoothId == boothId);
+
+            var bill = booth.CurrentBill;
+
+            booth.Charge();
+            booth.ChangeStatus();
+            
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine(String.Format(OutputMessages.GetBill, $"{bill:F2}"));
+            sb.AppendLine(String.Format(OutputMessages.BoothIsAvailable, boothId));
+
+            return sb.ToString().TrimEnd();
         }
 
         public string BoothReport(int boothId)
         {
-            throw new NotImplementedException();
-        }
+            var booth = booths.Models
+                .First(x => x.BoothId == boothId);
 
-        public string LeaveBooth(int boothId)
-        {
-            throw new NotImplementedException();
+            return booth.ToString();
         }
     }
 }
