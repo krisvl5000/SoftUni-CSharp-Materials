@@ -8,9 +8,8 @@ namespace _01._Hello_Softuni
     {
         static void Main(string[] args)
         {
-            Student studemt = new Student();
+            Student student = new Student();
             PrintProperties(DateTime.Now);
-
         }
 
         public static void PrintProperties(object obj)
