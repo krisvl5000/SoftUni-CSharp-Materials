@@ -14,7 +14,7 @@ namespace _01._Hello_Softuni
 
         public static void PrintProperties(object obj)
         {
-            PropertyInfo[] properties = obj.GetType().GetProperties();
+            PropertyInfo[] properties = obj.GetType().GetProperties(); 
 
             foreach (var property in properties)
             {
