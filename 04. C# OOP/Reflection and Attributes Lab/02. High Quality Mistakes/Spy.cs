@@ -51,7 +51,24 @@ namespace Stealer
 
             StringBuilder sb = new StringBuilder();
 
+            foreach (var field in classFields)
+            {
+                sb.AppendLine($"{field.Name} should be private!");
+            }
 
+            foreach (var method in classNonPublicMethods
+                         .Where(m => m.Name.StartsWith("get")))
+            {
+                sb.AppendLine($"{method.Name} have to be public!");
+            }
+
+            foreach (var method in classPublicMethods
+                         .Where(m => m.Name.StartsWith("set")))
+            {
+                sb.AppendLine($"{method.Name} have to be private!");
+            }
+
+            return sb.ToString().Trim();
         }
     }
 }
