@@ -1,12 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _01._Stealer
+namespace Stealer
 {
-    internal class Spy
+    public class Spy
     {
+        public Spy()
+        {
+                
+        }
+
+        public string StealFieldInfo(string className, string[] fieldNames)
+        {
+           throw new NotImplementedException();
+        }
     }
 }
