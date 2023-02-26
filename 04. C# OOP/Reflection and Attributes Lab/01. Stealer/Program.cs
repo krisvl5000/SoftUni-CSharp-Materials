@@ -1,13 +1,12 @@
-﻿using System;
-
-namespace _01._Hello_Softuni
+﻿namespace Stealer
 {
-    internal class Program
+    public class StartUp
     {
         static void Main(string[] args)
         {
-
-
+            //Spy spy = new Spy();
+            //string result = spy.StealFieldInfo("Stealer.Hacker", "username", "password");
+            //Console.WriteLine(result);
         }
     }
 }
