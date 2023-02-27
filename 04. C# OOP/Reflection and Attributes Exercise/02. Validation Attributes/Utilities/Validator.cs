@@ -10,8 +10,7 @@ public abstract class Validator
         Type objType = obj.GetType();
         PropertyInfo[] properties = objType.GetProperties()
             .Where(p => p.CustomAttributes
-                .Any(ca => ca.AttributeType
-                    .IsAssignableFrom(typeof(MyValidationAttribute))))
+                .Any(ca => ca.AttributeType.BaseType == typeof(MyValidationAttribute)))
             .ToArray();
 
         foreach (var validationProp in properties)
