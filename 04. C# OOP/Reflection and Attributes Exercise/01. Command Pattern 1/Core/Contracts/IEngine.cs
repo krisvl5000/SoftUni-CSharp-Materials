@@ -1,4 +1,4 @@
-﻿namespace _01._Command_Pattern_1.Core.Contracts
+﻿namespace CommandPattern
 {
     public interface IEngine
     {

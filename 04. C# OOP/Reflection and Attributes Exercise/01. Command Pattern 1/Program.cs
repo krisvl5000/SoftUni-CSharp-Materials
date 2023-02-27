@@ -2,11 +2,11 @@
 
 namespace CommandPattern
 {
-    internal class Program
+    public class StartUp
     {
         static void Main(string[] args)
         {
-
+            ICommandInterpreter command;
 
         }
     }
