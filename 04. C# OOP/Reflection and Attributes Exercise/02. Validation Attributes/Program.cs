@@ -12,7 +12,7 @@ namespace ValidationAttributes
 
             bool isValidEntity = Validator.IsValid(person);
 
-            Console.WriteLine(isValidEntity);
+            Console.WriteLine(isValidEntity); // Needs touch ups
 
         }
     }
