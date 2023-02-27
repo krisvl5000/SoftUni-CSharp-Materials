@@ -1,6 +1,6 @@
 ﻿namespace ValidationAttributes.Utilities.Attributes;
 
-public class MyValidationAttribute
+public abstract class MyValidationAttribute : Attribute
 {
-    
+    public abstract bool IsValid(object value);
 }
