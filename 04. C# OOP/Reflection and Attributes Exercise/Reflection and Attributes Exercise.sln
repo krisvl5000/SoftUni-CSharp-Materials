@@ -5,6 +5,10 @@ VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reflection and Attributes Exercise", "Reflection and Attributes Exercise\Reflection and Attributes Exercise.csproj", "{756888DC-296B-4465-BC2F-137E61615DFD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02. Validation Attributes", "02. Validation Attributes\02. Validation Attributes.csproj", "{363546B5-4998-4487-AA5B-84F295928A9B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01. Command Pattern 1", "01. Command Pattern 1\01. Command Pattern 1.csproj", "{BEC0FFB8-0F06-421F-8676-3BD88B700ABE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{756888DC-296B-4465-BC2F-137E61615DFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{756888DC-296B-4465-BC2F-137E61615DFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{756888DC-296B-4465-BC2F-137E61615DFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{363546B5-4998-4487-AA5B-84F295928A9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{363546B5-4998-4487-AA5B-84F295928A9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{363546B5-4998-4487-AA5B-84F295928A9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{363546B5-4998-4487-AA5B-84F295928A9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEC0FFB8-0F06-421F-8676-3BD88B700ABE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEC0FFB8-0F06-421F-8676-3BD88B700ABE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEC0FFB8-0F06-421F-8676-3BD88B700ABE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEC0FFB8-0F06-421F-8676-3BD88B700ABE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
