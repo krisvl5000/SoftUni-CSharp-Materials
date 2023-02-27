@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ValidationAttributes.Models;
+using ValidationAttributes.Utilities;
+
 
 namespace ValidationAttributes
 {
@@ -6,7 +8,9 @@ namespace ValidationAttributes
     {
         static void Main(string[] args)
         {
+            var person = new Person(null, -1);
 
+            bool isValidEntity = Validator.IsValid(person);
 
         }
     }
