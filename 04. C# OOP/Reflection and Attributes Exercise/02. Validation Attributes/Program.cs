@@ -8,7 +8,7 @@ namespace ValidationAttributes
     {
         static void Main(string[] args)
         {
-            var person = new Person(null, -1);
+            var person = new Person("Pesho", 20);
 
             bool isValidEntity = Validator.IsValid(person);
 
