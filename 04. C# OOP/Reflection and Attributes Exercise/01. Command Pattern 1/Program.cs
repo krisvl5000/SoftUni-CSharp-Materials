@@ -6,7 +6,9 @@ namespace CommandPattern
     {
         static void Main(string[] args)
         {
-            ICommandInterpreter command;
+            ICommandInterpreter command = new CommandInterpreter();
+            IEngine engine = new Engine(command);
+            engine.Run();
 
         }
     }
