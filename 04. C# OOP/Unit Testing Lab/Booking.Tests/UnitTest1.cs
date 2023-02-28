@@ -1,7 +1,13 @@
 namespace Booking
 {
     public class HotelTest
-    { 
+    {
+        [SetUp]
+        public void SetUp()
+        {
+
+        }
+
         [Test]
         public void BookingWhenHotelAvailableShouldWork()
         {
