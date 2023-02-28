@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace _01._Hello_Softuni
+namespace Booking
 {
-    internal class Program
+    public class StartUp
     {
         static void Main(string[] args)
         {
