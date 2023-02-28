@@ -2,20 +2,21 @@ namespace Booking
 {
     public class HotelTest
     {
+        private Hotel hotel;
+        private DateTime startDate;
+        private DateTime endDate;
+
         [SetUp]
         public void SetUp()
         {
-
+            hotel = new Hotel();
+            startDate = new DateTime(2022, 11, 1);
+            endDate = new DateTime(2022, 11, 5);
         }
 
         [Test]
         public void BookingWhenHotelAvailableShouldWork()
         {
-            Hotel hotel = new Hotel();
-
-            DateTime startDate = new DateTime(2022, 11, 1);
-            DateTime endDate = new DateTime(2022, 11, 5);
-
             hotel.AddReservation(startDate, endDate);
 
             Assert.AreEqual(1, hotel.Reservations.Count, "Reservation" +
@@ -29,11 +30,6 @@ namespace Booking
         [Test]
         public void MultipleBookingsWhenHotelAvailableShouldWork()
         {
-            Hotel hotel = new Hotel();
-
-            DateTime startDate = new DateTime(2022, 11, 1);
-            DateTime endDate = new DateTime(2022, 11, 5);
-
             hotel.AddReservation(startDate, endDate);
 
             hotel.AddReservation(startDate.AddDays(10), endDate.AddDays(10));
@@ -47,10 +43,6 @@ namespace Booking
         [Test]
         public void TryingToAddOverlappingReservationsShouldThrow()
         {
-            Hotel hotel = new Hotel();
-
-            DateTime startDate = new DateTime(2022, 11, 1);
-            DateTime endDate = new DateTime(2022, 11, 5);
             hotel.AddReservation(startDate, endDate);
 
             DateTime secondStart = new DateTime(2022, 11, 4);
