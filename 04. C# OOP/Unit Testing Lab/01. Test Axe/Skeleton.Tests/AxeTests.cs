@@ -10,7 +10,7 @@ namespace Skeleton.Tests
         private int durabilityPoints;
 
         [SetUp]
-        public void Setup()
+        void Setup()
         {
             attackPoints = 10;
             durabilityPoints = 15;
