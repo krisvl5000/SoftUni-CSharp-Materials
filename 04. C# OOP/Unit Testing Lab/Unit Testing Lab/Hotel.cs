@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Booking
 {
-    internal class Hotel
+    public class Hotel
     {
         public Hotel()
         {
@@ -27,6 +27,8 @@ namespace Booking
                     $"booked for {startDate} and {endDate}!");
                 }
             }
+
+            Reservations.Add(new Reservation()  {Start = startDate, End = endDate});
         }
     }
 }
