@@ -21,7 +21,7 @@ namespace Skeleton.Tests
         public void Test_AxeConstructorShouldSetDataProperly()
         {
             Assert.AreEqual(10, axe.AttackPoints);
-            Assert.AreEqual(15, axe.DurabilityPoints);
+            Assert.AreEqual(15, axe.DurabilityPoints); 
         }
     }
 }
