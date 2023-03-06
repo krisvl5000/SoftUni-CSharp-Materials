@@ -7,15 +7,16 @@ using Formula1.Core.Contracts;
 using Formula1.Models;
 using Formula1.Models.Contracts;
 using Formula1.Repositories;
+using Formula1.Repositories.Contracts;
 using Formula1.Utilities;
 
 namespace Formula1.Core
 {
     public class Controller : IController
     {
-        private PilotRepository pilotRepository;
-        private RaceRepository raceRepository;
-        private FormulaOneCarRepository formulaOneCarRepository;
+        private IRepository<IPilot> pilotRepository;
+        private IRepository<IRace> raceRepository;
+        private IRepository<IFormulaOneCar> formulaOneCarRepository;
 
         public Controller()
         {
