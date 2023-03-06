@@ -27,7 +27,7 @@ namespace Formula1.Models
             get { return model; }
             private set
             {
-                if (string.IsNullOrEmpty(value) || value.Length < 3)
+                if (string.IsNullOrWhiteSpace(value) || value.Length < 3)
                 {
                     throw new ArgumentException(String
                         .Format(ExceptionMessages.InvalidF1CarModel, value));
@@ -41,7 +41,7 @@ namespace Formula1.Models
             get { return horsepower; }
             private set
             {
-                if (value < 950 || value > 1050)
+                if (value < 900 || value > 1050)
                 {
                     throw new ArgumentException(String
                         .Format(ExceptionMessages.InvalidF1HorsePower, value));
