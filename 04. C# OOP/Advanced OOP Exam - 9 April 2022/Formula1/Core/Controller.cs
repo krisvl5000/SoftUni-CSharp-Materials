@@ -130,6 +130,8 @@ namespace Formula1.Core
                         .PilotDoesNotExistErrorMessage, pilotFullName));
             }
 
+            race.AddPilot(pilot);
+
             return String.Format(OutputMessages.SuccessfullyAddPilotToRace, pilotFullName);
         }
 
