@@ -14,7 +14,6 @@ namespace Formula1.Models
         {
             RaceName = raceName;
             NumberOfLaps = numberOfLaps;
-            Pilots = new List<IPilot>();
         }
 
         private string raceName;
@@ -65,10 +64,6 @@ namespace Formula1.Models
         public ICollection<IPilot> Pilots
         {
             get { return pilots; }
-            private set
-            {
-                pilots = value;
-            }
         }
 
         public void AddPilot(IPilot pilot)
