@@ -78,7 +78,7 @@ namespace Formula1.Models
             sb.AppendLine($"The {raceName} race has:");
             sb.AppendLine($"Participants: {pilots.Count}");
             sb.AppendLine($"Number of laps: {numberOfLaps}");
-            sb.AppendLine($"Took place: {tookPlace}");
+            sb.AppendLine($"Took place: {(tookPlace ? "Yes" : "No")}");
 
             return  sb.ToString().Trim();
         }
