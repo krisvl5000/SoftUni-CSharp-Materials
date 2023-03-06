@@ -123,7 +123,7 @@ namespace Formula1.Core
                     .Format(ExceptionMessages.RaceDoesNotExistErrorMessage, raceName));
             }
 
-            if (pilot == null || pilot.CanRace == false)
+            if (pilot == null || pilot.CanRace == false || race.Pilots.Contains(pilot))
             {
                 throw new InvalidOperationException(String
                     .Format(ExceptionMessages
