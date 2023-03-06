@@ -17,6 +17,13 @@ namespace Formula1.Core
         private RaceRepository raceRepository;
         private FormulaOneCarRepository formulaOneCarRepository;
 
+        public Controller()
+        {
+            pilotRepository = new PilotRepository();
+            raceRepository = new RaceRepository();
+            formulaOneCarRepository = new FormulaOneCarRepository();
+        }
+
         public string CreatePilot(string fullName)
         {
             if (pilotRepository.FindByName(fullName) != null)
