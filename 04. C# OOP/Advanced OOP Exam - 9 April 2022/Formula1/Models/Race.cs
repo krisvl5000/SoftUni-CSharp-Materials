@@ -14,6 +14,7 @@ namespace Formula1.Models
         {
             RaceName = raceName;
             NumberOfLaps = numberOfLaps;
+            pilots = new List<IPilot>();
         }
 
         private string raceName;
