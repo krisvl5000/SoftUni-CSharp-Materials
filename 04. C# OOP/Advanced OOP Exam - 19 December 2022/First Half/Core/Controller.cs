@@ -29,9 +29,9 @@ namespace UniversityCompetition.Core
         {
             ISubject subject = null;
 
-            if (subjectType != "Technical" &&
-                subjectType != "Economical" &&
-                subjectType != "Humanity")
+            if (subjectType != "TechnicalSubject" &&
+                subjectType != "EconomicalSubject" &&
+                subjectType != "HumanitySubject")
             {
                 return String.Format(OutputMessages.SubjectTypeNotSupported, subjectType);
             }
@@ -44,15 +44,15 @@ namespace UniversityCompetition.Core
             int id = subjects.Models.Count;
             id++;
 
-            if (subjectType == "Technical")
+            if (subjectType == "TechnicalSubject")
             {
                 subject = new TechnicalSubject(id, subjectName); // fix id
             }
-            else if (subjectType == "Economical")
+            else if (subjectType == "EconomicalSubject")
             {
                 subject = new EconomicalSubject(id, subjectName);
             }
-            else if (subjectType == "Humanity")
+            else if (subjectType == "HumanitySubject")
             {
                 subject = new HumanitySubject(id, subjectName);
             }
@@ -151,12 +151,13 @@ namespace UniversityCompetition.Core
                 return String.Format(OutputMessages.UniversityNotRegitered, universityName);
             }
 
-            if (student.CoveredExams != university.RequiredSubjects)
+            if (!student.CoveredExams.Equals(university.RequiredSubjects))
             {
-                return String.Format(OutputMessages.StudentHasToCoverExams, studentName, firstName);
+                return String.Format(OutputMessages.StudentHasToCoverExams, studentName, universityName);
             }
 
-            if (student.University.Name == universityName)
+            if (student.University.Name == universityName &&
+                student.University != null)
             {
                 return String.Format(OutputMessages.StudentAlreadyJoined, firstName, lastName, universityName);
             }
