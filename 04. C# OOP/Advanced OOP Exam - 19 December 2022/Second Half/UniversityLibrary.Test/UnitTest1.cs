@@ -16,7 +16,7 @@ namespace UniversityLibrary.Test
         }
 
         [Test]
-        public void Test_TestingTheConstructor()
+        public void Test_IsTheConstructorWorking()
         {
             Assert.AreEqual(0, library.Catalogue.Count);
         }
@@ -26,6 +26,24 @@ namespace UniversityLibrary.Test
         {
             library.AddTextBookToLibrary(book);
             Assert.AreEqual(1, library.Catalogue.Count);
+        }
+
+        [Test]
+        public void Test_IsTheBookNotReturnedWhenUsingLoanBook()
+        {
+            book.Holder = "Holder";
+            library.AddTextBookToLibrary(book);
+
+            Assert.AreEqual($"Holder still hasn't returned 1!", library.LoanTextBook(1, "Holder"));
+        }
+
+        [Test]
+        public void Test_IsTheBookLoanedWhenUsingLoanBook()
+        {
+            book.Holder = "Holder";
+            library.AddTextBookToLibrary(book);
+
+            Assert.AreEqual($"1 loaned to Misho.", library.LoanTextBook(1, "Misho"));
         }
     }
 }
