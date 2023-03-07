@@ -45,5 +45,24 @@ namespace UniversityLibrary.Test
 
             Assert.AreEqual($"1 loaned to Misho.", library.LoanTextBook(1, "Misho"));
         }
+
+        [Test]
+        public void Test_IsTextBookReturnedProperly()
+        {
+            book.Holder = "Holder";
+            library.AddTextBookToLibrary(book);
+
+            Assert.AreEqual($"1 is returned to the library.", library.ReturnTextBook(1));
+        }
+
+        [Test]
+        public void Test_IsTheHolderErasedWhenReturned()
+        {
+            book.Holder = "Holder";
+            library.AddTextBookToLibrary(book);
+            library.ReturnTextBook(1);
+
+            Assert.AreEqual(string.Empty, book.Holder);
+        }
     }
 }
