@@ -64,5 +64,32 @@ namespace UniversityLibrary.Test
 
             Assert.AreEqual(string.Empty, book.Holder);
         }
+
+        [Test]
+        public void Test_SecondConstructorTest()
+        {
+            book.Holder = "Holder";
+            library.AddTextBookToLibrary(book);
+
+            Assert.That(book != null);
+        }
+
+        [Test]
+        public void Test_TestIfTheHolderNameIsValid()
+        {
+            book.Holder = "Holder";
+            library.AddTextBookToLibrary(book);
+
+            Assert.That(book.Holder == "Holder");
+        }
+
+        [Test]
+        public void Test_IsTheToStringWorking()
+        {
+            book.Holder = "Holder";
+            library.AddTextBookToLibrary(book);
+
+            Assert.AreEqual($"Book: 1 - 1\r\nCategory: 3\r\nAuthor: 2", book.ToString());
+        }
     }
 }
