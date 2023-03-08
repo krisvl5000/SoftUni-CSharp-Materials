@@ -26,7 +26,7 @@ namespace PlanetWars.Repositories
 
         public IWeapon FindByName(string name)
         {
-            return models.FirstOrDefault(x => x.GetType().Name == name); // might not return the name that is needed
+            return models.FirstOrDefault(x => x.GetType().Name == name);
         }
 
         public bool RemoveItem(string name)
