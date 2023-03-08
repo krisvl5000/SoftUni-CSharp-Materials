@@ -33,6 +33,8 @@ namespace PlanetWars.Core
             }
 
             IPlanet planet = new Planet(name, budget);
+
+            planetRepository.AddItem(planet);
             return String.Format(OutputMessages.NewPlanet, name);
         }
 
@@ -52,7 +54,7 @@ namespace PlanetWars.Core
                 throw new InvalidOperationException(String.Format(ExceptionMessages.ItemNotAvailable, unitTypeName));
             }
 
-            if (planetRepository.Models.Any(x => x.GetType().Name == unitTypeName))
+            if (planet.Army.Any(x => x.GetType().Name == unitTypeName))
             {
                 throw new InvalidOperationException(String.Format(ExceptionMessages.UnitAlreadyAdded, unitTypeName,
                     planetName));
@@ -146,8 +148,6 @@ namespace PlanetWars.Core
             var firstPlanet = planetRepository.FindByName(planetOne);
             var secondPlanet = planetRepository.FindByName(planetTwo);
 
-            var winningPlanet = "";
-
             if (firstPlanet.MilitaryPower == secondPlanet.MilitaryPower)
             {
                 if ((firstPlanet.Weapons.Any(x => x.GetType().Name == "NuclearWeapon") && 
@@ -178,7 +178,7 @@ namespace PlanetWars.Core
                     firstPlanet.Profit(allForcesAndWeaponsCost);
                     planetRepository.RemoveItem(planetTwo);
 
-                    return String.Format(OutputMessages.WinnigTheWar, firstPlanet, secondPlanet);
+                    return String.Format(OutputMessages.WinnigTheWar, planetOne, planetTwo);
                 }
                 else if (secondPlanet.Weapons.Any(x => x.GetType().Name == "NuclearWeapon")) // second planet wins
                 {
@@ -200,7 +200,7 @@ namespace PlanetWars.Core
                     secondPlanet.Profit(allForcesAndWeaponsCost);
                     planetRepository.RemoveItem(planetOne);
 
-                    return String.Format(OutputMessages.WinnigTheWar, secondPlanet, firstPlanet);
+                    return String.Format(OutputMessages.WinnigTheWar, planetTwo, planetOne);
                 }
             }
 
@@ -224,7 +224,7 @@ namespace PlanetWars.Core
                 firstPlanet.Profit(allForcesAndWeaponsCost);
                 planetRepository.RemoveItem(planetTwo);
 
-                return String.Format(OutputMessages.WinnigTheWar, firstPlanet, secondPlanet);
+                return String.Format(OutputMessages.WinnigTheWar, planetOne, planetTwo);
             }
             else // second planet wins
             {
@@ -246,7 +246,7 @@ namespace PlanetWars.Core
                 secondPlanet.Profit(allForcesAndWeaponsCost);
                 planetRepository.RemoveItem(planetOne);
 
-                return String.Format(OutputMessages.WinnigTheWar, secondPlanet, firstPlanet);
+                return String.Format(OutputMessages.WinnigTheWar, planetTwo, planetOne);
             }
         }
 
