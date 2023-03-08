@@ -56,7 +56,7 @@ namespace PlanetWars.Models.Planets
 
         public double MilitaryPower
         {
-            get { return militaryPower; }
+            get { return CalculateMilitaryPower(); }
             private set
             {
                 value = CalculateMilitaryPower();
@@ -103,17 +103,19 @@ namespace PlanetWars.Models.Planets
 
         public IReadOnlyCollection<IWeapon> Weapons
         {
-            get { return weapons.AsReadOnly(); } // might need to add setters
+            get { return weapons.AsReadOnly(); }
         }
 
 
         public void AddUnit(IMilitaryUnit unit)
         {
+            Spend(unit.Cost); // might not need to be implemented for units
             army.Add(unit);
         }
 
         public void AddWeapon(IWeapon weapon)
         {
+            Spend(weapon.Price);
             weapons.Add(weapon);
         }
 
@@ -145,31 +147,29 @@ namespace PlanetWars.Models.Planets
             StringBuilder sb = new StringBuilder();
 
             sb.AppendLine($"Planet: {Name}");
-            sb.AppendLine();
             sb.AppendLine($"--Budget: {Budget} billion QUID");
 
             if (Army.Count > 0)
             {
-                sb.AppendLine($"--Forces: {String.Join(", ", Army.GetType().Name)}"); // might not print the names
+                var list = army.Select(x => x.GetType().Name).ToList();
+                sb.AppendLine($"--Forces: {String.Join(", ", list)}"); // might not print the names
             }
             else
             {
-                sb.AppendLine("No units");
+                sb.AppendLine("Forces: No units");
             }
-
-            sb.AppendLine();
-
             if (Weapons.Count > 0)
             {
+                var list = weapons.Select(x => x.GetType().Name).ToList();
 
-                sb.AppendLine($"--Combat equipment: {String.Join(", ", Weapons.GetType().Name)}"); // might not print the names
+                sb.AppendLine($"--Combat equipment: {String.Join(", ", list)}"); // might not print the names
             }
             else
             {
-                sb.AppendLine("No weapons");
+                sb.AppendLine("Weapons: No weapons");
             }
 
-            sb.AppendLine($"--Military Power: {MilitaryPower}");
+            sb.AppendLine($"--Military Power: {CalculateMilitaryPower()}");
 
             return sb.ToString().Trim();
         }
