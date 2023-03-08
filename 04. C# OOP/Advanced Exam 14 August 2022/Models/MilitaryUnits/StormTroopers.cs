@@ -4,7 +4,12 @@ using System.Text;
 
 namespace PlanetWars.Models.MilitaryUnits
 {
-    internal class StormTroopers
+    public class StormTroopers : MilitaryUnit
     {
+        private const double COST = 2.5;
+        public StormTroopers() : base(COST)
+        {
+
+        }
     }
 }
