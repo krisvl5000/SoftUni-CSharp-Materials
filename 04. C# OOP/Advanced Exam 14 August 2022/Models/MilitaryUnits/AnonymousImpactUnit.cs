@@ -4,7 +4,12 @@ using System.Text;
 
 namespace PlanetWars.Models.MilitaryUnits
 {
-    internal class AnonimousImpactUnit
+    internal class AnonymousImpactUnit : MilitaryUnit
     {
+        private const double COST = 30.0;
+        public AnonymousImpactUnit() : base(COST)
+        {
+
+        }
     }
 }
