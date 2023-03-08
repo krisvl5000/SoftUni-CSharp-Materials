@@ -252,7 +252,18 @@ namespace PlanetWars.Core
 
         public string ForcesReport()
         {
-            throw new NotImplementedException();
+            var orderedPlanets = planetRepository.Models.OrderByDescending(x => x.MilitaryPower).ThenBy(x => x.Name);
+
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine("***UNIVERSE MILITARY REPORT***");
+
+            foreach (var planet in orderedPlanets)
+            {
+                sb.AppendLine(planet.PlanetInfo());
+            }
+
+            return sb.ToString().Trim();
         }
     }
 }
