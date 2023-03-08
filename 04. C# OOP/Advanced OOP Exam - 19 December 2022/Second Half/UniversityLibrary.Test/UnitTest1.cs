@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 
 namespace UniversityLibrary.Test
@@ -81,6 +82,15 @@ namespace UniversityLibrary.Test
             library.AddTextBookToLibrary(book);
 
             Assert.That(book.Holder == "Holder");
+        }
+
+        [Test]
+        public void Test_CatalogueTest()
+        {
+            book.Holder = "Holder";
+            library.AddTextBookToLibrary(book);
+
+            Assert.That(library.Catalogue != new List<TextBook>());
         }
 
         [Test]
