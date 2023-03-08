@@ -150,6 +150,27 @@ namespace PlanetWars.Tests
                     planet.DestructOpponent(strongerPlanet);
                 });
             }
+
+            [Test]
+            public void Test_IsWeaponThrowingForInvalidPrice()
+            {
+                Assert.Throws<ArgumentException>(() =>
+                {
+                    weapon = new Weapon("Name", -5, 10);
+                });
+            }
+
+            [Test]
+            public void Test_IsIsNuclearWorkingProperly()
+            {
+                Assert.That(weapon.IsNuclear == true && weakerWeapon.IsNuclear == false);
+            }
+
+            [Test]
+            public void Test_IsWeaponConstructorWorkingProperly()
+            {
+                Assert.That(weapon.Name == "Name" && weapon.Price == 10.0 && weapon.DestructionLevel == 10);
+            }
         }
     }
 }
