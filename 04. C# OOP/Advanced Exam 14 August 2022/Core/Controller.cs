@@ -123,12 +123,131 @@ namespace PlanetWars.Core
 
         public string SpecializeForces(string planetName)
         {
-            throw new NotImplementedException();
+            var planet = planetRepository.Models.FirstOrDefault(x => x.Name == planetName);
+
+            if (planet == null)
+            {
+                throw new InvalidOperationException(String.Format(ExceptionMessages.UnexistingPlanet, planetName));
+            }
+
+            if (planet.Army.Count == 0)
+            {
+                throw new InvalidOperationException(String.Format(ExceptionMessages.NoUnitsFound));
+            }
+
+            planet.Spend(1.25);
+            planet.TrainArmy();
+
+            return String.Format(OutputMessages.ForcesUpgraded, planetName);
         }
 
         public string SpaceCombat(string planetOne, string planetTwo)
         {
-            throw new NotImplementedException();
+            var firstPlanet = planetRepository.FindByName(planetOne);
+            var secondPlanet = planetRepository.FindByName(planetTwo);
+
+            var winningPlanet = "";
+
+            if (firstPlanet.MilitaryPower == secondPlanet.MilitaryPower)
+            {
+                if ((firstPlanet.Weapons.Any(x => x.GetType().Name == "NuclearWeapon") && 
+                    secondPlanet.Weapons.Any(x => x.GetType().Name == "NuclearWeapon"))  || (firstPlanet.Weapons.All(x => x.GetType().Name != "NuclearWeapon") && secondPlanet.Weapons.All(x => x.GetType().Name != "NuclearWeapon"))) // no one wins
+                {
+                    firstPlanet.Spend(firstPlanet.Budget / 2);
+                    secondPlanet.Spend(secondPlanet.Budget / 2);
+                    return String.Format(OutputMessages.NoWinner);
+                }
+
+                if (firstPlanet.Weapons.Any(x => x.GetType().Name == "NuclearWeapon")) // first planet wins
+                {
+                    firstPlanet.Spend(firstPlanet.Budget / 2);
+                    firstPlanet.Profit(secondPlanet.Budget / 2);
+
+                    double allForcesAndWeaponsCost = 0.0;
+
+                    foreach (var unit in secondPlanet.Army)
+                    {
+                        allForcesAndWeaponsCost += unit.Cost;
+                    }
+
+                    foreach (var weapon in secondPlanet.Weapons)
+                    {
+                        allForcesAndWeaponsCost += weapon.Price;
+                    }
+
+                    firstPlanet.Profit(allForcesAndWeaponsCost);
+                    planetRepository.RemoveItem(planetTwo);
+
+                    return String.Format(OutputMessages.WinnigTheWar, firstPlanet, secondPlanet);
+                }
+                else if (secondPlanet.Weapons.Any(x => x.GetType().Name == "NuclearWeapon")) // second planet wins
+                {
+                    secondPlanet.Spend(secondPlanet.Budget / 2);
+                    secondPlanet.Profit(firstPlanet.Budget / 2);
+
+                    double allForcesAndWeaponsCost = 0.0;
+
+                    foreach (var unit in firstPlanet.Army)
+                    {
+                        allForcesAndWeaponsCost += unit.Cost;
+                    }
+
+                    foreach (var weapon in firstPlanet.Weapons)
+                    {
+                        allForcesAndWeaponsCost += weapon.Price;
+                    }
+
+                    secondPlanet.Profit(allForcesAndWeaponsCost);
+                    planetRepository.RemoveItem(planetOne);
+
+                    return String.Format(OutputMessages.WinnigTheWar, secondPlanet, firstPlanet);
+                }
+            }
+
+            if (firstPlanet.MilitaryPower > secondPlanet.MilitaryPower) // first planet wins
+            {
+                firstPlanet.Spend(firstPlanet.Budget / 2);
+                firstPlanet.Profit(secondPlanet.Budget / 2);
+
+                double allForcesAndWeaponsCost = 0.0;
+
+                foreach (var unit in secondPlanet.Army)
+                {
+                    allForcesAndWeaponsCost += unit.Cost;
+                }
+
+                foreach (var weapon in secondPlanet.Weapons)
+                {
+                    allForcesAndWeaponsCost += weapon.Price;
+                }
+
+                firstPlanet.Profit(allForcesAndWeaponsCost);
+                planetRepository.RemoveItem(planetTwo);
+
+                return String.Format(OutputMessages.WinnigTheWar, firstPlanet, secondPlanet);
+            }
+            else // second planet wins
+            {
+                secondPlanet.Spend(secondPlanet.Budget / 2);
+                secondPlanet.Profit(firstPlanet.Budget / 2);
+
+                double allForcesAndWeaponsCost = 0.0;
+
+                foreach (var unit in firstPlanet.Army)
+                {
+                    allForcesAndWeaponsCost += unit.Cost;
+                }
+
+                foreach (var weapon in firstPlanet.Weapons)
+                {
+                    allForcesAndWeaponsCost += weapon.Price;
+                }
+
+                secondPlanet.Profit(allForcesAndWeaponsCost);
+                planetRepository.RemoveItem(planetOne);
+
+                return String.Format(OutputMessages.WinnigTheWar, secondPlanet, firstPlanet);
+            }
         }
 
         public string ForcesReport()
