@@ -4,7 +4,12 @@ using System.Text;
 
 namespace PlanetWars.Models.Weapons
 {
-    internal class NuclearWeapon
+    public class NuclearWeapon : Weapon
     {
+        private const double PRICE = 15.0;
+        public NuclearWeapon(int destructionlevel) : base(destructionlevel, PRICE)
+        {
+
+        }
     }
 }
