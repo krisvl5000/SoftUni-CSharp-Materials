@@ -150,7 +150,7 @@ namespace PlanetWars.Models.Planets
 
             if (Army.Count > 0)
             {
-                sb.AppendLine($"--Forces: {String.Join(", ", Army.ToString())}"); // might not print the names
+                sb.AppendLine($"--Forces: {String.Join(", ", Army.GetType().Name)}"); // might not print the names
             }
             else
             {
@@ -162,7 +162,7 @@ namespace PlanetWars.Models.Planets
             if (Weapons.Count > 0)
             {
 
-                sb.AppendLine($"--Combat equipment: {String.Join(", ", Weapons)}"); // might not print the names
+                sb.AppendLine($"--Combat equipment: {String.Join(", ", Weapons.GetType().Name)}"); // might not print the names
             }
             else
             {
