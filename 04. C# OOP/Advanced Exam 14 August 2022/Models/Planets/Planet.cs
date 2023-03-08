@@ -14,8 +14,10 @@ namespace PlanetWars.Models.Planets
 {
     public class Planet : IPlanet
     {
-        public Planet()
+        public Planet(string name, double budget)
         {
+            Name = name;
+            Budget = budget;
             army = new List<IMilitaryUnit>();
             weapons = new List<IWeapon>();
         }
@@ -107,32 +109,69 @@ namespace PlanetWars.Models.Planets
 
         public void AddUnit(IMilitaryUnit unit)
         {
-            throw new NotImplementedException();
+            army.Add(unit);
         }
 
         public void AddWeapon(IWeapon weapon)
         {
-            throw new NotImplementedException();
+            weapons.Add(weapon);
         }
 
         public void TrainArmy()
         {
-            throw new NotImplementedException();
+            foreach (var unit in army)
+            {
+                unit.IncreaseEndurance();
+            }
         }
 
         public void Spend(double amount)
         {
-            throw new NotImplementedException();
+            if (Budget < amount)
+            {
+                throw new ArgumentException(String.Format(ExceptionMessages.UnsufficientBudget));
+            }
+
+            Budget -= amount;
         }
 
         public void Profit(double amount)
         {
-            throw new NotImplementedException();
+            Budget += amount;
         }
 
         public string PlanetInfo()
         {
-            throw new NotImplementedException();
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine($"Planet: {Name}");
+            sb.AppendLine();
+            sb.AppendLine($"--Budget: {Budget} billion QUID");
+
+            if (Army.Count > 0)
+            {
+                sb.AppendLine($"--Forces: {String.Join(", ", Army.ToString())}"); // might not print the names
+            }
+            else
+            {
+                sb.AppendLine("No units");
+            }
+
+            sb.AppendLine();
+
+            if (Weapons.Count > 0)
+            {
+
+                sb.AppendLine($"--Combat equipment: {String.Join(", ", Weapons)}"); // might not print the names
+            }
+            else
+            {
+                sb.AppendLine("No weapons");
+            }
+
+            sb.AppendLine($"--Military Power: {MilitaryPower}");
+
+            return sb.ToString().Trim();
         }
     }
 }
