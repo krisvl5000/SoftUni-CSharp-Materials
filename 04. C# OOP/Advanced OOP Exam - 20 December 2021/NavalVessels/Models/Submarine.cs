@@ -55,7 +55,7 @@ namespace NavalVessels.Models
             }
             else
             {
-                sb.AppendLine("None");
+                sb.AppendLine("Targets: None");
             }
 
             sb.AppendLine(SubmergeMode ? $"*Submerge mode: ON" : $"*Submerge mode: OFF");
