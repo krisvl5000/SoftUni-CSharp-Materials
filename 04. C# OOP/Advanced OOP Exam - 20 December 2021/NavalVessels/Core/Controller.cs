@@ -40,7 +40,7 @@ namespace NavalVessels.Core
         {
             IVessel newVessel = null;
 
-            if (vessels.Models.Any(x => x.Name == name))
+            if (vessels.FindByName(name) != null)
             {
                 return String.Format(OutputMessages.VesselIsAlreadyManufactured, vesselType, name);
             }
