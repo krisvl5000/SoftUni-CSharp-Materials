@@ -75,16 +75,6 @@ namespace NavalVessels.Models
         }
 
         public abstract void RepairVessel();
-        
-            //if (this.GetType().Name == "Battleship")
-            //{
-            //    ArmorThickness = 300;
-            //}
-            //else if (this.GetType().Name == "Submarine")
-            //{
-            //    ArmorThickness = 200;
-            //}
-        
 
         public override string ToString()
         {
