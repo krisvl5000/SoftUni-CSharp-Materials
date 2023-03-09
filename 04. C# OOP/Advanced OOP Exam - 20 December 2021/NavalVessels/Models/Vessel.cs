@@ -92,7 +92,7 @@ namespace NavalVessels.Models
             }
             else
             {
-                sb.AppendLine("None");
+                sb.AppendLine("Targets: None");
             }
 
             return sb.ToString().Trim();
