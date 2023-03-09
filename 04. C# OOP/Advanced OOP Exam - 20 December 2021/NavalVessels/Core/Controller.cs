@@ -39,6 +39,11 @@ namespace NavalVessels.Core
         {
             IVessel newVessel = null;
 
+            if (vessels.Models.Any(x => x.Name == name))
+            {
+                return String.Format(OutputMessages.VesselIsAlreadyManufactured, vesselType, name);
+            }
+
             if (vesselType == "Battleship")
             {
                 newVessel = new Battleship(name, mainWeaponCaliber, speed);
@@ -50,11 +55,6 @@ namespace NavalVessels.Core
             else
             {
                 return String.Format(OutputMessages.InvalidVesselType);
-            }
-
-            if (vessels.Models.Any(x => x.Name == name))
-            {
-                return String.Format(OutputMessages.VesselIsAlreadyManufactured, vesselType, name);
             }
 
             vessels.Add(newVessel);
@@ -77,7 +77,7 @@ namespace NavalVessels.Core
                 return String.Format(OutputMessages.VesselNotFound, selectedVesselName);
             }
 
-            if (vessel.Captain != null) 
+            if (vessel.Captain != null)
             {
                 return String.Format(OutputMessages.VesselOccupied, selectedVesselName);
             }
@@ -135,12 +135,12 @@ namespace NavalVessels.Core
 
             if (attackingVessel == null)
             {
-                return String.Format(OutputMessages.VesselNotFound, attackingVessel.Name);
+                return String.Format(OutputMessages.VesselNotFound, attackingVesselName);
             }
 
             if (defendingVessel == null)
             {
-                return String.Format(OutputMessages.VesselNotFound, defendingVessel.Name);
+                return String.Format(OutputMessages.VesselNotFound, defendingVesselName);
             }
 
             if (attackingVessel.ArmorThickness == 0)
