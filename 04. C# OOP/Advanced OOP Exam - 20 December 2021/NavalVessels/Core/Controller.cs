@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 using NavalVessels.Core.Contracts;
@@ -14,8 +15,8 @@ namespace NavalVessels.Core
 {
     public class Controller : IController
     {
-        private IRepository<IVessel> vessels;
-        private ICollection<ICaptain> captains;
+        private readonly IRepository<IVessel> vessels;
+        private readonly ICollection<ICaptain> captains;
 
         public Controller()
         {
