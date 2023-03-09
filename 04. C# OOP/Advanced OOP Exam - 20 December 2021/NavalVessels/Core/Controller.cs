@@ -130,7 +130,35 @@ namespace NavalVessels.Core
 
         public string AttackVessels(string attackingVesselName, string defendingVesselName)
         {
-            throw new NotImplementedException();
+            var attackingVessel = vessels.FindByName(attackingVesselName);
+            var defendingVessel = vessels.FindByName(defendingVesselName);
+
+            if (attackingVessel == null)
+            {
+                return String.Format(OutputMessages.VesselNotFound, attackingVessel.Name);
+            }
+
+            if (defendingVessel == null)
+            {
+                return String.Format(OutputMessages.VesselNotFound, defendingVessel.Name);
+            }
+
+            if (attackingVessel.ArmorThickness == 0)
+            {
+                return String.Format(OutputMessages.AttackVesselArmorThicknessZero, attackingVessel.Name);
+            }
+
+            if (defendingVessel.ArmorThickness == 0)
+            {
+                return String.Format(OutputMessages.AttackVesselArmorThicknessZero, defendingVessel.Name);
+            }
+
+            attackingVessel.Attack(defendingVessel);
+            attackingVessel.Captain.IncreaseCombatExperience();
+            defendingVessel.Captain.IncreaseCombatExperience();
+
+            return String.Format(OutputMessages.SuccessfullyAttackVessel, defendingVessel.Name, attackingVessel.Name,
+                defendingVessel.ArmorThickness);
         }
 
         public string ServiceVessel(string vesselName)
