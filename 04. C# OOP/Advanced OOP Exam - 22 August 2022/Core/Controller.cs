@@ -156,7 +156,8 @@ namespace BookingApp.Core
 
             sb.AppendLine($"Hotel name: {hotel.FullName}");
             sb.AppendLine($"--{hotel.Category} star hotel");
-            sb.AppendLine($"--Turnover: {hotel.Turnover: F2} $");
+            sb.AppendLine($"--Turnover: {hotel.Turnover:F2} $");
+            sb.AppendLine($"--Bookings:");
 
             if (hotel.Bookings.All().Any())
             {
