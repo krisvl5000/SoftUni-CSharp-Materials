@@ -19,21 +19,33 @@ namespace BookigApp.Tests
         }
 
         [Test]
-        public void IsHotelConstructorWorkingProperly()
+        public void Test_IsHotelConstructorWorkingProperly()
         {
             Assert.That(hotel.FullName == "HotelName" && hotel.Category == 1);
         }
 
         [Test]
-        public void IsRoomConstructorWorkingProperly()
+        public void Test_IsRoomConstructorWorkingProperly()
         {
             Assert.That(room.BedCapacity == 5 && room.PricePerNight == 10);
         }
 
         [Test]
-        public void IsBookingConstructorWorkingProperly()
+        public void Test_IsBookingConstructorWorkingProperly()
         {
             Assert.That(booking.BookingNumber == 10 && booking.Room == room && booking.ResidenceDuration == 10);
+        }
+
+        [Test]
+        public void Test_IsHotelBookingsANewList()
+        {
+            Assert.That(hotel.Bookings.Count == 0);
+        }
+
+        [Test]
+        public void Test_IsHotelRoomsANewList()
+        {
+            Assert.That(hotel.Rooms.Count == 0);
         }
 
 
