@@ -145,7 +145,32 @@ namespace BookingApp.Core
 
         public string HotelReport(string hotelName)
         {
-            throw new NotImplementedException();
+            var hotel = hotels.All().FirstOrDefault(x => x.FullName == hotelName);
+
+            if (hotel == null)
+            {
+                return String.Format(OutputMessages.HotelNameInvalid, hotelName);
+            }
+
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine($"Hotel name: {hotel.FullName}");
+            sb.AppendLine($"--{hotel.Category} star hotel");
+            sb.AppendLine($"--Turnover: {hotel.Turnover: F2} $");
+
+            if (hotel.Bookings.All().Any())
+            {
+                foreach (var booking in hotel.Bookings.All())
+                {
+                    sb.AppendLine(booking.ToString());
+                }
+            }
+            else
+            {
+                sb.AppendLine("none");
+            }
+
+            return sb.ToString().Trim();
         }
     }
 }
