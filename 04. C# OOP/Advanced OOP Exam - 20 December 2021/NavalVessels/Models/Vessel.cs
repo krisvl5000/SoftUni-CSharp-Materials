@@ -81,18 +81,18 @@ namespace NavalVessels.Models
             StringBuilder sb = new StringBuilder();
 
             sb.AppendLine($"- {Name}");
-            sb.AppendLine($"*Type: {this.GetType().Name}");
-            sb.AppendLine($"*Armor thickness: {ArmorThickness}");
-            sb.AppendLine($"*Main weapon caliber: {MainWeaponCaliber}");
-            sb.AppendLine($"*Speed: {Speed} knots");
+            sb.AppendLine($" *Type: {this.GetType().Name}");
+            sb.AppendLine($" *Armor thickness: {ArmorThickness}");
+            sb.AppendLine($" *Main weapon caliber: {MainWeaponCaliber}");
+            sb.AppendLine($" *Speed: {Speed} knots");
 
             if (Targets.Count > 0)
             {
-                sb.AppendLine($"Targets: {String.Join(", ", Targets)}");
+                sb.AppendLine($" *Targets: {String.Join(", ", Targets)}");
             }
             else
             {
-                sb.AppendLine("Targets: None");
+                sb.AppendLine(" *Targets: None");
             }
 
             return sb.ToString().Trim();
