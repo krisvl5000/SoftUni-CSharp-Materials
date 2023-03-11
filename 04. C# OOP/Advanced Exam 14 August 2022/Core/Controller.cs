@@ -90,14 +90,14 @@ namespace PlanetWars.Core
                 throw new InvalidOperationException(String.Format(ExceptionMessages.UnexistingPlanet, planetName));
             }
 
-            if (weaponTypeName != "BioChemicalWeapon" &&
-                weaponTypeName != "NuclearWeapon" &&
-                weaponTypeName != "SpaceMissiles")
+            if (weaponTypeName != nameof(BioChemicalWeapon) &&
+                weaponTypeName != nameof(NuclearWeapon) &&
+                weaponTypeName != nameof(SpaceMissiles))
             {
                 throw new InvalidOperationException(String.Format(ExceptionMessages.ItemNotAvailable, weaponTypeName));
             }
 
-            if (planetRepository.Models.Any(x => x.GetType().Name == weaponTypeName))
+            if (planet.Weapons.Any(x => x.GetType().Name == weaponTypeName))
             {
                 throw new InvalidOperationException(String.Format(ExceptionMessages.WeaponAlreadyAdded, weaponTypeName,
                     planetName));
