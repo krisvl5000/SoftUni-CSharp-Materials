@@ -6,7 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Models\Heroes\" />
     <Folder Include="Models\Map\" />
   </ItemGroup>
 
