@@ -60,8 +60,38 @@ namespace FootballTeam.Tests
         [Test]
         public void Test_IsAddNewPlayerWorking()
         {
-            //team.AddNewPlayer(player);
             Assert.That(team.AddNewPlayer(player) == $"Added player {player.Name} in position {player.Position} with number {player.PlayerNumber}");
+        }
+
+        [Test]
+        public void Test_IsAddNewPlayerWorkingIfWeSurpassTheCapacity()
+        {
+            for (int i = 0; i < team.Capacity; i++)
+            {
+                team.AddNewPlayer(player);
+            }
+
+            Assert.That(team.AddNewPlayer(player) == "No more positions available!");
+        }
+
+        [Test]
+        public void Test_PickPlayerWorking()
+        {
+            team.AddNewPlayer(player);
+            Assert.That(team.PickPlayer("Name") == player);
+        }
+
+        [Test]
+        public void Test_PickPlayerWorkingIfTeamIsEmpty()
+        {
+            Assert.That(team.PickPlayer("Name") == null);
+        }
+
+        [Test]
+        public void Test_PlayerScoreWorking()
+        {
+            team.AddNewPlayer(player);
+            Assert.That(team.PlayerScore(1) == $"{player.Name} scored and now has {player.ScoredGoals} for this season!");
         }
 
     }
