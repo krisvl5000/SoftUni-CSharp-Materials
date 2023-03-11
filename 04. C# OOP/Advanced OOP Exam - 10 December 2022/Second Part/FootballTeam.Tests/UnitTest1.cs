@@ -53,6 +53,16 @@ namespace FootballTeam.Tests
         }
 
         [Test]
+        public void Test_IsPlayerCountIncreasingAfterAddingPlayers()
+        {
+            team.AddNewPlayer(player);
+            team.AddNewPlayer(player);
+            team.AddNewPlayer(player);
+
+            Assert.That(team.Players.Count == 3);
+        }
+
+        [Test]
         public void Test_IsAddNewPlayerWorkingIfWeSurpassTheCapacity()
         {
             for (int i = 0; i < team.Capacity; i++)
