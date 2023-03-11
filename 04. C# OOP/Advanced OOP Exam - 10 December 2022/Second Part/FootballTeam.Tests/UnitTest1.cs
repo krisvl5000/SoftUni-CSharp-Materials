@@ -46,17 +46,6 @@ namespace FootballTeam.Tests
             });
         }
 
-        //[Test]
-        //public void Test_IsPlayerThrowingIfPositionIsInvalid()
-        //{
-        //    Assert.Throws<ArgumentException>(() =>
-        //    {
-        //        player = new FootballPlayer("Name", 5, "Something");
-
-        //        team.AddNewPlayer(player);
-        //    });
-        //}
-
         [Test]
         public void Test_IsAddNewPlayerWorking()
         {
