@@ -156,7 +156,7 @@ namespace PlanetWars.Models.Planets
             }
             else
             {
-                sb.AppendLine("Forces: No units");
+                sb.AppendLine("--Forces: No units");
             }
             if (Weapons.Count > 0)
             {
@@ -166,7 +166,7 @@ namespace PlanetWars.Models.Planets
             }
             else
             {
-                sb.AppendLine("Weapons: No weapons");
+                sb.AppendLine("--Combat equipment: No weapons");
             }
 
             sb.AppendLine($"--Military Power: {CalculateMilitaryPower()}");

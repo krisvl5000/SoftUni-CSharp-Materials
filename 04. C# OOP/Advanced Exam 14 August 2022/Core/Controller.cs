@@ -256,7 +256,7 @@ namespace PlanetWars.Core
 
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine("***UNIVERSE MILITARY REPORT***");
+            sb.AppendLine("***UNIVERSE PLANET MILITARY REPORT***");
 
             foreach (var planet in orderedPlanets)
             {
