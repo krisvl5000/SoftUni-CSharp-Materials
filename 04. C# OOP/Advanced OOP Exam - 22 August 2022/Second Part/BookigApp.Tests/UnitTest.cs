@@ -13,7 +13,7 @@ namespace BookigApp.Tests
         [SetUp]
         public void Setup()
         {
-            hotel = new Hotel("HotelName", 1);
+            hotel = new Hotel("HotelName", 5);
             room = new Room(5, 10);
             booking = new Booking(10, room, 10);
         }
@@ -21,7 +21,27 @@ namespace BookigApp.Tests
         [Test]
         public void Test_IsHotelConstructorWorkingProperly()
         {
-            Assert.That(hotel.FullName == "HotelName" && hotel.Category == 1);
+            Assert.That(hotel.FullName == "HotelName" && hotel.Category == 5);
+        }
+
+        [Test]
+        public void Test_HotelThrowingWhenTheNameIsEmpty()
+        {
+
+            Assert.Throws<ArgumentNullException>(() =>
+            {
+                hotel = new Hotel("", 5);
+            });
+        }
+
+        [Test]
+        public void Test_HotelThrowingWhenTheCategoryIsInvalid()
+        {
+
+            Assert.Throws<ArgumentException>(() =>
+            {
+                hotel = new Hotel("Name", 15);
+            });
         }
 
         [Test]
@@ -48,6 +68,48 @@ namespace BookigApp.Tests
             Assert.That(hotel.Rooms.Count == 0);
         }
 
+        [Test]
+        public void Test_IsHotelAddRoomWorkingProperly()
+        {
+            hotel.AddRoom(room);
+            Assert.That(hotel.Rooms.Count == 1);
+        }
 
+        [Test]
+        public void Test_IsAddBookingWorkingProperly()
+        {
+            hotel.AddRoom(room);
+            hotel.BookRoom(3, 1, 5, 100);
+            Assert.AreEqual(1, hotel.Bookings.Count);
+        }
+
+        [Test]
+        public void Test_IsAddBookingThrowingWhenPassingInvalidValues()
+        {
+            hotel.AddRoom(room);
+
+            Assert.Throws<ArgumentException>(() =>
+            {
+                hotel.BookRoom(-1, 1, 5, 100);
+            });
+
+            Assert.Throws<ArgumentException>(() =>
+            {
+                hotel.BookRoom(5, -3, 5, 100);
+            });
+
+            Assert.Throws<ArgumentException>(() =>
+            {
+                hotel.BookRoom(1, 1, -5, 100);
+            });
+        }
+
+        [Test]
+        public void Test_IsTurnoverWorkingProperly()
+        {
+            hotel.AddRoom(room);
+            hotel.BookRoom(3, 1, 5, 100);
+            Assert.AreEqual(50, hotel.Turnover);
+        }
     }
 }
