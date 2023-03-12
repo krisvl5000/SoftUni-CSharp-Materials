@@ -116,7 +116,7 @@ namespace PlanetWars.Models.Planets
         public void AddWeapon(IWeapon weapon)
         {
             Spend(weapon.Price);
-            weapons.Add(weapon);  
+            weapons.Add(weapon);   
         }
 
         public void TrainArmy()
