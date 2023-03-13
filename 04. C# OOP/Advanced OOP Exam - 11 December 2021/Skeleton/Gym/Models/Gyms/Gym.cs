@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Gym.Models.Athletes;
 using Gym.Models.Athletes.Contracts;
 using Gym.Models.Equipment.Contracts;
 using Gym.Models.Gyms.Contracts;
@@ -13,8 +14,12 @@ namespace Gym.Models.Gyms
 {
     public abstract class Gym : IGym
     {
-        public Gym()
+        public Gym(string name, int capacity)
         {
+            Name = name;
+            Capacity = capacity;
+
+            equipment = new List<IEquipment>();
             athletes = new List<IAthlete>();
         }
 
@@ -45,27 +50,61 @@ namespace Gym.Models.Gyms
 
         public void AddAthlete(IAthlete athlete)
         {
-            throw new NotImplementedException();
+            if (athletes.Count < Capacity)
+            {
+                athletes.Add(athlete);
+            }
+            else
+            {
+                throw new InvalidOperationException(String.Format(ExceptionMessages.NotEnoughSize));
+            }
         }
 
         public bool RemoveAthlete(IAthlete athlete)
         {
-            throw new NotImplementedException();
+            var athleteToRemove = athletes.FirstOrDefault(x => x.FullName == athlete.FullName);
+
+            if (athleteToRemove == null)
+            {
+                return false;
+            }
+
+            athletes.Remove(athleteToRemove);
+            return true;
         }
 
         public void AddEquipment(IEquipment equipment)
         {
-            throw new NotImplementedException();
+            this.equipment.Add(equipment);
         }
 
         public void Exercise()
         {
-            throw new NotImplementedException();
+            foreach (var athlete in athletes)
+            {
+                athlete.Exercise();
+            }
         }
 
         public string GymInfo()
         {
-            throw new NotImplementedException();
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine($"{Name} is a {nameof(Gym)}");
+
+            if (!athletes.Any())
+            {
+                sb.AppendLine($"Athletes: No athletes");
+            }
+            else
+            {
+                sb.AppendLine($"Athletes: {String.Join(", ", athletes)}");
+            }
+
+            sb.AppendLine($"Equipment total count: {equipment.Count}");
+            sb.AppendLine($"Equipment total weight: {EquipmentWeight} grams");
+
+            return sb.ToString().TrimEnd();
         }
     }
 }
