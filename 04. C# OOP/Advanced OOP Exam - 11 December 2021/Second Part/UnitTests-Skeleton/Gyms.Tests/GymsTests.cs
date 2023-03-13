@@ -110,7 +110,7 @@ namespace Gyms.Tests
         {
             gym.AddAthlete(athlete);
 
-            Assert.That(gym.Report() == $"Active athletes at Gym: Athlete");
+            Assert.That(gym.Report() == "Active athletes at Gym: Athlete");
         }
     }
 }
