@@ -109,8 +109,6 @@ namespace Gym.Core
 
             gym.Athletes.Add(athlete);
             return String.Format(OutputMessages.EntityAddedToGym, athleteType, gymName);
-
-
         }
 
         public string TrainAthletes(string gymName)
