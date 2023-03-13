@@ -4,7 +4,12 @@ using System.Text;
 
 namespace Gym.Models.Equipment
 {
-    internal class BoxingGloves
+    public class BoxingGloves : Equipment
     {
+        private const double WEIGHT = 227;
+        private const decimal PRICE = 120;
+        public BoxingGloves() : base(WEIGHT, PRICE)
+        {
+        }
     }
 }
