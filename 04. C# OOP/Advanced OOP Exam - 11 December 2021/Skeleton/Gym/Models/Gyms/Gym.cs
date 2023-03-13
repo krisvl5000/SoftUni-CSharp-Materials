@@ -90,7 +90,7 @@ namespace Gym.Models.Gyms
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine($"{Name} is a {nameof(Gym)}");
+            sb.AppendLine($"{Name} is a {GetType().Name}");
 
             if (!athletes.Any())
             {
@@ -98,11 +98,18 @@ namespace Gym.Models.Gyms
             }
             else
             {
-                sb.AppendLine($"Athletes: {String.Join(", ", athletes)}");
+                var list = new List<string>();
+
+                foreach (var athlete in athletes)
+                {
+                    list.Add(athlete.FullName);
+                }
+
+                sb.AppendLine($"Athletes: {String.Join(", ", list)}");
             }
 
             sb.AppendLine($"Equipment total count: {equipment.Count}");
-            sb.AppendLine($"Equipment total weight: {EquipmentWeight} grams");
+            sb.AppendLine($"Equipment total weight: {EquipmentWeight:F2} grams");
 
             return sb.ToString().TrimEnd();
         }
