@@ -70,14 +70,15 @@ namespace Gym.Core
         {
             var gym = gyms.First(x => x.Name == gymName);
 
-            var equipment = this.equipment.FindByType(equipmentType);
+            var equipmentToFind = this.equipment.FindByType(equipmentType);
 
-            if (equipment == null)
+            if (equipmentToFind == null)
             {
                 throw new ArgumentException(String.Format(ExceptionMessages.InexistentEquipment, equipmentType));
             }
 
-            gym.AddEquipment(equipment);
+            gym.AddEquipment(equipmentToFind);
+            equipment.Remove(equipmentToFind);
 
             return String.Format(OutputMessages.EntityAddedToGym, equipmentType, gymName);
         }
@@ -122,12 +123,21 @@ namespace Gym.Core
 
         public string EquipmentWeight(string gymName)
         {
-            throw new NotImplementedException();
+            var gym = gyms.First(x => x.Name == gymName);
+
+            return String.Format(OutputMessages.EquipmentTotalWeight, gymName, gym.EquipmentWeight);
         }
 
         public string Report()
         {
-            throw new NotImplementedException();
+            StringBuilder sb = new StringBuilder();
+
+            foreach (var gym in gyms)
+            {
+                sb.AppendLine(gym.GymInfo());
+            }
+
+            return sb.ToString().Trim();
         }
     }
 }
