@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading;
 using SpaceStation.Core.Contracts;
 using SpaceStation.Models.Astronauts;
 using SpaceStation.Models.Astronauts.Contracts;
+using SpaceStation.Models.Mission;
 using SpaceStation.Models.Planets;
 using SpaceStation.Models.Planets.Contracts;
 using SpaceStation.Repositories;
@@ -66,17 +68,61 @@ namespace SpaceStation.Core
 
         public string RetireAstronaut(string astronautName)
         {
-            throw new NotImplementedException();
+            var astronaut = astronauts.FindByName(astronautName);
+
+            if (astronaut == null)
+            {
+                throw new InvalidOperationException(String.Format(ExceptionMessages.InvalidRetiredAstronaut, astronautName));
+            }
+
+            astronauts.Remove(astronaut);
+
+            return String.Format(OutputMessages.AstronautRetired, astronautName);
         }
 
         public string ExplorePlanet(string planetName)
         {
-            throw new NotImplementedException();
+            var planet = planets.FindByName(planetName);
+
+            var astronautsToSend = astronauts.Models.Where(x => x.Oxygen > 60);
+
+            if (!astronautsToSend.Any())
+            {
+                throw new ArgumentException(String.Format(ExceptionMessages.InvalidAstronautCount));
+            }
+
+            var mission = new Mission();
+            mission.Explore(planet, (ICollection<IAstronaut>)astronautsToSend);
+
+            var astronautsThatDied = astronautsToSend.Count(x => x.Oxygen == 0);
+
+            return String.Format(OutputMessages.PlanetExplored, planetName, astronautsThatDied);
         }
 
         public string Report()
         {
-            throw new NotImplementedException();
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine($"{planets.Models.Count} planets were explored!"); // might not be the correct number
+
+            sb.AppendLine($"Astronauts info:");
+
+            foreach (var astronaut in astronauts.Models)
+            {
+                sb.AppendLine($"Name: {astronaut.Name}");
+                sb.AppendLine($"Oxygen: {astronaut.Oxygen}");
+
+                if (!astronaut.Bag.Items.Any())
+                {
+                    sb.AppendLine($"Bag items: none");
+                }
+                else
+                {
+                    sb.AppendLine($"Bag items: {String.Join(", ", astronaut.Bag.Items)}");
+                }
+            }
+
+            return sb.ToString().Trim();
         }
     }
 }
