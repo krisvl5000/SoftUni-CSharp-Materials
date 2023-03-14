@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using SpaceStation.Models.Astronauts.Contracts;
+using SpaceStation.Models.Bags;
 using SpaceStation.Models.Bags.Contracts;
 using SpaceStation.Utilities.Messages;
 
@@ -13,6 +14,7 @@ namespace SpaceStation.Models.Astronauts
         {
             Name = name;
             Oxygen = oxygen;
+            Bag = new Backpack();
         }
 
         private string name;
@@ -47,7 +49,7 @@ namespace SpaceStation.Models.Astronauts
 
         public bool CanBreath { get; }
 
-        public IBag Bag { get; }
+        public IBag Bag { get; internal set; }
 
         public virtual void Breath()
         {
