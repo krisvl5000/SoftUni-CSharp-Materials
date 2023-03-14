@@ -53,12 +53,13 @@ namespace SpaceStation.Models.Astronauts
 
         public virtual void Breath()
         {
-            Oxygen -= 10;
-
-            if (Oxygen < 0)
+            if (Oxygen - 10 <= 0)
             {
                 Oxygen = 0;
+                return;
             }
+
+            Oxygen -= 10;
         }
     }
 }
