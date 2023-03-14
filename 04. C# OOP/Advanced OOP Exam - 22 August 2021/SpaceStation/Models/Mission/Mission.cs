@@ -10,6 +10,11 @@ namespace SpaceStation.Models.Mission
 {
     public class Mission : IMission
     {
+        public Mission()
+        {
+            
+        }
+
         public void Explore(IPlanet planet, ICollection<IAstronaut> astronauts)
         {
             foreach (var astronaut in astronauts.Where(x => x.Oxygen > 0))
