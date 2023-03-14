@@ -25,6 +25,12 @@ namespace SpaceStation.Models.Mission
                     var item = planet.Items.FirstOrDefault(); 
                     // we don't know what happens if the planet runs out of items while there are still remaining astronauts
 
+
+                    if (!planet.Items.Any())
+                    {
+                        break;
+                    }
+
                     astronaut.Breath();
 
                     astronaut.Bag.Items.Add(item);
