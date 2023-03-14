@@ -29,6 +29,6 @@ namespace SpaceStation.Models.Planets
             }
         }
 
-        public ICollection<string> Items { get; }
+        public ICollection<string> Items { get; internal set; }
     }
 }
