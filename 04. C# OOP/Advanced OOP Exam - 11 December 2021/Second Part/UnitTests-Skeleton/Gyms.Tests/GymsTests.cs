@@ -6,12 +6,14 @@ namespace Gyms.Tests
     public class GymsTests
     {
         private Athlete athlete;
+        private Athlete athlete2;
         private Gym gym;
 
         [SetUp]
         public void SetUp()
         {
             athlete = new Athlete("Athlete");
+            athlete2 = new Athlete("Athlete2");
             gym = new Gym("Gym", 3);
         }
 
@@ -111,6 +113,15 @@ namespace Gyms.Tests
             gym.AddAthlete(athlete);
 
             Assert.That(gym.Report() == "Active athletes at Gym: Athlete");
+        }
+
+        [Test]
+        public void Test_IsReportWorkingForMultiplePeople()
+        {
+            gym.AddAthlete(athlete);
+            gym.AddAthlete(athlete2);
+
+            Assert.That(gym.Report() == "Active athletes at Gym: Athlete, Athlete2");
         }
     }
 }
