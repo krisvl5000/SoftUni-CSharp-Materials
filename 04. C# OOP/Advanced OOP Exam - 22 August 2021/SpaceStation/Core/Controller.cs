@@ -17,12 +17,14 @@ namespace SpaceStation.Core
 {
     public class Controller : IController
     {
+        private List<IPlanet> exploredPlanets;
         private IRepository<IAstronaut> astronauts;
         private IRepository<IPlanet> planets;
         public Controller()
         {
             astronauts = new AstronautRepository();
             planets = new PlanetRepository();
+            exploredPlanets = new List<IPlanet>();
         }
 
         public string AddAstronaut(string type, string astronautName)
@@ -94,6 +96,11 @@ namespace SpaceStation.Core
             var mission = new Mission();
             mission.Explore(planet, astronautsToSend);
 
+            if (exploredPlanets.All(x => x.Name != planetName))
+            {
+                exploredPlanets.Add(planet);
+            }
+
             var astronautsThatDied = astronautsToSend.Count(x => x.Oxygen == 0);
 
             return String.Format(OutputMessages.PlanetExplored, planetName, astronautsThatDied);
@@ -103,7 +110,7 @@ namespace SpaceStation.Core
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine($"{planets.Models.Count} planets were explored!"); // might not be the correct number
+            sb.AppendLine($"{exploredPlanets.Count} planets were explored!"); // might not be the correct number
 
             sb.AppendLine($"Astronauts info:");
 
