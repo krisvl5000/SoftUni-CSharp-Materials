@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using SpaceStation.Models.Astronauts.Contracts;
+using SpaceStation.Models.Bags;
 using SpaceStation.Models.Mission.Contracts;
 using SpaceStation.Models.Planets.Contracts;
 
