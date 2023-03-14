@@ -49,7 +49,7 @@ namespace SpaceStation.Models.Astronauts
 
         public bool CanBreath { get; }
 
-        public IBag Bag { get; internal set; }
+        public IBag Bag { get; }
 
         public virtual void Breath()
         {
