@@ -84,7 +84,7 @@ namespace SpaceStation.Core
         {
             var planet = planets.FindByName(planetName);
 
-            var astronautsToSend = astronauts.Models.Where(x => x.Oxygen > 60);
+            var astronautsToSend = astronauts.Models.Where(x => x.Oxygen > 60).ToList();
 
             if (!astronautsToSend.Any())
             {
@@ -92,7 +92,7 @@ namespace SpaceStation.Core
             }
 
             var mission = new Mission();
-            mission.Explore(planet, (ICollection<IAstronaut>)astronautsToSend);
+            mission.Explore(planet, astronautsToSend);
 
             var astronautsThatDied = astronautsToSend.Count(x => x.Oxygen == 0);
 
