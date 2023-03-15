@@ -9,6 +9,14 @@ namespace CarRacing.Models.Racers
 {
     public abstract class Racer : IRacer
     {
+        public Racer(string username, string racingBehavior, int drivingExperience, ICar car)
+        {
+            Username = username;
+            RacingBehavior = racingBehavior;
+            DrivingExperience = drivingExperience;
+            Car = car;
+        }
+
         private string username;
 
         public string Username
@@ -71,12 +79,26 @@ namespace CarRacing.Models.Racers
 
         public void Race()
         {
-            throw new NotImplementedException();
+            Car.Drive();
+
+            if (this.GetType().Name == nameof(ProfessionalRacer))
+            {
+                DrivingExperience += 10;
+            }
+            else if (this.GetType().Name == nameof(StreetRacer))
+            {
+                DrivingExperience += 5;
+            }
         }
 
         public bool IsAvailable()
         {
-            throw new NotImplementedException();
+            if (Car.FuelAvailable >= Car.FuelConsumptionPerRace)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }
