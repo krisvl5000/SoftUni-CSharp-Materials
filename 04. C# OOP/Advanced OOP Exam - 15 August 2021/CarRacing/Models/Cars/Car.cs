@@ -68,7 +68,7 @@ namespace CarRacing.Models.Cars
         public int HorsePower
         {
             get { return horsePower; }
-            private set
+            protected set
             {
                 if (value < 0)
                 {
@@ -108,14 +108,9 @@ namespace CarRacing.Models.Cars
             }
         }
 
-        public void Drive()
+        public virtual void Drive()
         {
             FuelAvailable -= fuelConsumptionPerRace;
-
-            if (this.GetType().Name == nameof(TunedCar))
-            {
-                HorsePower -= HorsePower * 3 / 100;
-            }
         }
     }
 }
