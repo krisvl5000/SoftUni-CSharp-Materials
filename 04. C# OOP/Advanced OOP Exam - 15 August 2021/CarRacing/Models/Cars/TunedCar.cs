@@ -11,5 +11,11 @@ namespace CarRacing.Models.Cars
         public TunedCar(string make, string model, string vin, int horsePower) : base(make, model, vin, horsePower, FUEL_AVAILABLE, FUEL_CONSUMPTION_PER_RACE)
         {
         }
+
+        public override void Drive()
+        {
+            base.Drive();
+            HorsePower -= HorsePower * 3 / 100;
+        }
     }
 }
