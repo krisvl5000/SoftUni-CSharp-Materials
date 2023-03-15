@@ -52,7 +52,7 @@ namespace CarRacing.Models.Racers
         public int DrivingExperience
         {
             get { return drivingExperience; }
-            private set
+            protected set
             {
                 if (value < 0 || value > 100)
                 {
@@ -77,18 +77,9 @@ namespace CarRacing.Models.Racers
             }
         }
 
-        public void Race()
+        public virtual void Race()
         {
             Car.Drive();
-
-            if (this.GetType().Name == nameof(ProfessionalRacer))
-            {
-                DrivingExperience += 10;
-            }
-            else if (this.GetType().Name == nameof(StreetRacer))
-            {
-                DrivingExperience += 5;
-            }
         }
 
         public bool IsAvailable()
