@@ -61,5 +61,25 @@ namespace Robots.Tests
                 manager.Add(new Robot("Other Name", 100));
             });
         }
+
+        [Test]
+        public void Test_IsRemoveRobotWorking()
+        {
+            manager.Add(robot);
+            manager.Remove("Robot");
+
+            Assert.That(manager.Count == 0);
+        }
+
+        [Test]
+        public void Test_IsRemoveRobotThrowingIfWeRemoveNonExistentRobot()
+        {
+            manager.Add(robot);
+
+            Assert.Throws<InvalidOperationException>(() =>
+            {
+                manager.Remove("Some Other Name");
+            });
+        }
     }
 }
