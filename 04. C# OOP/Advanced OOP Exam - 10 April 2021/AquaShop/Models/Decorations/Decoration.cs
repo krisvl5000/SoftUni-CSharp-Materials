@@ -1,10 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using AquaShop.Models.Decorations.Contracts;
 
 namespace AquaShop.Models.Decorations
 {
-    internal class Decoration
+    public abstract class Decoration : IDecoration
     {
+        public Decoration(int comfort, decimal price)
+        {
+            Comfort = comfort;
+            Price = price;
+        }
+
+        public int Comfort { get; }
+        public decimal Price { get; }
     }
 }
