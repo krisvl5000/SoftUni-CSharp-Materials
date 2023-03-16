@@ -91,13 +91,44 @@ namespace Robots.Tests
         }
 
         [Test]
-        public void Test_IsWorkThrowingIfWeMakePassANonExistentRobot()
+        public void Test_IsWorkThrowingIfWePassANonExistentRobot()
         {
             manager.Add(robot);
 
             Assert.Throws<InvalidOperationException>(() =>
             {
                 manager.Work("Other Robot Name", "Something", 50);
+            });
+        }
+
+        [Test]
+        public void Test_IsWorkThrowingIfWePassBatteryMoreThanMaximumCapacity()
+        {
+            manager.Add(robot);
+
+            Assert.Throws<InvalidOperationException>(() =>
+            {
+                manager.Work("Robot", "Something", 150);
+            });
+        }
+
+        [Test]
+        public void Test_IsChargeMethodWorking()
+        {
+            manager.Add(robot);
+            manager.Work("Robot", "Something", 50);
+            manager.Charge("Robot");
+            Assert.That(robot.Battery == 100);
+        }
+
+        [Test]
+        public void Test_IsChargeThrowingIfWePassANameOfANonExistentRobot()
+        {
+            manager.Add(robot);
+
+            Assert.Throws<InvalidOperationException>(() =>
+            {
+                manager.Charge("Some Other Robot");
             });
         }
     }
