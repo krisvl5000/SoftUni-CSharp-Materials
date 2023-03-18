@@ -128,7 +128,7 @@ namespace Robots.Tests
 
             Assert.Throws<InvalidOperationException>(() =>
             {
-                manager.Charge("Some Other Robot"); 
+                manager.Charge("Some Other Robot");   
             });
         }
     }
