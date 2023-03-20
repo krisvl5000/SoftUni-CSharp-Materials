@@ -97,7 +97,7 @@ namespace Aquariums.Tests
         public void Test_IsReportWorking()
         {
             aquarium.Add(fish);
-            Assert.That(aquarium.Report() == $"Fish available at Aquarium: Fish");
+            Assert.That(aquarium.Report() == $"Fish available at Aquarium: Fish"); 
         }
     }
 }
