@@ -34,7 +34,7 @@ namespace Database.Tests
             Assert.Throws<InvalidOperationException>(() =>
             {
                 Database db = new Database(data);
-            }, "Array's capacity must be exactly 16 integers!");
+            }, "Array's capacity must be exactly 16 integers!"); 
         }
 
     }
