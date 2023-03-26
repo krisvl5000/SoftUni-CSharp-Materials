@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Reflection;
 using _01._Command_Pattern_1.Core.Contracts;
 
-namespace CommandPattern
+namespace _01._Command_Pattern_1.Core
 {
     public class CommandInterpreter : ICommandInterpreter
     {
