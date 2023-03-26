@@ -1,4 +1,6 @@
-﻿namespace ValidationAttributes.Utilities.Attributes;
+﻿using ValidationAttributes.Utilities.Attributes;
+
+namespace _02._Validation_Attributes.Utilities.Attributes;
 
 [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field)]
 public class MyRequiredAttribute : MyValidationAttribute
