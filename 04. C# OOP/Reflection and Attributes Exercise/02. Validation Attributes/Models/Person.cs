@@ -1,6 +1,7 @@
-﻿using ValidationAttributes.Utilities.Attributes;
+﻿using _02._Validation_Attributes.Utilities.Attributes;
+using ValidationAttributes.Utilities.Attributes;
 
-namespace ValidationAttributes.Models;
+namespace _02._Validation_Attributes.Models;
 
 public class Person
 {
