@@ -1,6 +1,6 @@
 ﻿using CommandPattern;
 
-namespace CommandPattern
+namespace _01._Command_Pattern_1.Core.Commands
 {
     public class ExitCommand : ICommand
     {
