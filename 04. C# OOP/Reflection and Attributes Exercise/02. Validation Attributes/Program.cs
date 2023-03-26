@@ -1,8 +1,7 @@
-﻿using ValidationAttributes.Models;
+﻿using _02._Validation_Attributes.Models;
 using ValidationAttributes.Utilities;
 
-
-namespace ValidationAttributes
+namespace _02._Validation_Attributes
 {
     public class StartUp
     {
