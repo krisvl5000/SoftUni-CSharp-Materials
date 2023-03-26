@@ -16,6 +16,7 @@ public class Engine : IEngine
         while (true)
         {
             string input = Console.ReadLine();
+            if (input == null) continue;
             string result = commandInterpreter.Read(input);
             Console.WriteLine(result);
         }
