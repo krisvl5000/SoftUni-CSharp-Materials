@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 using ValidationAttributes.Utilities.Attributes;
 
-namespace ValidationAttributes.Utilities;
+namespace _02._Validation_Attributes.Utilities;
 
 public abstract class Validator
 {
