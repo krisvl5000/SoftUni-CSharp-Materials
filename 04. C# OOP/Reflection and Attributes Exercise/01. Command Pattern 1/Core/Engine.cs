@@ -1,8 +1,6 @@
-﻿using System.Runtime.CompilerServices;
-using System.Xml;
-using _01._Command_Pattern_1.Core.Contracts;
+﻿using _01._Command_Pattern_1.Core.Contracts;
 
-namespace CommandPattern;
+namespace _01._Command_Pattern_1.Core;
 
 public class Engine : IEngine
 {
