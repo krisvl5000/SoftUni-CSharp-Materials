@@ -136,7 +136,7 @@ namespace PlanetWars.Models.Planets
 
                 foreach (var militaryUnit in units.Models)
                 {
-                    unitList.Add(nameof(militaryUnit));
+                    unitList.Add(militaryUnit.GetType().Name);
                 }
 
                 sb.AppendLine($"--Forces: {String.Join(", ", unitList)}");
@@ -152,7 +152,7 @@ namespace PlanetWars.Models.Planets
 
                 foreach (var weapon in weapons.Models)
                 {
-                    weaponList.Add(nameof(weapon));
+                    weaponList.Add(weapon.GetType().Name);
                 }
 
                 sb.AppendLine($"--Combat equipment: {String.Join(", ", weaponList)}");
