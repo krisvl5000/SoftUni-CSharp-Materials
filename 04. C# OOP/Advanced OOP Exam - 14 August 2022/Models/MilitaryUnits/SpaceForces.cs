@@ -4,7 +4,11 @@ using System.Text;
 
 namespace PlanetWars.Models.MilitaryUnits
 {
-    internal class SpaceForces
+    public class SpaceForces : MilitaryUnit
     {
+        private const double PRICE = 11.0;
+        public SpaceForces() : base(PRICE)
+        {
+        }
     }
 }

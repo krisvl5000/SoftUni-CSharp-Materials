@@ -4,7 +4,11 @@ using System.Text;
 
 namespace PlanetWars.Models.Weapons
 {
-    internal class SpaceMissiles
+    public class SpaceMissiles : Weapon
     {
+        private const double PRICE = 8.75;
+        public SpaceMissiles(int destructionLevel) : base(destructionLevel, PRICE)
+        {
+        }
     }
 }
