@@ -104,6 +104,47 @@ namespace PlanetWars.Tests
 
                 Assert.That(planet.Weapons.Count == 0);
             }
+
+            [Test]
+            public void Test_IsUpgradeWeaponWorkingProperly()
+            {
+                planet.AddWeapon(weapon);
+                planet.UpgradeWeapon("Weapon");
+
+                Assert.That(planet.MilitaryPowerRatio == 11.0);
+            }
+
+            [Test]
+            public void Test_IsUpgradeThrowingForNonExistentWeapon()
+            {
+                planet.AddWeapon(weapon);
+
+                Assert.Throws<InvalidOperationException>(() =>
+                {
+                    planet.UpgradeWeapon("NonExistentWeapon");
+                });
+            }
+
+            [Test]
+            public void Test_IsDestructOpponentWorkingProperly()
+            {
+                planet.AddWeapon(weapon);
+
+                var opponent = new Planet("Opponent", 10.0);
+
+                Assert.That(planet.DestructOpponent(opponent) == $"Opponent is destructed!");
+            }
+
+            [Test]
+            public void Test_IsUpgradeThrowingForStrongerOrEqualOpponent()
+            {
+                var opponent = new Planet("Opponent", 10.0);
+
+                Assert.Throws<InvalidOperationException>(() =>
+                {
+                    planet.DestructOpponent(opponent);
+                });
+            }
         }
     }
 }
