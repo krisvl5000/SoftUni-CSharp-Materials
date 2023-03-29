@@ -1,7 +1,8 @@
-﻿namespace Formula1.IO
+﻿using PlanetWars.IO.Contracts;
+using System;
+
+namespace PlanetWars.IO
 {
-    using System;
-    using Formula1.IO.Contracts;
     public class Reader : IReader
     {
         public string ReadLine()
