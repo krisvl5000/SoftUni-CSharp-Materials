@@ -142,7 +142,7 @@ namespace PlanetWars.Tests
 
                 Assert.Throws<InvalidOperationException>(() =>
                 {
-                    planet.DestructOpponent(opponent);
+                    planet.DestructOpponent(opponent); 
                 });
             }
         }
