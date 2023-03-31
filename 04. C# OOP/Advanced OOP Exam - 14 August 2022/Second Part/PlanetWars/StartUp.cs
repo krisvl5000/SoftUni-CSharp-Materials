@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Numerics;
 
 namespace PlanetWars
 {
@@ -6,7 +7,11 @@ namespace PlanetWars
     {
         static void Main(string[] args)
         {
-            
+            BigInteger num = new BigInteger();
+
+            num = (BigInteger) 99 * 999 * 20000 * 4;
+
+            Console.WriteLine(num);
         }
     }
 }
