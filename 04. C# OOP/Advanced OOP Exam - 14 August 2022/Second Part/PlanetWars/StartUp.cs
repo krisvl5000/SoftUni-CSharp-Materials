@@ -11,7 +11,7 @@ namespace PlanetWars
 
             num = (BigInteger) 99 * 999 * 20000 * 4;
 
-            Console.WriteLine(num);
+            Console.WriteLine(num); 
         }
     }
 }
