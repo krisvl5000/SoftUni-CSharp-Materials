@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
+using Workshop.Common;
 using Workshop.Drawers;
 using Workshop.Drawers.Contracts;
 using Workshop.Renderers;
@@ -20,6 +21,10 @@ namespace Workshop.DI
             serviceCollection.AddTransient<IShapeDrawer, AdvancedShapeDrawer>();
             serviceCollection.AddTransient<Engine, Engine>();
             serviceCollection.AddTransient<IRenderer, ConsoleRenderer>();
+            serviceCollection.AddTransient<ILogger, DateLogger>((s ) =>
+            {
+                return new DateLogger(5, 5, 2025);
+            });
 
             return serviceCollection.BuildServiceProvider();
         }
