@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Workshop.Common
 {
-    internal class Logger
+    public class Logger : ILogger
     {
+        public void Log(string message)
+        {
+            Console.WriteLine($"Logging {message}");
+        }
     }
 }
