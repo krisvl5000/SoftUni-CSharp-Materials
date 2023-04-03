@@ -17,7 +17,7 @@ namespace Workshop.DI
             IServiceCollection serviceCollection = new ServiceCollection();
 
             // custom code
-            serviceCollection.AddTransient<IShapeDrawer, BasicShapeDrawer>();
+            serviceCollection.AddTransient<IShapeDrawer, AdvancedShapeDrawer>();
             serviceCollection.AddTransient<Engine, Engine>();
             serviceCollection.AddTransient<IRenderer, ConsoleRenderer>();
 

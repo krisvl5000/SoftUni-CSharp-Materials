@@ -4,13 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Workshop.Drawers.Contracts;
+using Workshop.Renderers;
 using Workshop.Shapes;
 
 namespace Workshop.Drawers
 {
-    public class AdvancedShapeDrawer : IShapeDrawer
+    public class AdvancedShapeDrawer : BasicShapeDrawer
     {
-        public void DrawCircle(Circle circle)
+        public AdvancedShapeDrawer(IRenderer renderer) : base(renderer)
+        {
+        }
+
+        public override void DrawCircle(Circle circle)
         {
             Console.WriteLine("  @@");
             Console.WriteLine("@    @");
@@ -18,7 +23,7 @@ namespace Workshop.Drawers
             Console.WriteLine("  @@");
         }
 
-        public void DrawRectangle(Rectangle rectangle)
+        public override void DrawRectangle(Rectangle rectangle)
         {
             Console.WriteLine("@@@@");
             Console.WriteLine("@  @");

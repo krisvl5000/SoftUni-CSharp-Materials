@@ -17,7 +17,7 @@ namespace Workshop.Drawers
             this.renderer = renderer;
         }
 
-        public void DrawCircle(Circle circle)
+        public virtual void DrawCircle(Circle circle)
         {
             renderer.WriteLine("  **");
             renderer.WriteLine("*    *");
@@ -25,7 +25,7 @@ namespace Workshop.Drawers
             renderer.WriteLine("  **");
         }
 
-        public void DrawRectangle(Rectangle rectangle)
+        public virtual void DrawRectangle(Rectangle rectangle)
         {
             renderer.WriteLine("****");
             renderer.WriteLine("*  *");
