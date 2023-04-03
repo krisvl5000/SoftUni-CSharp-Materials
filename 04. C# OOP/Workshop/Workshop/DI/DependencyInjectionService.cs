@@ -21,10 +21,13 @@ namespace Workshop.DI
             serviceCollection.AddTransient<IShapeDrawer, AdvancedShapeDrawer>();
             serviceCollection.AddTransient<Engine, Engine>();
             serviceCollection.AddTransient<IRenderer, ConsoleRenderer>();
-            serviceCollection.AddTransient<ILogger, DateLogger>((s ) =>
-            {
-                return new DateLogger(5, 5, 2025);
-            });
+
+            //serviceCollection.AddTransient<ILogger, DateLogger>((s ) =>
+            //{
+            //    return new DateLogger(5, 5, 2025);
+            //});
+
+            serviceCollection.AddTransient<ILogger, Logger>();
 
             return serviceCollection.BuildServiceProvider();
         }
