@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Workshop.Drawers;
 using Workshop.Drawers.Contracts;
+using Workshop.Renderers;
 
 namespace Workshop.DI
 {
@@ -18,6 +19,7 @@ namespace Workshop.DI
             // custom code
             serviceCollection.AddTransient<IShapeDrawer, BasicShapeDrawer>();
             serviceCollection.AddTransient<Engine, Engine>();
+            serviceCollection.AddTransient<IRenderer, ConsoleRenderer>();
 
             return serviceCollection.BuildServiceProvider();
         }
