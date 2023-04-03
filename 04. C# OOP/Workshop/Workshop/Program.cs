@@ -1,6 +1,7 @@
 ﻿using System;
 using Workshop;
 using Workshop.Drawers;
+using Workshop.Drawers.Contracts;
 
 namespace _01._Hello_Softuni
 {
@@ -8,7 +9,7 @@ namespace _01._Hello_Softuni
     {
         static void Main(string[] args)
         {
-            BasicShapeDrawer drawer = new BasicShapeDrawer();
+            IShapeDrawer drawer = new AdvancedShapeDrawer();
 
             Engine engine = new Engine(drawer);
 
