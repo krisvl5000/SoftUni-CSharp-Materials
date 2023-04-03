@@ -12,12 +12,12 @@ namespace Workshop.Common
 
         public DateLogger(int day, int month, int year)
         {
-            date = new DateTime(day, month, year);
+            date = new DateTime(year, month, day);
         }
 
         public void Log(string message)
         {
-            Console.WriteLine($"DATE: {date:dd/mm/yyyy}");
+            Console.WriteLine($"DATE: {date:dd/MM/yyyy}");
         }
     }
 }
