@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Workshop.Shapes
 {
-    internal class Circle
+    public class Circle : Shape
     {
     }
 }
