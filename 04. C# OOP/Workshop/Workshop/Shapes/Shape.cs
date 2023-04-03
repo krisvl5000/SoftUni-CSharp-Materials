@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Workshop.Shapes
 {
-    internal class Shape
+    public abstract class Shape
     {
+        public int Top { get; set; }
+
+        public int Left { get; set; }
     }
 }
