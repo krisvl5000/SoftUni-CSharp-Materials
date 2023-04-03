@@ -17,7 +17,7 @@ namespace Workshop.Common
 
         public void Log(string message)
         {
-            Console.WriteLine($"DATE: {date:dd/MM/yyyy}");
+            Console.WriteLine($"DATE: {date:dd/MM/yyyy} --- {message}");
         }
     }
 }
