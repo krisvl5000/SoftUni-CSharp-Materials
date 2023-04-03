@@ -1,5 +1,6 @@
 ﻿using System;
 using Workshop;
+using Workshop.DI;
 using Workshop.Drawers;
 using Workshop.Drawers.Contracts;
 
@@ -9,9 +10,11 @@ namespace _01._Hello_Softuni
     {
         static void Main(string[] args)
         {
-            IShapeDrawer drawer = new AdvancedShapeDrawer();
+            IServiceProvider diProvider = DependencyInjectionService.ConfigureServices();
 
-            Engine engine = new Engine(drawer);
+            // it creates engine, checks what type of drawer the engine expects, and then passes the drawer to the engine
+
+            Engine engine = (Engine)diProvider.GetService(typeof(Engine));
 
             engine.Run();
         }
