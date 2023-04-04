@@ -10,5 +10,7 @@ namespace DIFramework.Contracts
     {
         void AddTransient<TInterface, TImplementation>();
         void AddTransient<TInterface, TImplementation>(Func<IServiceProvider, TImplementation> implementationFactory);
+
+        Type GetMapping(Type interfaceType);
     }
 }
