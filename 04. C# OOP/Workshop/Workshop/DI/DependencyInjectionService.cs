@@ -27,7 +27,7 @@ namespace Workshop.DI
             //    return new DateLogger(5, 5, 2025);
             //});
 
-            serviceCollection.AddSingleton<ILogger, Logger>();
+            serviceCollection.AddSingleton<ILogger, Logger>(); // when it is singleton, it creates only one instance and always passes it, otherwise it always creates a new instance
 
             return serviceCollection.BuildServiceProvider();
         }
