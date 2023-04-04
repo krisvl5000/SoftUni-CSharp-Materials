@@ -20,9 +20,10 @@ namespace DIFramework
         {
             Type implementationType = serviceCollection.GetMapping(interfaceType);
 
-            if (expr)
+            if (true)
             {
-                
+
+                throw new ArgumentException();
             }
         }
     }
