@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace DIFramework.Contracts
 {
-    internal interface IServiceProvider
+    public interface IServiceProvider
     {
+        object GetService(Type serviceType);
     }
 }
