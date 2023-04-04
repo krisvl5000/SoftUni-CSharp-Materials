@@ -27,7 +27,7 @@ namespace Workshop.DI
             //    return new DateLogger(5, 5, 2025);
             //});
 
-            serviceCollection.AddTransient<ILogger, Logger>();
+            serviceCollection.AddSingleton<ILogger, Logger>();
 
             return serviceCollection.BuildServiceProvider();
         }
