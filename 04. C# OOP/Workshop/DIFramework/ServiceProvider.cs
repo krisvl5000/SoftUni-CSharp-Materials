@@ -16,9 +16,14 @@ namespace DIFramework
             this.serviceCollection = serviceCollection;
         }
 
-        public object? GetService(Type serviceType)
+        public object GetService(Type interfaceType)
         {
-            throw new NotImplementedException();
+            Type implementationType = serviceCollection.GetMapping(interfaceType);
+
+            if (expr)
+            {
+                
+            }
         }
     }
 }
