@@ -24,5 +24,15 @@ namespace DIFramework.Contracts
         {
             throw new NotImplementedException();
         }
+
+        public Type GetMapping(Type interfaceType)
+        {
+            if (mappings.ContainsKey(interfaceType))
+            {
+                throw new ArgumentException($"Mapping for interfaceType {interfaceType.Name} has not been configured");
+            }
+
+            return mappings[interfaceType];
+        }
     }
 }
