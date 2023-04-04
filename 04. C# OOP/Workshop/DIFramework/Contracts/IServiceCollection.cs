@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace DIFramework.Contracts
 {
-    internal interface IServiceCollection
+    public interface IServiceCollection
     {
+        void AddTransient<TInterface, TImplementation>();
+        void AddTransient<TInterface, TImplementation>(Func<IServiceProvider, TImplementation> implementationFactory);
     }
 }
