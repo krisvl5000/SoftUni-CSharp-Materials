@@ -118,6 +118,8 @@ namespace Formula1.Core
                     pilotFullName));
             }
 
+            race.AddPilot(pilot);
+
             return String.Format(OutputMessages.SuccessfullyAddPilotToRace, pilotFullName, raceName);
         }
 
@@ -142,19 +144,44 @@ namespace Formula1.Core
                     String.Format(ExceptionMessages.RaceTookPlaceErrorMessage, raceName));
             }
 
-            var orderedPilots = race.Pilots.OrderByDescending(x => x.Car.RaceScoreCalculator(race.NumberOfLaps));
+            var orderedPilots = race.Pilots.OrderByDescending(x => x.Car.RaceScoreCalculator(race.NumberOfLaps)).ToList();
 
-            race.TookPlace == true;
+            race.TookPlace = true;
+            orderedPilots[0].WinRace();
+
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine(String.Format(OutputMessages.PilotFirstPlace, orderedPilots[0].FullName, raceName));
+            sb.AppendLine(String.Format(OutputMessages.PilotSecondPlace, orderedPilots[1].FullName, raceName));
+            sb.AppendLine(String.Format(OutputMessages.PilotThirdPlace, orderedPilots[2].FullName, raceName));
+
+            return sb.ToString().Trim();
         }
 
         public string RaceReport()
         {
-            throw new NotImplementedException();
+            StringBuilder sb = new StringBuilder();
+
+            foreach (var race in raceRepository.Models.Where(x => x.TookPlace))
+            {
+                sb.AppendLine(race.RaceInfo());
+            }
+
+            return sb.ToString().Trim();
         }
 
         public string PilotReport()
         {
-            throw new NotImplementedException();
+            StringBuilder sb = new StringBuilder();
+
+            var orderedPilots = pilotRepository.Models.OrderByDescending(x => x.NumberOfWins).ToList();
+
+            foreach (var pilot in orderedPilots)
+            {
+                sb.AppendLine(pilot.ToString());
+            }
+
+            return sb.ToString().Trim();
         }
     }
 }
