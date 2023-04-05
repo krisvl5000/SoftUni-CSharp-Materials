@@ -118,7 +118,7 @@ namespace Formula1.Core
                     pilotFullName));
             }
 
-            return String.Format(OutputMessages.SuccessfullyAddPilotToRace, pilotFullName, raceName);
+            return String.Format(OutputMessages.SuccessfullyAddPilotToRace, pilotFullName);
         }
 
         public string StartRace(string raceName)
