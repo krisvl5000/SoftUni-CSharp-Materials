@@ -123,7 +123,28 @@ namespace Formula1.Core
 
         public string StartRace(string raceName)
         {
-            throw new NotImplementedException();
+            var race = raceRepository.FindByName(raceName);
+
+            if (race == null)
+            {
+                throw new NullReferenceException(
+                    String.Format(ExceptionMessages.RaceDoesNotExistErrorMessage, raceName));
+            }
+
+            if (race.Pilots.Count < 3)
+            {
+                throw new InvalidOperationException(String.Format(ExceptionMessages.InvalidRaceParticipants, raceName));
+            }
+
+            if (race.TookPlace)
+            {
+                throw new InvalidOperationException(
+                    String.Format(ExceptionMessages.RaceTookPlaceErrorMessage, raceName));
+            }
+
+            var orderedPilots = race.Pilots.OrderByDescending(x => x.Car.RaceScoreCalculator(race.NumberOfLaps));
+
+            race.TookPlace == true;
         }
 
         public string RaceReport()
