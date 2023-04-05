@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SimpleSnake.Core.Interfaces;
+using SimpleSnake.GameObjects;
 
 namespace SimpleSnake.Core
 {
@@ -16,7 +17,7 @@ namespace SimpleSnake.Core
 
         public void Run()
         {
-            throw new NotImplementedException();
+
         }
     }
 }
