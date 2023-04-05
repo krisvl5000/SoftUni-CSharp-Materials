@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace SimpleSnake.GameObjects
 {
-    internal class Point
+    public class Point
     {
+        public int LeftX { get; set; }
+
+        public int TopY { get; set; }
     }
 }
