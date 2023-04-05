@@ -2,9 +2,9 @@
 {
     public enum Direction
     {
-        Right,
-        Left,
-        Down,
-        Up,
+        Right = 0,
+        Left = 1,
+        Down = 2,
+        Up = 3
     }
 }
