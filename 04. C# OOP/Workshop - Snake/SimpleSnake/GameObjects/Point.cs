@@ -29,5 +29,8 @@ namespace SimpleSnake.GameObjects
             Console.SetCursorPosition(leftX, topY);
             Console.Write(symbol);
         }
+
+        public bool IsFoodPoint(Point snakeHead)
+            => snakeHead.LeftX == LeftX && snakeHead.TopY == TopY;
     }
 }
