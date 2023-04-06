@@ -13,6 +13,7 @@ namespace SimpleSnake.GameObjects
 
         public Wall(int leftX, int topY) : base(leftX, topY)
         {
+            InitializeWallBorders();
         }
         
         private void SetHorizontalLine(int topY)
@@ -21,6 +22,23 @@ namespace SimpleSnake.GameObjects
             {
                 Draw(leftX, topY, wallSymbol);
             }
+        }
+
+        private void SetVerticalLine(int leftX)
+        {
+            for (int topY = 0; topY < TopY; topY++)
+            {
+                Draw(leftX, topY, wallSymbol);
+            }
+        }
+
+        private void InitializeWallBorders()
+        {
+            SetHorizontalLine(0);
+            SetHorizontalLine(TopY);
+
+            SetVerticalLine(0);
+            SetVerticalLine(LeftX - 1);
         }
     }
 }
