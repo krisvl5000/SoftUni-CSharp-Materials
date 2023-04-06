@@ -18,6 +18,8 @@ namespace SimpleSnake.GameObjects
 
         public int TopY { get; set; }
 
+        public int FoodPoints { get; protected set; }
+
         public void Draw(char symbol)
         {
             Console.SetCursorPosition(LeftX, TopY);
