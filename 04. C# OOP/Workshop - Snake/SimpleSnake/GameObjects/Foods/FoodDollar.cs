@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace SimpleSnake.GameObjects.Foods
 {
-    internal class FoodDollar
+    public class FoodDollar : Food
     {
+        private const char foodSymbol = '$';
+        private const int points = 2;
+        public FoodDollar(Wall wall) : base(wall, foodSymbol, points)
+        {
+        }
     }
 }
