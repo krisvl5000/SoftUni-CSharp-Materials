@@ -35,7 +35,7 @@ namespace SimpleSnake.GameObjects
         private void InitializeWallBorders()
         {
             SetHorizontalLine(0);
-            SetHorizontalLine(TopY - 1);
+            SetHorizontalLine(TopY - 1); // added - 1 to make it start from the beginning
 
             SetVerticalLine(0);
             SetVerticalLine(LeftX - 1);
