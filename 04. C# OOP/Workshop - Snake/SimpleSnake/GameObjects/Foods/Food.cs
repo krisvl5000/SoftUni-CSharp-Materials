@@ -12,8 +12,12 @@ namespace SimpleSnake.GameObjects.Foods
         private Random random;
         private Wall wall;
 
-        protected Food(Wall wall, int leftX, int topY) : base(leftX, topY)
+        protected Food(Wall wall, char foodSymbol, int points) 
+            : base(wall.LeftX, wall.TopY)
         {
+            this.wall = wall;
+            this.foodSymbol = foodSymbol;
+            FoodPoints = points;
             random = new Random();
         }
 
@@ -40,5 +44,8 @@ namespace SimpleSnake.GameObjects.Foods
             Draw(foodSymbol);
             Console.ForegroundColor = ConsoleColor.White;
         }
+
+        public bool IsFoodPoint(Point snakeHead) 
+            => snakeHead.LeftX == LeftX && snakeHead.TopY == TopY;
     }
 }
