@@ -24,7 +24,6 @@ namespace SimpleSnake.Core
                 
             }
 
-            Console.WriteLine();
         }
     }
 }
