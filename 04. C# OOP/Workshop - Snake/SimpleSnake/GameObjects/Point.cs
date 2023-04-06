@@ -34,5 +34,10 @@ namespace SimpleSnake.GameObjects
 
         public bool IsFoodPoint(Point snakeHead)
             => snakeHead.LeftX == LeftX && snakeHead.TopY == TopY;
+
+        public int SetRandomPosition(Queue<Point> snake)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
