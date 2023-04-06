@@ -11,7 +11,8 @@ namespace SimpleSnake.GameObjects
     {
         private const char wallSymbol = '\u25A0';
 
-        public Wall(int leftX, int topY) : base(leftX, topY)
+        public Wall(int leftX, int topY) 
+            : base(leftX, topY)
         {
             InitializeWallBorders();
         }
@@ -40,5 +41,11 @@ namespace SimpleSnake.GameObjects
             SetVerticalLine(0);
             SetVerticalLine(LeftX - 1);
         }
+
+        public bool IsPointOfWall(Point snake)
+            => snake.TopY == 0 ||
+               snake.LeftX == 0 ||
+               snake.LeftX == LeftX - 1 || 
+               snake.TopY == TopY;
     }
 }
