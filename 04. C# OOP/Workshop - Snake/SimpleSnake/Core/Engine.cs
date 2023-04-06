@@ -18,6 +18,7 @@ namespace SimpleSnake.Core
         public void Run()
         {
             Wall wall = new Wall(60, 20);
+            Console.WriteLine();
         }
     }
 }
