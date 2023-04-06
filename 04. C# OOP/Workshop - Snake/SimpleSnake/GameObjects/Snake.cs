@@ -79,7 +79,17 @@ namespace SimpleSnake.GameObjects
 
         public void Eat(Point direction, Point head)
         {
+            int length = foods[foodIndex].FoodPoints;
 
+            for (int i = 0; i < length; i++)
+            {
+                snakeElements.Enqueue(new Point(nextLeftX, nextTopY));
+                GetNextPoint(direction, head);
+            }
+
+            foodIndex = RandomFoodNumber();
         }
+
+        private int RandomFoodNumber() => new Random().Next(0, foods.Count);
     }
 }
