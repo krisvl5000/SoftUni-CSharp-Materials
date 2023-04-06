@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.VisualBasic.CompilerServices;
 using SimpleSnake.GameObjects.Foods;
 
 namespace SimpleSnake.GameObjects
@@ -88,6 +89,7 @@ namespace SimpleSnake.GameObjects
             }
 
             foodIndex = RandomFoodNumber();
+            foods[foodIndex].SetRandomPosition(snakeElements);
         }
 
         private int RandomFoodNumber() => new Random().Next(0, foods.Count);
