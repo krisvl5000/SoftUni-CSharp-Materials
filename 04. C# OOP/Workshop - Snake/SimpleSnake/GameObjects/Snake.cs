@@ -85,7 +85,7 @@ namespace SimpleSnake.GameObjects
             for (int i = 0; i < length; i++)
             {
                 snakeElements.Enqueue(new Point(nextLeftX, nextTopY));
-                GetNextPoint(direction, head);  
+                GetNextPoint(direction, head);   
             }
 
             foodIndex = RandomFoodNumber();
