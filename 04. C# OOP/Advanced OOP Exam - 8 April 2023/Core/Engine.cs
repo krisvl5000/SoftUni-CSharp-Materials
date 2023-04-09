@@ -27,7 +27,7 @@
                 }
                 try
                 {
-                    string result = string.Empty;
+                    string result = string.Empty; 
 
                     if (input[0] == "CreateRobot")
                     {
