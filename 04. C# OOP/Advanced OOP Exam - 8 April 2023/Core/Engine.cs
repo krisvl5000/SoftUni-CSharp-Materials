@@ -72,7 +72,7 @@
                 }
                 catch (Exception ex)
                 {
-                    writer.WriteLine(ex.Message);
+                    Console.WriteLine("1" + 2);
                 }
             }
         }
