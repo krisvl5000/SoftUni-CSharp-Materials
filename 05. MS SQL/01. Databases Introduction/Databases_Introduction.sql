@@ -44,4 +44,8 @@ TRUNCATE TABLE [Minions]
 
 -- 06. Drop All Tables
 
-DROP TABLE 
+DROP TABLE [Minions]
+
+GO
+
+DROP TABLE [Towns]
