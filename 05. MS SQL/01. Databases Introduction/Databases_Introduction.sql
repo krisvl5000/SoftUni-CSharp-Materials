@@ -72,3 +72,24 @@ CREATE TABLE [People](
 	('Maria', 1.65, 42.2, 'f', '1998-06-27'),
 	('Viki', NULL, NULL, 'f', '1986-02-02'),
 	('Vancho', 1.69, 77.8, 'm', '1999-03-03')
+
+-- 08. Create Table Users
+
+CREATE TABLE [Users] (
+	[Id] BIGINT PRIMARY KEY IDENTITY(1, 1),
+	[Username] VARCHAR(30) NOT NULL,
+	[Password] VARCHAR(26) NOT NULL,
+	[ProfilePicture] VARBINARY(MAX),
+	CHECK (DATALENGTH([ProfilePicture]) <= 900000),
+	[LastLoginTime] DATETIME,
+	[IsDeleted] VARCHAR(5) NOT NULL,
+	CHECK (IsDeleted = 'true' OR IsDeleted = 'false')
+	)
+
+INSERT INTO [Users] ([Username], [Password], [LastLoginTime], [IsDeleted])
+	VALUES
+	('krisvl5000', 'stefanegei123', '2023-02-01', 'true'),
+    ('stefanzcu', 'krisvlegei123', '2022-05-04', 'false'),
+    ('peshotraktora', 'peshoegotin333', '2019-06-09', 'false'),
+    ('petio', 'petiomama', '2023-05-06', 'true'),
+    ('kakababa', 'mamabrato', '2020-06-08', 'false')
