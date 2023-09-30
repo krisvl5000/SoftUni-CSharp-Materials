@@ -93,3 +93,12 @@ INSERT INTO [Users] ([Username], [Password], [LastLoginTime], [IsDeleted])
     ('peshotraktora', 'peshoegotin333', '2019-06-09', 'false'),
     ('petio', 'petiomama', '2023-05-06', 'true'),
     ('kakababa', 'mamabrato', '2020-06-08', 'false')
+
+-- 09. Change Primary Key
+
+ALTER TABLE [Users]
+DROP PRIMARY KEY
+
+ALTER TABLE [Users]
+ADD CONSTRAINT PK_Combination
+PRIMARY KEY([Id], [Username])
