@@ -113,3 +113,12 @@ ADD CHECK(LEN([Password]) >= 5)
 ALTER TABLE [Users]
 ADD CONSTRAINT df_LoginTime
 DEFAULT GETDATE() FOR [LastLoginTime];
+
+-- 12. Set Unique Field
+
+ALTER TABLE [Users]
+DROP CONSTRAINT PK_Combination
+
+ALTER TABLE [Users]
+ADD CONSTRAINT PK_Id
+PRIMARY KEY([Id])
