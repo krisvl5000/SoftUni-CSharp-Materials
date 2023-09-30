@@ -110,3 +110,6 @@ ADD CHECK(LEN([Password]) >= 5)
 
 -- 11. Set Default Value of a Field
 
+ALTER TABLE [Users]
+ADD CONSTRAINT df_LoginTime
+DEFAULT GETDATE() FOR [LastLoginTime];
