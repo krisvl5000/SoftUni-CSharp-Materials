@@ -56,11 +56,11 @@ CREATE TABLE [People](
     [Id] INT PRIMARY KEY IDENTITY,
     [Name] NVARCHAR(200) NOT NULL,
     [Picture] VARBINARY(MAX),
-    CHECK (DATALENGTH([Picture]) <= 2000000),
+    CHECK(DATALENGTH([Picture]) <= 2000000),
     [Height] DECIMAL(3, 2),
     [Weight] DECIMAL(5,2),
     [Gender] CHAR(1) NOT NULL,
-    CHECK ([Gender] = 'm' OR [Gender] = 'f'),
+    CHECK([Gender] = 'm' OR [Gender] = 'f'),
     [Birthdate] DATE NOT NULL,
     [Biography] NVARCHAR(MAX)
     )
@@ -80,10 +80,10 @@ CREATE TABLE [Users] (
 	[Username] VARCHAR(30) NOT NULL,
 	[Password] VARCHAR(26) NOT NULL,
 	[ProfilePicture] VARBINARY(MAX),
-	CHECK (DATALENGTH([ProfilePicture]) <= 900000),
+	CHECK(DATALENGTH([ProfilePicture]) <= 900000),
 	[LastLoginTime] DATETIME,
 	[IsDeleted] VARCHAR(5) NOT NULL,
-	CHECK (IsDeleted = 'true' OR IsDeleted = 'false')
+	CHECK(IsDeleted = 'true' OR IsDeleted = 'false')
 	)
 
 INSERT INTO [Users] ([Username], [Password], [LastLoginTime], [IsDeleted])
@@ -102,3 +102,11 @@ DROP PRIMARY KEY
 ALTER TABLE [Users]
 ADD CONSTRAINT PK_Combination
 PRIMARY KEY([Id], [Username])
+
+-- 10. Add Check Constraint
+
+ALTER TABLE [Users]
+ADD CHECK(LEN([Password]) >= 5)
+
+-- 11. Set Default Value of a Field
+
