@@ -38,3 +38,10 @@ SELECT * FROM [Employees]
 SELECT [FirstName], [LastName], [JobTitle]
   FROM [Employees]
  WHERE [Salary] BETWEEN 20000 AND 30000
+
+-- 10. Find Names of All Employees
+
+SELECT CONCAT_WS(' ', [FirstName], [MiddleName], [LastName])
+           AS [Full Name]
+	     FROM [Employees]
+        WHERE [Salary] IN (25000, 14000, 12500, 23600)
