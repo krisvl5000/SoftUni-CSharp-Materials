@@ -54,4 +54,7 @@ SELECT [FirstName], [LastName]
 
 --  12. Find All Employees with Salary More Than
 
-SELECT 
+   SELECT [FirstName], [LastName], [Salary]
+     FROM [Employees]
+    WHERE [Salary] > 50000
+ ORDER BY [Salary] DESC
