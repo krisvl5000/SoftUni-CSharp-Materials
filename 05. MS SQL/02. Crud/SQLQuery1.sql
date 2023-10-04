@@ -70,3 +70,12 @@ SELECT TOP 5 [FirstName], [LastName]
    SELECT [FirstName], [LastName]
      FROM [Employees]
 WHERE NOT [DepartmentID] = 4
+
+-- 15. Sort Employees Table
+
+SELECT *
+    FROM [Employees]
+ORDER BY [Salary] DESC,
+         [FirstName],
+         [LastName] DESC,
+         [MiddleName]
