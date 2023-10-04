@@ -63,4 +63,4 @@ SELECT [FirstName], [LastName]
 
 SELECT TOP 5 [FirstName], [LastName]
         FROM [Employees]
-    ORDER BY [Salary] DESC
+    ORDER BY [Salary] DESC 
