@@ -78,4 +78,4 @@ SELECT *
 ORDER BY [Salary] DESC,
          [FirstName],
          [LastName] DESC,
-         [MiddleName]
+         [MiddleName] 
