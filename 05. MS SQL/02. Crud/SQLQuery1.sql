@@ -21,4 +21,4 @@ SELECT [FirstName], [MiddleName], [LastName]
 
 SELECT CONCAT([FirstName], '.', [LastName], '@', 'softuni.bg')
 	       AS [Full Email Address]
-           FROM [Employees]
+         FROM [Employees]
