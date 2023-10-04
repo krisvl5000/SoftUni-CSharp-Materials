@@ -11,3 +11,8 @@ SELECT [Name]
 
 SELECT [FirstName], [LastName], [Salary]
   From [Employees]
+
+-- 05. Find Full Name of Each Employee
+
+SELECT [FirstName], [MiddleName], [LastName]
+  From [Employees]
