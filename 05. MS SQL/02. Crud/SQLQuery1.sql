@@ -64,3 +64,9 @@ SELECT [FirstName], [LastName]
 SELECT TOP 5 [FirstName], [LastName]
         FROM [Employees]
     ORDER BY [Salary] DESC
+
+--  14. Find All Employees Except Marketing
+
+   SELECT [FirstName], [LastName]
+     FROM [Employees]
+WHERE NOT [DepartmentID] = 4
