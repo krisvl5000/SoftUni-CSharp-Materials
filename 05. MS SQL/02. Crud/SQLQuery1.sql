@@ -79,3 +79,18 @@ ORDER BY [Salary] DESC,
          [FirstName],
          [LastName] DESC,
          [MiddleName]
+
+-- 16. Create View Employees with Salaries
+
+CREATE VIEW [V_EmployeesSalaries]
+	 AS
+	    (
+		  SELECT CONCAT([FirstName], ' ', [MiddleName], ' ', [LAstName])
+		     AS [FullName],
+		        [JobTitle]
+	       FROM [Employees]
+	    )
+
+GO
+
+
